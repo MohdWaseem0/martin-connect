@@ -1,26 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Color system */
+  --color-on-primary-fixed: #00174b;
+  --color-on-primary: #ffffff;
+  --color-on-tertiary-fixed-variant: #004a77;
+  --color-surface-container: #eaedff;
+  --color-on-error: #ffffff;
+  --color-inverse-surface: #273046;
+  --color-outline: #737687;
+  --color-on-primary-fixed-variant: #003ea8;
+  --color-on-tertiary: #ffffff;
+  --color-outline-variant: #c3c6d8;
+  --color-on-secondary: #ffffff;
+  --color-tertiary-fixed: #cfe5ff;
+  --color-on-tertiary-fixed: #001d33;
+  --color-surface-bright: #faf8ff;
+  --color-surface-container-high: #e2e7ff;
+  --color-on-surface: #121b30;
+  --color-surface-container-highest: #dae2ff;
+  --color-tertiary-fixed-dim: #98cbff;
+  --color-surface-tint: #0053db;
+  --color-primary-fixed: #dbe1ff;
+  --color-secondary: #2950ce;
+  --color-primary: #004bc9;
+  --color-on-secondary-fixed: #001452;
+  --color-surface-container-low: #f2f3ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-secondary-container: #fffbff;
+  --color-surface-variant: #dae2ff;
+  --color-tertiary-container: #0073b5;
+  --color-on-background: #121b30;
+  --color-background: #faf8ff;
+  --color-secondary-container: #476ae9;
+  --color-on-surface-variant: #424655;
+  --color-on-primary-container: #f1f1ff;
+  --color-secondary-fixed: #dde1ff;
+  --color-primary-fixed-dim: #b4c5ff;
+  --color-on-secondary-fixed-variant: #0038b7;
+  --color-primary-container: #1e63f3;
+  --color-surface-dim: #d1d9f6;
+  --color-error: #ba1a1a;
+  --color-surface: #faf8ff;
+  --color-tertiary: #005a8f;
+  --color-inverse-on-surface: #eef0ff;
+  --color-on-error-container: #93000a;
+  --color-on-tertiary-container: #ebf3ff;
+  --color-secondary-fixed-dim: #b7c4ff;
+  --color-inverse-primary: #b4c5ff;
+  --color-error-container: #ffdad6;
+  --color-success-green: #16A34A;
+  --color-on-success-green: #ffffff;
+
+  /* Spacing system */
+  --spacing-gutter: 24px;
+  --spacing-lg: 24px;
+  --spacing-container-max: 1440px;
+  --spacing-xs: 4px;
+  --spacing-sidebar-width: 260px;
+  --spacing-xl: 32px;
+  --spacing-md: 16px;
+  --spacing-xxl: 48px;
+  --spacing-sm: 8px;
+  --spacing-unit: 4px;
+
+  /* Border Radii */
+  --radius-DEFAULT: 0.125rem;
+  --radius-lg: 4px;
+  --radius-xl: 8px;
+  --radius-full: 12px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Material Symbols icon support */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Custom layout classes from Stitch designs */
+.soft-sharp-shadow {
+  box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #0F3FBF 0%, #081126 100%);
+}
+
+.card-accent-hover:hover {
+  border-left: 3px solid #1E63F3;
+}
+
+.card-active-accent {
+  border-left: 3px solid #1E63F3;
+}
+
+.candidate-card-shadow {
+  box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+}
+
+.kanban-column {
+  min-width: 320px;
+  max-width: 320px;
+}
+
+/* Custom Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #c3c6d8;
+  border-radius: 10px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+}
+
+/* Custom font styles matching tailwind-config mapping */
+@utility font-title-sm {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+@utility font-headline-sm {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+@utility font-headline-lg {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+@utility font-body-sm {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+@utility font-body-md {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+@utility font-body-lg {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+@utility font-title-md {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+@utility font-title-lg {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+@utility font-mono-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+@utility font-display-md {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+@utility text-display-md {
+  font-size: 32px;
+  line-height: 1.2;
 }

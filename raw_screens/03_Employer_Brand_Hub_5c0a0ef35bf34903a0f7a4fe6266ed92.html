@@ -1,0 +1,378 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Life at Razorpay | Martin Connect Employer Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#eef0ff",
+                        "on-background": "#121b30",
+                        "tertiary-fixed-dim": "#98cbff",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-high": "#e2e7ff",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#faf8ff",
+                        "secondary-container": "#476ae9",
+                        "tertiary-container": "#0073b5",
+                        "secondary-fixed-dim": "#b7c4ff",
+                        "on-primary-fixed": "#00174b",
+                        "on-surface-variant": "#424655",
+                        "inverse-surface": "#273046",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f2f3ff",
+                        "primary": "#004bc9",
+                        "on-primary-container": "#f1f1ff",
+                        "secondary-fixed": "#dde1ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-secondary-fixed": "#001452",
+                        "on-surface": "#121b30",
+                        "surface-dim": "#d1d9f6",
+                        "surface-container-highest": "#dae2ff",
+                        "surface-tint": "#0053db",
+                        "secondary": "#2950ce",
+                        "surface-variant": "#dae2ff",
+                        "surface": "#faf8ff",
+                        "on-tertiary-fixed-variant": "#004a77",
+                        "on-tertiary-fixed": "#001d33",
+                        "on-secondary-fixed-variant": "#0038b7",
+                        "primary-container": "#1e63f3",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c3c6d8",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-tertiary-container": "#ebf3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#005a8f",
+                        "on-secondary-container": "#fffbff",
+                        "tertiary-fixed": "#cfe5ff",
+                        "surface-container": "#eaedff",
+                        "outline": "#737687",
+                        "on-error-container": "#93000a",
+                        "background": "#faf8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "sidebar-width": "260px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "xxl": "48px",
+                        "lg": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "mono-label": ["IBM Plex Mono"],
+                        "title-md": ["DM Sans"],
+                        "body-sm": ["DM Sans"],
+                        "headline-md": ["DM Sans"],
+                        "display-md": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "title-sm": ["DM Sans"],
+                        "title-lg": ["DM Sans"],
+                        "body-md": ["DM Sans"],
+                        "headline-lg": ["DM Sans"],
+                        "display-lg": ["DM Sans"],
+                        "headline-lg-mobile": ["DM Sans"],
+                        "headline-sm": ["DM Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 16px;
+        }
+        .masonry-item-tall { grid-row: span 2; }
+        .masonry-item-wide { grid-column: span 2; }
+        .custom-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        .left-accent:hover {
+            border-left: 3px solid #1e63f3;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #faf8ff; }
+        ::-webkit-scrollbar-thumb { background: #737687; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="bg-inverse-surface dark:bg-inverse-surface text-on-primary flex justify-between items-center w-full px-lg py-md h-[72px] docked full-width top-0 z-50 fixed border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-xl">
+<span class="font-headline-sm text-headline-sm font-bold text-on-primary">Martin Connect</span>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="font-title-md text-title-md text-outline-variant hover:text-on-primary transition-colors" href="#">Jobs</a>
+<a class="font-title-md text-title-md text-on-primary border-b-2 border-secondary pb-1" href="#">Candidates</a>
+<a class="font-title-md text-title-md text-outline-variant hover:text-on-primary transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-primary p-sm hover:bg-on-surface-variant/10 rounded-full transition-colors active:scale-95">notifications</button>
+<button class="material-symbols-outlined text-on-primary p-sm hover:bg-on-surface-variant/10 rounded-full transition-colors active:scale-95">settings</button>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-full font-title-sm hover:shadow-lg transition-all active:scale-95">Post Job</button>
+</div>
+</header>
+<main class="pt-[72px]">
+<!-- Hero Section -->
+<section class="relative h-[85vh] w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A wide-angle interior photograph of a high-tech, modern corporate office belonging to a leading financial technology company. The space features sleek ergonomic furniture, minimalist glass partitions, and warm ambient lighting mixed with natural sunlight streaming through large floor-to-ceiling windows. The color palette is dominated by professional greys and crisp whites, reflecting a precise and industrial corporate identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtcC8-wYUJ0gV7Xu1ME86xZxT4ZPtJZ8Go8UvG1Hpwa_tyjcvJsrwqxPXj8JETotnIT_SoxYzVAKodSVwq-cVzrjamCLMfeTzoNndj0WUjbKXtLijHhEO0PGnWtAEDM3mfFg8ENGUMpS-LFJqUgMRB0BtBEJBA0l2GpTPeRKdlEW4ybwRl9QcG_OmzCG2uWsq0pNPIUgugYbMkyjZUzB6mvIQFM_r6Yx7JS1_g5I1bPYjzfViT3hXIOAF98nSxrrfmyH2sP1EsdNE">
+<div class="absolute inset-0 bg-gradient-to-r from-inverse-surface/90 via-inverse-surface/60 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto px-lg">
+<div class="max-w-2xl animate-fade-in">
+<span class="font-mono-label text-mono-label text-secondary uppercase tracking-widest px-sm py-xs mb-md inline-block rounded-full bg-secondary/10">Employer Spotlight</span>
+<h1 class="font-display-lg text-display-lg text-on-primary mb-md leading-tight">Life at <span class="text-secondary">Razorpay</span></h1>
+<p class="font-body-lg text-body-lg text-outline-variant mb-xl max-w-xl">Join the frontlines of financial technology. We're building the infrastructure of the future with a culture rooted in transparency, innovation, and absolute precision.</p>
+<div class="flex gap-md">
+<button class="bg-primary-container text-on-primary px-xl py-md rounded-lg font-title-sm flex items-center gap-sm active:scale-95 transition-transform">
+                            View Open Roles <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border border-outline-variant text-on-primary px-xl py-md rounded-lg font-title-sm hover:bg-on-surface-variant/10 transition-colors active:scale-95">
+                            Our Story
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Stats -->
+<section class="bg-surface py-xl border-b border-outline-variant">
+<div class="max-w-container-max mx-auto px-lg grid grid-cols-2 md:grid-cols-4 gap-xl">
+<div class="text-center">
+<div class="flex justify-center mb-sm">
+<span class="material-symbols-outlined text-secondary text-headline-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-headline-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-headline-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-headline-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-headline-sm" style="font-variation-settings: 'FILL' 0.5;">star_half</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-background">4.6/5</p>
+<p class="font-body-sm text-body-sm text-outline uppercase tracking-wider">Glassdoor Rating</p>
+</div>
+<div class="text-center">
+<img class="h-16 mx-auto mb-sm object-contain grayscale hover:grayscale-0 transition-all" data-alt="A stylized, golden certification badge for a Great Place to Work award, presented on a clean white background. The badge features elegant serif typography and a circular seal, communicating professional excellence and a high-performance corporate culture. The lighting is bright and clean, typical of modern executive branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNmVYuMb0WuULONnOrRk_0tXlSyxBCKWXgBwm36azyMlfeDI1M-Rv4mAjYAFMqKEuoszkfZpmZTyM6XfTGLQW-hLaq0BduIlR_Z_nRaAKx_oARBB3V7FK7whoaE2oTccV6N-0vRrYM8F84IIjZvbgJTrikbq2wDkUaIRQ5NzAxINeJ0NeLtEqJk21v2KALMRMAZ0T8hPJP9QtRWuihfDZJFxXrCYKInJVbiBIEjxjy4PQz8N9tA7L4aGdQiyCgH_-Sih9A6n8ei1E">
+<p class="font-title-md text-title-md text-on-background">Certified 2024</p>
+<p class="font-body-sm text-body-sm text-outline uppercase tracking-wider">Great Place to Work</p>
+</div>
+<div class="text-center">
+<p class="font-headline-sm text-headline-sm text-on-background">1,500+</p>
+<p class="font-body-sm text-body-sm text-outline uppercase tracking-wider">Team Members</p>
+</div>
+<div class="text-center">
+<p class="font-headline-sm text-headline-sm text-on-background">30+</p>
+<p class="font-body-sm text-body-sm text-outline uppercase tracking-wider">Nationalities</p>
+</div>
+</div>
+</section>
+<!-- Culture Gallery -->
+<section class="py-xxl px-lg bg-surface-bright">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-xl">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-background mb-sm">The Workspace &amp; Beyond</h2>
+<p class="font-body-lg text-body-lg text-outline">Where precision meets high-performance collaboration.</p>
+</div>
+<button class="text-primary font-title-sm flex items-center gap-xs hover:underline">
+                        View Instagram <span class="material-symbols-outlined">open_in_new</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md h-[800px]"><div class="md:col-span-4 md:row-span-2 overflow-hidden rounded-xl custom-shadow group"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Team collaboration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_DfcySnsK9tmDNUE1QTU7ZX5_A6dtIgicEtohl4Ys6Fbnb-vSf69pHyhjlpzjayuGWRiJaOYJOQU9PAd_Fg6xfgN7bnwe_Xpf76cSDTNU2tKm4sT_rChLyzyEyMY_Bt1kmvIMB9k9RdhcmDOAYMrRkVJ9JgqxdJ_-fBV06De16cKuixFL7GU5_f4Q16G39ddfzgHPV4tMjsMOPa7sCTC4IIQPGci3GQLHiGANz6bQwva07EHbaUYQ4OZB6SM5zgFiit6jy1257Pk"></div><div class="md:col-span-8 md:row-span-1 overflow-hidden rounded-xl custom-shadow group"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Boardroom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS2wT7dAxVMDV3Vnbbe1l8O2lAl95wat--n2n1PoNYPOhNodrxaJjWDu0Ebp32YkyziHF3zw5hXMZvmS26V3Wy3IdRIN4aI7IysiCrsJi4lgukfBvk3avs-sw1919q5CdhgF2JjZBP6Eh06bn674yUCfl0X9ExDko2mHRLOJKxa3kmjHHqLsIalLam0xVn-Yx5Ay486MECxY_e3XUKpzmyU9gAynaUQVlncK5y3-64zAmaWNRYdF85VOHRNNS3-gsPr_Vw0vbz5GM"></div><div class="md:col-span-4 md:row-span-1 overflow-hidden rounded-xl custom-shadow group"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Office pantry" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiIl6kB_MeA1SGTjcHFZB7o1xM_oivoHH4abTMiFui18F7Fx9-AYDzr7QQsLsOMEuTifdMJBxp76OOEZcnpYOXbHil8EJ3KIcQYea2_4XFQMvi2_yEJgDW7PIQurgRh20W9YqJOJmCP0FxVAS6uF3PnB7usTeTaItP5FwgN5AEZ17k6ELRZRRpy9HuJRlxo8l7PEcsmLZ1i7xQFJKsepidXDtp09e1KDkS8_r1JFj1uES2Da1qfoDTxGXKCLdRFS7ee6r-aho8SSI"></div><div class="md:col-span-4 md:row-span-1 overflow-hidden rounded-xl custom-shadow group"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Reception area" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhGTNYmQJP6BWSW0T1WQpPnheGrpFnxVo_XYn4By96hmvR6YppGElpQvhX-HUuaJIwlINogKOYnn9IbG8j5x12wvl3aYlAPNTSDsdvFDhyNjmMhVaJ0gdlfzL90TpLVXVukWBppyUykfumJ9yihCz0Jj-HNiBktK9O6_JYueIQZczRzQZmoUtd0klCtK-F5hvEc0VfK2D7ssvMeB-ff6K-dY0IrHrwCHKNY1bRze0wa64kiW5UaU8oqZrIxIENGCMBPkyfYAcozP0"></div></div>
+</div>
+</section>
+<!-- Values Section -->
+<section class="py-xxl bg-inverse-surface text-on-primary overflow-hidden">
+<div class="max-w-container-max mx-auto px-lg">
+<div class="text-center mb-xxl">
+<h2 class="font-headline-md text-headline-md mb-md">Our Operating Principles</h2>
+<p class="font-body-lg text-body-lg text-outline-variant max-w-2xl mx-auto">We don't just have values; we have a code of conduct that drives every transaction and every line of code.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-xl">
+<div class="p-xl bg-on-surface-variant/10 rounded-xl border border-outline-variant hover:bg-on-surface-variant/20 transition-all group">
+<span class="material-symbols-outlined text-secondary text-display-md mb-lg block group-hover:scale-110 transition-transform">bolt</span>
+<h3 class="font-title-lg text-title-lg mb-md">Customer First</h3>
+<p class="font-body-md text-body-md text-outline-variant">Every decision starts with the user. We obsess over the friction points and solve them with ruthless efficiency.</p>
+</div>
+<div class="p-xl bg-on-surface-variant/10 rounded-xl border border-outline-variant hover:bg-on-surface-variant/20 transition-all group">
+<span class="material-symbols-outlined text-secondary text-display-md mb-lg block group-hover:scale-110 transition-transform">visibility</span>
+<h3 class="font-title-lg text-title-lg mb-md">Transparency</h3>
+<p class="font-body-md text-body-md text-outline-variant">No silos. No secrets. Information flows freely so everyone can act with total context and autonomy.</p>
+</div>
+<div class="p-xl bg-on-surface-variant/10 rounded-xl border border-outline-variant hover:bg-on-surface-variant/20 transition-all group">
+<span class="material-symbols-outlined text-secondary text-display-md mb-lg block group-hover:scale-110 transition-transform">rocket_launch</span>
+<h3 class="font-title-lg text-title-lg mb-md">Ownership</h3>
+<p class="font-body-md text-body-md text-outline-variant">You own the outcome, not just the task. We hire founders who want to build the next generation of fintech.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Video Testimonials -->
+<section class="py-xxl px-lg bg-surface">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-headline-md text-headline-md text-on-background mb-xl text-center">Hear it from the team</h2>
+<div class="relative overflow-hidden group">
+<div class="flex transition-transform duration-500 ease-in-out gap-lg" id="testimonial-slider">
+<!-- Testimonial 1 -->
+<div class="min-w-full md:min-w-[45%] lg:min-w-[30%] bg-white rounded-xl overflow-hidden custom-shadow left-accent border border-outline-variant flex flex-col border-none">
+<div class="relative h-64">
+<img class="w-full h-full object-cover" data-alt="A portrait of a male software engineer with a confident expression, standing in front of a wall of computer monitors displaying complex code. The lighting is dramatic and cool-toned, with blue light reflecting off his spectacles. The image communicates technical expertise and a focused, industrial professional identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqG-AOjFhFMahn2KvMScsz5iTQ511Yg0e7mJJKIBQmuGyHZpImx1BenZtmtAKZP81JMnK2a8VEYKhkFssi3b0ddhq2-TWDkGovcEFg11kFOZasMhIgXATh8IjCUQy1V1E8Qqvatu2lSZFSqKLPKH_LDj8p2IMG_Jmm0X6CvnNlMYOxe379lvEPERgQArkyL4iYTstG1hB1CdD1duK-Y6f29MJeIGBDS2Qo6upujURcG3zYc4omTR0w7KgyRGNpJmG2JceILqu9TYQ">
+<div class="absolute inset-0 bg-on-background/30 flex items-center justify-center group-hover:bg-on-background/10 transition-all">
+<span class="material-symbols-outlined text-white text-display-lg" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="p-lg">
+<p class="font-body-md text-body-md italic text-on-surface mb-md text-title-sm not-italic">"The pace here is incredible. We’re solving problems that haven’t been touched in decades."</p>
+<p class="font-title-sm text-title-sm text-on-background">Aniruddh Singh</p>
+<p class="font-body-sm text-body-sm text-outline">Senior Backend Engineer</p>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="min-w-full md:min-w-[45%] lg:min-w-[30%] bg-white rounded-xl overflow-hidden custom-shadow left-accent border border-outline-variant flex flex-col border-none">
+<div class="relative h-64">
+<img class="w-full h-full object-cover" data-alt="A professional woman in her 30s, a product manager, presenting a slide deck on a tablet in a bright, modern office setting. She is wearing a sharp navy blazer, and her expression is one of decisive leadership. The background is a blurred office interior with clean lines and high-end industrial finishes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqjGoaT1I9sEaKaF0vbuizIODMgQsPHlPIQEq_jsD2BGxpquMfVMXJkLJFeJvmPIdjnqYDcd80WRfuDHJvjaJBvxxdm2VUvKBoQtS8XCEGqfrQZdPRNMJuRZKf95MxryvqskN-u9AyCKm7LxDo_z0IY8GYNbouBwKCK4IyATfrqKg29Sb7R5UXn9sxsfVxpNOXcnL0LXV4B8z1mwKiXIO_aWWTAM7mgjxTuyM5DG5y46pedDviSOqzPwLy3VnxxGR5IOXZfR269Cs">
+<div class="absolute inset-0 bg-on-background/30 flex items-center justify-center group-hover:bg-on-background/10 transition-all">
+<span class="material-symbols-outlined text-white text-display-lg" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="p-lg">
+<p class="font-body-md text-body-md italic text-on-surface mb-md text-title-sm not-italic">"Martin Connect helped me find this role, and Razorpay's culture helped me find my voice as a leader."</p>
+<p class="font-title-sm text-title-sm text-on-background">Priya Sharma</p>
+<p class="font-body-sm text-body-sm text-outline">Product Lead</p>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="min-w-full md:min-w-[45%] lg:min-w-[30%] bg-white rounded-xl overflow-hidden custom-shadow left-accent border border-outline-variant flex flex-col border-none">
+<div class="relative h-64">
+<img class="w-full h-full object-cover" data-alt="An executive professional standing in a sun-drenched office corridor with large industrial windows. He is looking off-camera with a thoughtful and visionary expression. The color palette is composed of neutrals, blacks, and greys, reflecting a sophisticated and high-stakes corporate environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4ys0QiyZUkfw4Gnem7KOHWdhD1loFu2M5zkEfckt-uYkh8-qI6dy2eIJU202uoruY36bwNZAv64nI2MdyM9SYFyL0XJA-wxJUZofEb5yaWlxDs2CaR284AwkZXdcd-RZnh2zXc31tK4pVPeDTb1o-QrDlDByniXoEe5x4wRB6Ydd9l0KCvx3WofNMKCKicdLatD4c0qqm9n0jQIq2vMjP0s0T8DylHugvZV_mm1DyjnAbWHsnf24HTobHfRclNGlAVTGzYC2r8OQ">
+<div class="absolute inset-0 bg-on-background/30 flex items-center justify-center group-hover:bg-on-background/10 transition-all">
+<span class="material-symbols-outlined text-white text-display-lg" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="p-lg">
+<p class="font-body-md text-body-md italic text-on-surface mb-md text-title-sm not-italic">"Culture isn't about ping pong tables; it's about clear communication and shared mission."</p>
+<p class="font-title-sm text-title-sm text-on-background">David Chen</p>
+<p class="font-body-sm text-body-sm text-outline">VP of Design</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-xxl bg-primary-container text-on-primary">
+<div class="max-w-container-max mx-auto px-lg flex flex-col md:flex-row items-center justify-between gap-xl">
+<div class="max-w-xl text-center md:text-left">
+<h2 class="font-display-md text-display-md mb-md">Ready to build the future?</h2>
+<p class="font-body-lg text-body-lg text-on-primary/80">We're looking for outliers, builders, and dreamers who thrive in high-precision environments.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-md">
+<button class="bg-on-primary text-primary px-xxl py-lg rounded-lg font-title-lg shadow-xl active:scale-95 transition-all">
+                        Explore Open Roles
+                    </button>
+<button class="border-2 border-on-primary text-on-primary px-xxl py-lg rounded-lg font-title-lg active:scale-95 transition-all">
+                        Refer a Friend
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface dark:bg-inverse-surface text-on-primary border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl px-lg py-xxl w-full max-w-container-max mx-auto font-body-sm text-body-sm">
+<div class="flex flex-col gap-md">
+<span class="font-title-lg text-title-lg font-bold text-on-primary tracking-tight">Martin Connect</span>
+<p class="text-outline-variant">Precise. Decisive. Industrial. The executive standard for modern recruitment.</p>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-title-sm text-on-primary mb-sm">For Job Seekers</h4>
+<a class="text-outline-variant hover:text-on-primary transition-all hover:underline" href="#">Browse Jobs</a>
+<a class="text-outline-variant hover:text-on-primary transition-all hover:underline" href="#">Career Advice</a>
+<a class="text-outline-variant hover:text-on-primary transition-all hover:underline" href="#">Resume Builder</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-title-sm text-on-primary mb-sm">For Employers</h4>
+<a class="text-outline-variant hover:text-on-primary transition-all hover:underline" href="#">Post a Job</a>
+<a class="text-outline-variant hover:text-on-primary transition-all hover:underline" href="#">Recruitment Solutions</a>
+<a class="text-outline-variant hover:text-on-primary transition-all hover:underline" href="#">Case Studies</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-title-sm text-on-primary mb-sm">Company</h4>
+<a class="text-outline-variant hover:text-on-primary transition-all hover:underline" href="#">About Us</a>
+<a class="text-outline-variant hover:text-on-primary transition-all hover:underline" href="#">Contact</a>
+<a class="text-outline-variant hover:text-on-primary transition-all hover:underline" href="#">Privacy Policy</a>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 py-lg px-lg">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="text-outline-variant opacity-80">© 2024 Martin Connect. Precise. Decisive. Industrial.</p>
+<div class="flex gap-lg">
+<span class="material-symbols-outlined text-outline-variant cursor-pointer hover:text-on-primary">language</span>
+<span class="material-symbols-outlined text-outline-variant cursor-pointer hover:text-on-primary">share</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for the testimonial slider
+        const slider = document.getElementById('testimonial-slider');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // Add a parallax effect on scroll for the hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImg = document.querySelector('section img');
+            if (heroImg) {
+                heroImg.style.transform = `translateY(${scrolled * 0.4}px)`;
+            }
+        });
+    </script>
+
+
+</body></html>

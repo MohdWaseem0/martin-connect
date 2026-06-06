@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Company Verification Queue | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#0073b5",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#b7c4ff",
+                        "surface-container": "#eaedff",
+                        "surface": "#faf8ff",
+                        "secondary-fixed": "#dde1ff",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#424655",
+                        "tertiary-fixed": "#cfe5ff",
+                        "surface-tint": "#0053db",
+                        "inverse-primary": "#b4c5ff",
+                        "inverse-surface": "#273046",
+                        "primary-fixed": "#dbe1ff",
+                        "on-primary-container": "#f1f1ff",
+                        "surface-container-low": "#f2f3ff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#00174b",
+                        "surface-container-highest": "#dae2ff",
+                        "surface-dim": "#d1d9f6",
+                        "secondary": "#2950ce",
+                        "primary": "#004bc9",
+                        "outline": "#737687",
+                        "on-tertiary-fixed-variant": "#004a77",
+                        "tertiary-fixed-dim": "#98cbff",
+                        "on-surface": "#121b30",
+                        "outline-variant": "#c3c6d8",
+                        "on-secondary-fixed": "#001452",
+                        "tertiary": "#005a8f",
+                        "surface-container-high": "#e2e7ff",
+                        "inverse-on-surface": "#eef0ff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#476ae9",
+                        "on-error": "#ffffff",
+                        "primary-container": "#1e63f3",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#121b30",
+                        "background": "#faf8ff",
+                        "surface-bright": "#faf8ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#001d33",
+                        "on-secondary-fixed-variant": "#0038b7",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-secondary-container": "#fffbff",
+                        "on-tertiary-container": "#ebf3ff",
+                        "surface-variant": "#dae2ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "sm": "8px",
+                        "sidebar-width": "260px",
+                        "unit": "4px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "xxl": "48px",
+                        "lg": "24px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["DM Sans"],
+                        "headline-md": ["DM Sans"],
+                        "title-md": ["DM Sans"],
+                        "mono-label": ["IBM Plex Mono"],
+                        "body-lg": ["DM Sans"],
+                        "display-lg": ["DM Sans"],
+                        "title-lg": ["DM Sans"],
+                        "headline-sm": ["DM Sans"],
+                        "headline-lg": ["DM Sans"],
+                        "title-sm": ["DM Sans"],
+                        "body-md": ["DM Sans"],
+                        "headline-lg-mobile": ["DM Sans"],
+                        "display-md": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["12px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "mono-label": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "title-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-md": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .custom-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        .status-applied { background-color: #EBF4FF; color: #1E63F3; }
+        .status-shortlisted { background-color: #DCFCE7; color: #16A34A; }
+        .status-review { background-color: #FEF9EC; color: #D97706; }
+        .status-rejected { background-color: #FEE2E2; color: #DC2626; }
+        .status-hired { background-color: #0F3FBF; color: #ffffff; }
+        
+        .side-nav-active {
+            color: #ffffff;
+            border-left: 4px solid #1e63f3;
+            background-color: rgba(30, 99, 243, 0.1);
+        }
+        
+        input:focus {
+            outline: 1px solid #1E63F3;
+            box-shadow: 0 0 0 2px rgba(30, 99, 243, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Sidebar -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-[#081126] flex flex-col py-lg border-r border-outline-variant z-50">
+<div class="px-lg mb-xxl">
+<h1 class="font-headline-sm text-headline-sm font-bold text-white">Martin Connect</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Premium Recruitment</p>
+</div>
+<nav class="flex-1 space-y-unit">
+<a class="flex items-center px-lg py-md text-on-surface-variant hover:text-white hover:bg-white/5 transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined mr-md">dashboard</span>
+<span class="font-title-sm text-title-sm">Dashboard</span>
+</a>
+<a class="flex items-center px-lg py-md text-on-surface-variant hover:text-white hover:bg-white/5 transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined mr-md">work</span>
+<span class="font-title-sm text-title-sm">Jobs</span>
+</a>
+<a class="flex items-center px-lg py-md side-nav-active cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined mr-md">group</span>
+<span class="font-title-sm text-title-sm">Candidates</span>
+</a>
+<a class="flex items-center px-lg py-md text-on-surface-variant hover:text-white hover:bg-white/5 transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined mr-md">analytics</span>
+<span class="font-title-sm text-title-sm">Analytics</span>
+</a>
+<a class="flex items-center px-lg py-md text-on-surface-variant hover:text-white hover:bg-white/5 transition-colors cursor-pointer duration-200" href="#">
+<span class="material-symbols-outlined mr-md">settings</span>
+<span class="font-title-sm text-title-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-lg pt-lg border-t border-white/10 space-y-unit">
+<a class="flex items-center py-sm text-on-surface-variant hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined mr-md">help_outline</span>
+<span class="font-title-sm text-title-sm">Support</span>
+</a>
+<a class="flex items-center py-sm text-on-surface-variant hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined mr-md">logout</span>
+<span class="font-title-sm text-title-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[260px] min-h-screen">
+<!-- Top Navigation -->
+<header class="flex justify-between items-center h-16 px-lg sticky top-0 z-40 bg-surface-container-lowest border-b border-[#E8EEF7]">
+<div class="flex items-center gap-lg flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-xxl pr-md py-sm bg-surface-container-low border border-outline-variant rounded-xl text-body-md" placeholder="Search companies, jobs or admins..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-sm text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a senior male executive with a confident expression, wearing a sharp charcoal suit and white shirt, set against a blurred corporate office background with cool tones and soft architectural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTIu6IxrjFNEkJJZcS8QkcDVPs4NFzfB8vD0fziF50bLHu2Q4m0L0gpKwYfyr83H4UFLJHJxdVpHQcDb0OQUhgKeKzCoaocORrwcQfnDg8Th-x3S7HnTM_ZDTi3Yj8EpKyn5tqYEd3xDjkBQjd79tjZaE_7KXpKNRF-7QeI6rAf1NWrHY0HwdNSzhcyUksTpDnAYUU47O-4Cnt9P9ewtJBnZ_SWPdDr9WZnFPXqO1PhTL71LV49oK6wWj_byC9GQU-wN-hgBnaW98"/>
+</div>
+</div>
+</header>
+<div class="p-lg space-y-lg">
+<!-- Page Header -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Company Verification Queue</h2>
+<p class="font-body-md text-on-surface-variant mt-xs">Manage organizational trust and compliance workflows.</p>
+</div>
+<div class="flex gap-md">
+<button class="px-lg py-sm bg-white border border-primary text-primary font-bold rounded-lg hover:bg-primary-container/5 transition-all">Export Report</button>
+<button class="px-lg py-sm bg-primary text-white font-bold rounded-lg custom-shadow hover:opacity-90 transition-all">Bulk Verify</button>
+</div>
+</div>
+<!-- Dashboard Bento Grid & Detail View Wrapper -->
+<div class="grid grid-cols-12 gap-lg h-full items-start">
+<!-- Main List Section -->
+<div class="col-span-12 xl:col-span-8 space-y-lg">
+<!-- Filter Tabs -->
+<div class="flex gap-md border-b border-outline-variant">
+<button class="px-md py-sm font-bold text-primary border-b-2 border-primary">Pending (14)</button>
+<button class="px-md py-sm text-on-surface-variant hover:text-on-surface transition-colors">KYC</button>
+<button class="px-md py-sm text-on-surface-variant hover:text-on-surface transition-colors">GST</button>
+<button class="px-md py-sm text-on-surface-variant hover:text-on-surface transition-colors">Domain</button>
+<button class="px-md py-sm text-on-surface-variant hover:text-on-surface transition-colors">Verified</button>
+<button class="px-md py-sm text-on-surface-variant hover:text-on-surface transition-colors">Rejected</button>
+</div>
+<!-- Company List Table -->
+<div class="bg-white rounded-xl custom-shadow overflow-hidden border border-[#E8EEF7]">
+<table class="w-full text-left">
+<thead class="bg-[#F7F9FC]">
+<tr>
+<th class="px-lg py-md font-mono-label text-mono-label uppercase text-on-surface-variant">Company Name</th>
+<th class="px-lg py-md font-mono-label text-mono-label uppercase text-on-surface-variant">Docs Status</th>
+<th class="px-lg py-md font-mono-label text-mono-label uppercase text-on-surface-variant">Risk Level</th>
+<th class="px-lg py-md font-mono-label text-mono-label uppercase text-on-surface-variant">Submitted</th>
+<th class="px-lg py-md font-mono-label text-mono-label uppercase text-on-surface-variant"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#E8EEF7]">
+<tr class="hover:border-l-[3px] border-primary transition-all group cursor-pointer bg-primary-container/5">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="h-10 w-10 rounded-lg bg-surface-container flex items-center justify-center font-bold text-primary">NA</div>
+<div>
+<div class="font-title-sm text-title-sm">NewAge Corp</div>
+<div class="font-body-sm text-on-surface-variant">Software Development</div>
+</div>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs rounded text-xs font-bold status-review">PENDING REVIEW</span>
+</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-xs text-error font-bold">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+<span class="font-mono-label">HIGH</span>
+</div>
+</td>
+<td class="px-lg py-md font-mono-label text-on-surface-variant">12 OCT 2023</td>
+<td class="px-lg py-md text-right">
+<span class="material-symbols-outlined text-outline group-hover:text-primary">chevron_right</span>
+</td>
+</tr>
+<tr class="hover:border-l-[3px] border-primary transition-all group cursor-pointer">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="h-10 w-10 rounded-lg bg-surface-container flex items-center justify-center font-bold text-primary">ZH</div>
+<div>
+<div class="font-title-sm text-title-sm">Zomato Hyderabad</div>
+<div class="font-body-sm text-on-surface-variant">Logistics &amp; Delivery</div>
+</div>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs rounded text-xs font-bold status-applied">UPLOADED</span>
+</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-xs text-success font-bold text-green-600">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="font-mono-label">LOW</span>
+</div>
+</td>
+<td class="px-lg py-md font-mono-label text-on-surface-variant">14 OCT 2023</td>
+<td class="px-lg py-md text-right">
+<span class="material-symbols-outlined text-outline group-hover:text-primary">chevron_right</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Job Moderation Section -->
+<div class="space-y-md">
+<div class="flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface">Job Moderation</h3>
+<div class="flex gap-sm">
+<button class="px-md py-xs text-body-sm font-bold border border-outline-variant rounded hover:bg-surface-variant transition-colors">Bulk Dismiss</button>
+<button class="px-md py-xs text-body-sm font-bold bg-error text-white rounded hover:opacity-90 transition-colors">Bulk Delete</button>
+</div>
+</div>
+<div class="bg-white rounded-xl custom-shadow border border-[#E8EEF7] overflow-hidden">
+<table class="w-full text-left">
+<thead class="bg-[#F7F9FC]">
+<tr>
+<th class="px-lg py-md w-12"><input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/></th>
+<th class="px-lg py-md font-mono-label text-mono-label uppercase text-on-surface-variant">Job Title</th>
+<th class="px-lg py-md font-mono-label text-mono-label uppercase text-on-surface-variant">Reason</th>
+<th class="px-lg py-md font-mono-label text-mono-label uppercase text-on-surface-variant">Reported By</th>
+<th class="px-lg py-md font-mono-label text-mono-label uppercase text-on-surface-variant">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#E8EEF7]">
+<tr>
+<td class="px-lg py-md"><input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/></td>
+<td class="px-lg py-md">
+<div class="font-title-sm text-title-sm">Work from Home - Data Entry</div>
+<div class="font-body-sm text-on-surface-variant">Global Tech Solutions</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs rounded text-xs font-bold status-rejected">SCAM</span>
+</td>
+<td class="px-lg py-md font-body-sm">4 Users</td>
+<td class="px-lg py-md">
+<button class="text-primary hover:underline font-bold">Review</button>
+</td>
+</tr>
+<tr>
+<td class="px-lg py-md"><input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/></td>
+<td class="px-lg py-md">
+<div class="font-title-sm text-title-sm">Immediate Hiring: Crypto Expert</div>
+<div class="font-body-sm text-on-surface-variant">CoinXpress</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs rounded text-xs font-bold status-review text-orange-700 bg-orange-50">POLICY VIOLATION</span>
+</td>
+<td class="px-lg py-md font-body-sm">1 User</td>
+<td class="px-lg py-md">
+<button class="text-primary hover:underline font-bold">Review</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Detail Drawer Section (Right) -->
+<div class="col-span-12 xl:col-span-4 bg-white rounded-xl custom-shadow border border-[#E8EEF7] flex flex-col h-full sticky top-[80px]">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface">Verification Detail</h3>
+<button class="p-sm hover:bg-surface-variant rounded-full transition-all">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-lg overflow-y-auto max-h-[calc(100vh-200px)] space-y-lg">
+<!-- Company Profile Summary -->
+<div class="flex items-start gap-lg">
+<div class="h-16 w-16 rounded-xl bg-surface-container flex items-center justify-center font-bold text-headline-sm text-primary">NA</div>
+<div>
+<h4 class="font-title-lg text-title-lg">NewAge Corp</h4>
+<p class="text-body-md text-on-surface-variant">Registration ID: 192837465</p>
+<div class="mt-sm flex gap-xs">
+<span class="px-sm py-xs rounded-full text-[10px] font-bold bg-error-container text-on-error-container">HIGH RISK</span>
+<span class="px-sm py-xs rounded-full text-[10px] font-bold bg-surface-container-highest text-on-surface-variant">DOMAIN MISMATCH</span>
+</div>
+</div>
+</div>
+<!-- Documents Section -->
+<div class="space-y-md">
+<label class="font-body-sm font-bold text-on-surface block uppercase tracking-wider">Uploaded Documents</label>
+<div class="grid grid-cols-2 gap-md">
+<!-- PDF Thumb -->
+<div class="border border-outline-variant rounded-lg p-sm hover:border-primary transition-all group cursor-pointer">
+<div class="aspect-square bg-surface-container-low rounded-lg flex flex-col items-center justify-center mb-sm">
+<span class="material-symbols-outlined text-[40px] text-error mb-xs">picture_as_pdf</span>
+<span class="font-mono-label text-[10px]">GST_CERT.PDF</span>
+</div>
+<div class="font-body-sm text-center font-bold">GST Certificate</div>
+</div>
+<!-- PAN Image -->
+<div class="border border-outline-variant rounded-lg p-sm hover:border-primary transition-all group cursor-pointer overflow-hidden">
+<div class="aspect-square bg-surface-container-low rounded-lg mb-sm relative">
+<img class="w-full h-full object-cover rounded" data-alt="A clean top-down photograph of a plastic identification card lying on a minimalist white desk. The lighting is bright and even, highlighting sharp typography and security watermarks on the card. The aesthetic is professional, corporate, and strictly modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-IhMKb490RNREJApoDBUdfuOHOeoIj0YCFhFOkHP5fgRFxMBWS86uBTOUAX1_HIxkIIhuGp28hOLJcZMxXR1QBbRz2cW-qiCYKm78CxIGP9b1HXyo1Nfye1baTJUhRKDO-4-XD75mM_uTAW4GWEnjd2VELgnCmX14zU1fiwteWk1IeBYTCLC3JnJmL41l5sX8j048zB_twSZsnc-MThwKBfMvzb-aUKM88On1kZNH--zp6XQMzYSswHmu_pQriuT7ZIU5NCQ76k4"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white">zoom_in</span>
+</div>
+</div>
+<div class="font-body-sm text-center font-bold">PAN Card Copy</div>
+</div>
+</div>
+</div>
+<!-- Checklist -->
+<div class="space-y-md">
+<label class="font-body-sm font-bold text-on-surface block uppercase tracking-wider">Verification Checklist</label>
+<div class="space-y-sm">
+<label class="flex items-center gap-md p-md bg-surface rounded-lg cursor-pointer border border-transparent hover:border-outline-variant transition-all">
+<input checked="" class="h-5 w-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md">GST matches Company Name</span>
+</label>
+<label class="flex items-center gap-md p-md bg-surface rounded-lg cursor-pointer border border-transparent hover:border-outline-variant transition-all">
+<input checked="" class="h-5 w-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md">PAN authenticity verified</span>
+</label>
+<label class="flex items-center gap-md p-md bg-surface rounded-lg cursor-pointer border border-transparent hover:border-outline-variant transition-all">
+<input class="h-5 w-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md">Domain @newagecorp.com verified</span>
+</label>
+</div>
+</div>
+<!-- Admin Actions -->
+<div class="pt-lg border-t border-outline-variant space-y-sm">
+<button class="w-full py-md bg-primary text-white font-bold rounded-xl custom-shadow hover:opacity-90 transition-all">Approve Company</button>
+<button class="w-full py-md bg-white border border-primary text-primary font-bold rounded-xl hover:bg-primary-container/5 transition-all">Request More Docs</button>
+<button class="w-full py-md bg-white border border-error text-error font-bold rounded-xl hover:bg-error-container/5 transition-all">Reject &amp; Flag</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Atmosphere -->
+<div class="fixed inset-0 pointer-events-none z-[-1] opacity-30">
+<div class="absolute top-[20%] right-[10%] w-[400px] h-[400px] bg-primary-fixed blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[10%] left-[20%] w-[300px] h-[300px] bg-tertiary-fixed blur-[100px] rounded-full"></div>
+</div>
+<script>
+        // Micro-interaction for table row highlight
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('click', () => {
+                document.querySelectorAll('tbody tr').forEach(r => r.classList.remove('bg-primary-container/5'));
+                row.classList.add('bg-primary-container/5');
+            });
+        });
+    </script>
+</body></html>

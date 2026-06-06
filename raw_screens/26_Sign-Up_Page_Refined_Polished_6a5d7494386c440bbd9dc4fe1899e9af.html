@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign Up | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#dde1ff",
+                        "tertiary-container": "#0073b5",
+                        "surface-dim": "#d1d9f6",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#f1f1ff",
+                        "secondary": "#2950ce",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#0038b7",
+                        "on-background": "#121b30",
+                        "secondary-fixed-dim": "#b7c4ff",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary-fixed-variant": "#004a77",
+                        "surface-container-low": "#f2f3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary-container": "#fffbff",
+                        "primary-fixed": "#dbe1ff",
+                        "background": "#faf8ff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-surface-variant": "#424655",
+                        "surface-bright": "#faf8ff",
+                        "on-tertiary-container": "#ebf3ff",
+                        "tertiary-fixed-dim": "#98cbff",
+                        "surface-container-high": "#e2e7ff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#001452",
+                        "inverse-surface": "#273046",
+                        "tertiary": "#005a8f",
+                        "surface-container": "#eaedff",
+                        "primary": "#004bc9",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#dae2ff",
+                        "inverse-primary": "#b4c5ff",
+                        "primary-container": "#1e63f3",
+                        "on-tertiary-fixed": "#001d33",
+                        "on-surface": "#121b30",
+                        "secondary-container": "#476ae9",
+                        "surface-container-highest": "#dae2ff",
+                        "outline-variant": "#c3c6d8",
+                        "outline": "#737687",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eef0ff",
+                        "tertiary-fixed": "#cfe5ff",
+                        "surface-tint": "#0053db",
+                        "surface": "#faf8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sidebar-width": "260px",
+                        "unit": "4px",
+                        "xxl": "48px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "gutter": "24px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "mono-label": ["IBM Plex Mono"],
+                        "headline-md": ["DM Sans"],
+                        "title-md": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "title-lg": ["DM Sans"],
+                        "headline-lg": ["DM Sans"],
+                        "display-lg": ["DM Sans"],
+                        "body-sm": ["DM Sans"],
+                        "title-sm": ["DM Sans"],
+                        "headline-lg-mobile": ["DM Sans"],
+                        "body-md": ["DM Sans"],
+                        "headline-sm": ["DM Sans"],
+                        "display-md": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "mono-label": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "title-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["12px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "title-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-md": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .auth-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .role-card:hover {
+            border-color: #1E63F3;
+        }
+        .role-card.active {
+            border: 2px solid #1E63F3 !important;
+            background-color: #f1f1ff;
+            color: #1E63F3 !important;
+        }
+        .role-card.active .material-symbols-outlined {
+            color: #1E63F3 !important;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col md:flex-row overflow-x-hidden">
+<!-- Left Side: Visual/Branding Section (Desktop Only) -->
+<section class="hidden lg:flex w-1/2 bg-[#081126] relative overflow-hidden items-center justify-center p-xxl">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<!-- Decorative Grid Pattern -->
+<div class="absolute inset-0" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
+</div>
+<div class="relative z-10 max-w-lg">
+<div class="mb-xl">
+<h1 class="font-display-md text-display-md text-white mb-md leading-none">Martin Connect</h1>
+<p class="font-title-md text-title-md text-secondary-fixed opacity-90">Accelerating elite recruitment through industrial-grade precision.</p>
+</div>
+<div class="space-y-lg">
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-primary-container text-[32px]">speed</span>
+<div>
+<h3 class="font-title-sm text-title-sm text-white">Streamlined Velocity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-white/70">Reduce time-to-hire by 40% with our automated candidate scoring engine.</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-primary-container text-[32px]">database</span>
+<div>
+<h3 class="font-title-sm text-title-sm text-white">Data Integrity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-white/70">High-fidelity profile verification for the most demanding technical roles.</p>
+</div>
+</div>
+</div>
+<div class="mt-xxl border-t border-white/10 pt-xl">
+<p class="font-mono-label text-mono-label text-white/50 uppercase tracking-widest">Global Network Partner</p>
+<div class="mt-md flex gap-lg opacity-40 grayscale">
+<!-- Placeholder Logos for premium feel -->
+<div class="h-8 w-24 bg-white/20 rounded"></div>
+<div class="h-8 w-24 bg-white/20 rounded"></div>
+<div class="h-8 w-24 bg-white/20 rounded"></div>
+</div>
+</div>
+</div>
+<!-- Background Image Element -->
+<div class="absolute bottom-0 right-0 w-full h-full pointer-events-none z-0">
+<img alt="Industrial architecture" class="w-full h-full object-cover opacity-20" data-alt="A cinematic low-angle shot of a towering, modern glass and steel skyscraper against a clear, deep blue twilight sky. The building features sharp architectural lines and reflective surfaces that catch the cool urban lighting. The overall mood is industrial, professional, and authoritative, reflecting a high-performance corporate environment with a cold, minimalist color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWw6Pwrbbmv_e0IGQzZxhtCf4AOVUcm4rkcmbGO-LJy9pT8NqQIIa6zkCoxibXaQJrsfXMUc-qMUU4AKoZsUbxWzLDVwSJaWBDiaAB_MR6A123c3EYpQm3zT80Xu6PTJD-jcgG2tuoM5O7dV6gYT_s95qbmMrO62Tqye4tcfKZuJCJtd6fu7V2pGrcB2Ln5E-Smd_aZfw8VvuN3hjvDSF7Qr6KrXmwH3tsRrVy4TIkW-SayD390XhxgujE0ayMTK_nUBiH20kClwc"/>
+</div>
+</section>
+<!-- Right Side: Sign Up Form -->
+<main class="w-full lg:w-1/2 flex items-center justify-center p-md sm:p-lg lg:p-xxl bg-surface-bright">
+<div class="w-full max-w-[480px]">
+<!-- Header -->
+<div class="mb-xl">
+<div class="flex items-center gap-sm mb-lg lg:hidden">
+<span class="material-symbols-outlined text-primary text-[32px]">hub</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-background">Martin Connect</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-background mb-xs">Create Account</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Join the high-performance recruitment suite.</p>
+</div>
+<form class="space-y-lg" id="signupForm">
+<!-- Role Selection -->
+<div>
+<label class="block font-body-sm font-bold text-on-surface mb-sm font-medium text-on-surface-variant">I AM A...</label>
+<div class="grid grid-cols-2 gap-md">
+<button class="role-card active flex flex-col items-center justify-center p-md bg-white border border-outline-variant rounded-xl transition-all duration-200 min-h-[100px]" id="role-job-seeker" onclick="selectRole('job-seeker')" type="button"><span class="material-symbols-outlined mb-xs text-[28px]">person_search</span><span class="font-title-sm text-title-sm">Job Seeker</span></button>
+<button class="role-card flex flex-col items-center justify-center p-md bg-white border border-outline-variant rounded-xl transition-all duration-200 min-h-[100px]" id="role-employer" onclick="selectRole('employer')" type="button"><span class="material-symbols-outlined mb-xs text-[28px]">corporate_fare</span><span class="font-title-sm text-title-sm">Employer</span></button>
+</div>
+</div>
+<!-- Input Fields -->
+<div class="space-y-md">
+<div>
+<label class="block font-body-sm font-bold text-on-surface mb-sm font-medium text-on-surface-variant" for="fullName">FULL NAME</label>
+<input class="w-full px-md py-3 border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline/50 bg-white rounded-xl border-[#E8EEF7] h-[48px]" id="fullName" placeholder="Johnathan Doe" required="" type="text"/>
+</div>
+<div>
+<label class="block font-body-sm font-bold text-on-surface mb-sm font-medium text-on-surface-variant" for="email">WORK EMAIL</label>
+<input class="w-full px-md py-3 border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline/50 bg-white rounded-xl border-[#E8EEF7] h-[48px]" id="email" placeholder="j.doe@company.com" required="" type="email"/>
+</div>
+<div>
+<label class="block font-body-sm font-bold text-on-surface mb-sm font-medium text-on-surface-variant" for="password">PASSWORD</label>
+<div class="relative">
+<input class="w-full px-md py-3 border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline/50 bg-white rounded-xl border-[#E8EEF7] h-[48px]" id="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-outline-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+<p class="mt-sm font-body-sm text-on-surface-variant" style="color: #8A9BB8;">Must be at least 12 characters with industrial-grade entropy.</p>
+</div>
+</div>
+<!-- Terms -->
+<div class="flex items-start gap-md py-sm">
+<div class="flex items-center h-5">
+<input class="h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary" id="terms" name="terms" required="" type="checkbox"/>
+</div>
+<div class="text-body-sm text-on-surface-variant">
+                        By creating an account, you acknowledge that you have read and agree to our 
+                        <a class="text-primary font-bold hover:underline" href="#">Terms of Service</a> and 
+                        <a class="text-primary font-bold hover:underline" href="#">Privacy Policy</a>.
+                    </div>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary-container hover:bg-primary text-white font-title-sm py-4 rounded-lg auth-shadow transition-all transform active:scale-[0.98] flex items-center justify-center gap-sm" type="submit">
+<span>Create Account</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<!-- Footer Links -->
+<div class="text-center pt-md">
+<p class="font-body-md text-on-surface-variant">
+                        Already have an account? 
+                        <a class="text-primary font-bold hover:underline" href="#">Log in</a>
+</p>
+</div>
+</form>
+<!-- Decorative Industrial Divider -->
+<div class="mt-xl flex items-center gap-md">
+<div class="h-px bg-outline-variant flex-grow"></div>
+<span class="font-mono-label text-mono-label text-outline uppercase tracking-widest">Enterprise Auth</span>
+<div class="h-px bg-outline-variant flex-grow"></div>
+</div>
+<!-- Social/SSO Options -->
+<div class="mt-lg grid grid-cols-2 gap-md">
+<button class="flex items-center justify-center gap-md py-3 px-4 border border-[#E8EEF7] rounded-xl hover:bg-surface-container transition-colors w-full">
+<img alt="Google" class="w-5 h-5 flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEdpJcEh5Hqtmtcr1OU3JgCWmufiapch-6puN_-vvJ-lCFDN_YSEzsZ7IqxdtXqtROcUXpPpP_4Ldn9kAlv508klbWIRx8KocGSfnE10dYY3pDUtIhI809QZiEwEOdKklNUKD1FgMxjNk55pj17eE23XXK-sasJWXt8bcM6TyH13ESx6bdMohcHgr8hYkxP0sIkGCBbEbTEHP7dbZWhhrizDFkvO7aUqFSsXbQG_MkExX6Vo7HJzKiz0JNl0Te15erSUR6mIW5wlg"/>
+<span class="font-body-sm font-semibold text-on-surface whitespace-nowrap">Google</span>
+</button>
+<button class="flex items-center justify-center gap-md py-3 px-4 border border-[#E8EEF7] rounded-xl hover:bg-surface-container transition-colors w-full">
+<span class="material-symbols-outlined text-[#0077b5] text-[20px] flex-shrink-0">account_circle</span>
+<span class="font-body-sm font-semibold text-on-surface whitespace-nowrap">LinkedIn</span>
+</button>
+</div>
+</div>
+</main>
+<script>
+        function selectRole(role) {
+            const seekerBtn = document.getElementById('role-job-seeker');
+            const employerBtn = document.getElementById('role-employer');
+            
+            const seekerIcon = seekerBtn.querySelector('.material-symbols-outlined');
+            const employerIcon = employerBtn.querySelector('.material-symbols-outlined');
+            
+            const seekerText = seekerBtn.querySelector('span:not(.material-symbols-outlined)');
+            const employerText = employerBtn.querySelector('span:not(.material-symbols-outlined)');
+
+            if (role === 'job-seeker') {
+                seekerBtn.classList.add('active');
+                seekerIcon.classList.add('text-primary');
+                seekerIcon.classList.remove('text-on-surface-variant');
+                seekerText.classList.remove('text-on-surface-variant');
+
+                employerBtn.classList.remove('active');
+                employerIcon.classList.add('text-on-surface-variant');
+                employerIcon.classList.remove('text-primary');
+                employerText.classList.add('text-on-surface-variant');
+            } else {
+                employerBtn.classList.add('active');
+                employerIcon.classList.add('text-primary');
+                employerIcon.classList.remove('text-on-surface-variant');
+                employerText.classList.remove('text-on-surface-variant');
+
+                seekerBtn.classList.remove('active');
+                seekerIcon.classList.add('text-on-surface-variant');
+                seekerIcon.classList.remove('text-primary');
+                seekerText.classList.add('text-on-surface-variant');
+            }
+        }
+
+        // Form Submission Interaction
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalHtml = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = `
+                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>Processing...</span>
+            `;
+
+            setTimeout(() => {
+                alert('Account created successfully! Redirecting to dashboard...');
+                btn.innerHTML = originalHtml;
+                btn.disabled = false;
+            }, 1500);
+        });
+    </script>
+</body></html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About &amp; Support | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-sharp-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        .card-hover-effect:hover {
+            border-left: 3px solid #1E63F3;
+            transition: all 0.2s ease-in-out;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #faf8ff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c3c6d8;
+            border-radius: 4px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#dbe1ff",
+                      "on-tertiary": "#ffffff",
+                      "on-surface": "#121b30",
+                      "tertiary-container": "#0073b5",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#faf8ff",
+                      "surface-container-low": "#f2f3ff",
+                      "secondary": "#2950ce",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#98cbff",
+                      "surface-bright": "#faf8ff",
+                      "primary": "#004bc9",
+                      "on-primary": "#ffffff",
+                      "surface-container": "#eaedff",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "tertiary": "#005a8f",
+                      "secondary-fixed": "#dde1ff",
+                      "on-secondary-fixed": "#001452",
+                      "surface-dim": "#d1d9f6",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "on-secondary-container": "#fffbff",
+                      "on-primary-container": "#f1f1ff",
+                      "inverse-surface": "#273046",
+                      "on-secondary-fixed-variant": "#0038b7",
+                      "on-tertiary-fixed-variant": "#004a77",
+                      "surface-container-highest": "#dae2ff",
+                      "primary-container": "#1e63f3",
+                      "on-tertiary-container": "#ebf3ff",
+                      "on-background": "#121b30",
+                      "outline-variant": "#c3c6d8",
+                      "inverse-primary": "#b4c5ff",
+                      "secondary-fixed-dim": "#b7c4ff",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#eef0ff",
+                      "background": "#faf8ff",
+                      "tertiary-fixed": "#cfe5ff",
+                      "on-tertiary-fixed": "#001d33",
+                      "surface-tint": "#0053db",
+                      "outline": "#737687",
+                      "on-surface-variant": "#424655",
+                      "on-primary-fixed": "#00174b",
+                      "surface-variant": "#dae2ff",
+                      "secondary-container": "#476ae9",
+                      "surface-container-high": "#e2e7ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "xs": "4px",
+                      "xxl": "48px",
+                      "sidebar-width": "260px",
+                      "container-max": "1440px",
+                      "sm": "8px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "gutter": "24px",
+                      "xl": "32px"
+              },
+              "fontFamily": {
+                      "headline-sm": ["DM Sans"],
+                      "headline-md": ["DM Sans"],
+                      "display-lg": ["DM Sans"],
+                      "display-md": ["DM Sans"],
+                      "title-md": ["DM Sans"],
+                      "title-lg": ["DM Sans"],
+                      "mono-label": ["IBM Plex Mono"],
+                      "body-md": ["DM Sans"],
+                      "title-sm": ["DM Sans"],
+                      "headline-lg": ["DM Sans"],
+                      "body-lg": ["DM Sans"],
+                      "headline-lg-mobile": ["DM Sans"],
+                      "body-sm": ["DM Sans"]
+              },
+              "fontSize": {
+                      "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "display-md": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                      "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "title-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "mono-label": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                      "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "title-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-sm": ["12px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-inverse-surface flex justify-between items-center w-full px-lg py-md h-[72px] docked full-width top-0 border-b border-outline-variant shadow-sm z-50">
+<div class="flex items-center gap-xl">
+<span class="font-headline-sm text-headline-sm font-bold text-on-primary">Martin Connect</span>
+<nav class="hidden md:flex gap-lg items-center">
+<a class="font-title-md text-title-md text-outline-variant hover:text-on-primary hover:bg-on-surface-variant/10 transition-colors" href="#">Jobs</a>
+<a class="font-title-md text-title-md text-outline-variant hover:text-on-primary hover:bg-on-surface-variant/10 transition-colors" href="#">Candidates</a>
+<a class="font-title-md text-title-md text-outline-variant hover:text-on-primary hover:bg-on-surface-variant/10 transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden sm:flex gap-sm">
+<button class="material-symbols-outlined text-on-primary p-sm hover:bg-on-surface-variant/10 rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-primary p-sm hover:bg-on-surface-variant/10 rounded-full transition-colors">settings</button>
+</div>
+<button class="hidden lg:block bg-secondary text-on-primary px-lg py-sm rounded-lg font-bold hover:opacity-90 transition-all active:scale-95">Post Job</button>
+<button class="text-on-primary border border-outline-variant px-lg py-sm rounded-lg font-bold hover:bg-on-surface-variant/10 transition-all">Sign In</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-lg py-xxl">
+<!-- Section 1: About Martin Connect -->
+<section class="mb-xxl">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center mb-xl">
+<div>
+<span class="text-secondary font-mono-label uppercase tracking-widest block mb-sm">Our Mission</span>
+<h1 class="font-display-md text-display-md mb-md leading-tight">To connect the world's best talent with the most ambitious companies.</h1>
+<div class="space-y-md text-on-surface-variant font-body-lg text-body-lg max-w-2xl">
+<p>Founded on the principles of precision and executive authority, Martin Connect has evolved from a boutique recruitment firm into a high-performance industrial ecosystem. We bridge the gap between human potential and corporate vision, leveraging advanced matching logic and a deep understanding of organizational dynamics.</p>
+<p>With a reach spanning over 2.4 million active professionals globally, our platform stands on three core pillars: Trust, Innovation, and Impact. We don't just fill roles; we build the future workforce of the industrial world by ensuring every placement is a decisive step toward excellence.</p>
+</div>
+<div class="flex gap-xl mt-lg">
+<div>
+<div class="font-headline-md text-headline-md text-primary">2.4M+</div>
+<div class="font-mono-label text-on-surface-variant uppercase">Global Users</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-primary">150+</div>
+<div class="font-mono-label text-on-surface-variant uppercase">Countries</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-primary">98%</div>
+<div class="font-mono-label text-on-surface-variant uppercase">Success Rate</div>
+</div>
+</div>
+</div>
+<div class="relative rounded-xl overflow-hidden shadow-xl aspect-square lg:aspect-video">
+<img alt="Martin Connect Headquarters" class="w-full h-full object-cover" data-alt="A wide-angle shot of a modern, industrial-style corporate office lobby in Bengaluru, featuring high ceilings, exposed structural elements, and sleek glass walls. The lighting is bright and natural, flooding the space with a clean light-mode aesthetic. Professionals in business attire are seen in a soft-focus background, representing a bustling, productive recruitment hub with a sophisticated navy and white color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMjsB7Uq6j3OeZvpgnglAvDLX0-Hgz_WbiVgvShQOJyOSf9-577rdxUwd5l_Y2Us0ezP94meEK6sXbCf9rLzlqHJXiG09e525RKpL8VV_hINyrQ5ttpGbvKpuQNmvl6JtFF0vU6trI7D4hjwxWItccDdFMPDAH76RxYeWxH_XHeXFUM871U9A_jVllCByNRG1JXRrfSwkmBTsgF9iKYtJYiqnJa53SfZZ59G0Teo9GvdsSBYwXokpPkiJu2Tc6HANZHCEtx6bcxos"/>
+</div>
+</div>
+<div class="mt-xxl">
+<h2 class="font-headline-sm text-headline-sm mb-xl text-center">Our Leadership</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-lg">
+<!-- Leadership Cards -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant soft-sharp-shadow card-hover-effect text-center">
+<img alt="CEO" class="w-24 h-24 rounded-full mx-auto mb-md object-cover border-2 border-primary-fixed" data-alt="Close-up professional portrait of a senior male executive in a tailored navy blue suit. The background is a minimalist, brightly lit corporate office with soft shadows. He has a decisive and confident expression, styled with a modern corporate aesthetic that emphasizes authority and precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjwnsodTSpA_iAHt6XVULFEGQWCWcmkJcsj3X2di9GfirfVZTox4hbOVTKiAh0BvxxY_UhWV9FREUbpynwxkhSI4NdOXo_-BG_EwVY4U-iNCL3sJ62mLMI2n8drzPMuH52mhGqIY9ZRIaN_U3yM6SYk26e53pRBL2uLxIrHYxqTppLz7yprtQtWddqYf72PVt-trzWqu8Zq2U8TyZR-1e4GMctfqqb1a2BOmyZ020t0Ov9FW_cyQ0Zawz0hC_n4oXHqoa8YLTVMAA"/>
+<h3 class="font-title-sm text-title-sm">Julian Vance</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-sm">Chief Executive Officer</p>
+<div class="flex justify-center gap-sm">
+<span class="material-symbols-outlined text-outline text-lg">link</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant soft-sharp-shadow card-hover-effect text-center">
+<img alt="CTO" class="w-24 h-24 rounded-full mx-auto mb-md object-cover border-2 border-primary-fixed" data-alt="Professional headshot of a female technology executive with a sharp, modern appearance. She is wearing a crisp white blouse against a neutral, high-key studio background. The lighting is clean and professional, reflecting an innovative and strategic mindset. Her gaze is direct and empowering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8fk5_-S4zahyQpcdpd3qsqEkVB1izktCmhnStVKSyJRri8fcX5rfF8cogzSaWZemxxYvqhdAZHnKH8ADvA1tUHsFSBY7YM1DmXwLK0ayRL4JRmOLYWMJYOvRtPPCqhlPdCO4-CoP_iy1LmzVMM1pu3-tEWcJrY5SaegrmxOpDwFbDEbDuNpG3w3XKvB_BtmO039VY0Z7ie8g46S37fNAMm37M8QsmVPm88KoSaAJZE7W9b4ajSSrEgR2-_5IpQpvlcdXWIa3ZakY"/>
+<h3 class="font-title-sm text-title-sm">Elena Rodriguez</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-sm">Chief Technology Officer</p>
+<div class="flex justify-center gap-sm">
+<span class="material-symbols-outlined text-outline text-lg">link</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant soft-sharp-shadow card-hover-effect text-center">
+<img alt="COO" class="w-24 h-24 rounded-full mx-auto mb-md object-cover border-2 border-primary-fixed" data-alt="Portrait of a young, ambitious male executive in a modern workspace. He is wearing a dark charcoal sweater over a collared shirt, suggesting an approachable yet industrial corporate style. The setting is bright with soft architectural lines in the background, creating a sense of growth and innovation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkSfEE28SB9N0iy_tBNyVkJ9KejhFURgtWmRzH2veKu1yjO1QHoRmwLPW_4ADC2bVm6ogx5z9txprN9fMv0acg-yS-Xya_kiUwEAwPwx0vRx_CrHnNfptwQ9cZjVC3T9_uSy9AvccffzlmT-1MYrijD8vDWuNj41hbXwN8tFVB-JuSExxlKMUq2bOejSBUiBwCohzhmRhs5wK3pgAIfD4hgnEo_N2jjcO2dksiaHebx5Ea1EOsafeHqwVMFSMYSEwn76XMhZF4zUk"/>
+<h3 class="font-title-sm text-title-sm">Marcus Chen</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-sm">Chief Operations Officer</p>
+<div class="flex justify-center gap-sm">
+<span class="material-symbols-outlined text-outline text-lg">link</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant soft-sharp-shadow card-hover-effect text-center">
+<img alt="CHRO" class="w-24 h-24 rounded-full mx-auto mb-md object-cover border-2 border-primary-fixed" data-alt="Professional headshot of a diverse female executive in a modern business-casual outfit. She has a warm, confident smile, set against a clean, blurred office background with industrial blue accents. The lighting is soft and flattering, emphasizing a trustworthy and impactful persona." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgAWaQ4QA2BKRZ80gbb-Hz_AONwk0WpX8bdCYjfXiNQPSs3I7Dn_LEphFpzYWAlzgUsWRIih_1dZALBI41ti3XeaYCzQfT07OIVzzVncBL0O99tmvSaRF14AkxvR_x8T3D6ByLzZJRP3eH_qAQ1NNy5192-6hRZ23Q1NUbuiaWXIMWARIyU-MgLFz3Jn0gMXjZEydAYqpLMpZO7x36s_6-GNoyXoSUtMdXU3VTB5MZJ5SOCiAVitLg0lDC-J7MuK45NSybeI0zEVo"/>
+<h3 class="font-title-sm text-title-sm">Sarah Jenkins</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-sm">Chief People Officer</p>
+<div class="flex justify-center gap-sm">
+<span class="material-symbols-outlined text-outline text-lg">link</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Help Center / FAQ -->
+<section class="mb-xxl bg-surface-container-low rounded-xl p-xl lg:p-xxl">
+<div class="text-center max-w-2xl mx-auto mb-xl">
+<h2 class="font-headline-md text-headline-md mb-md">Help Center</h2>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-xl pr-md py-lg rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary soft-sharp-shadow bg-surface-container-lowest font-body-lg text-body-lg outline-none" placeholder="How can we help you today?" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-lg mb-xl">
+<!-- Category Cards -->
+<button class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant text-left soft-sharp-shadow card-hover-effect transition-all group">
+<span class="material-symbols-outlined text-primary text-4xl mb-md">account_circle</span>
+<h3 class="font-title-sm text-title-sm mb-xs">Account &amp; Profile</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm">Manage security, notifications, and profile data.</p>
+</button>
+<button class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant text-left soft-sharp-shadow card-hover-effect transition-all group">
+<span class="material-symbols-outlined text-primary text-4xl mb-md">search_check</span>
+<h3 class="font-title-sm text-title-sm mb-xs">Job Search</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm">Tips on finding roles and tracking applications.</p>
+</button>
+<button class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant text-left soft-sharp-shadow card-hover-effect transition-all group">
+<span class="material-symbols-outlined text-primary text-4xl mb-md">construction</span>
+<h3 class="font-title-sm text-title-sm mb-xs">Recruiting Tools</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm">Managing postings, analytics, and talent pools.</p>
+</button>
+<button class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant text-left soft-sharp-shadow card-hover-effect transition-all group">
+<span class="material-symbols-outlined text-primary text-4xl mb-md">payments</span>
+<h3 class="font-title-sm text-title-sm mb-xs">Billing &amp; Payments</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm">Invoices, subscription tiers, and payment methods.</p>
+</button>
+</div>
+<div class="max-w-3xl mx-auto">
+<h3 class="font-title-lg text-title-lg mb-lg">Popular Questions</h3>
+<div class="space-y-md">
+<details class="group bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+<summary class="flex justify-between items-center p-md cursor-pointer list-none font-title-sm text-title-sm">
+                            How do I optimize my profile for industrial roles?
+                            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-md pb-md text-on-surface-variant font-body-md text-body-md">
+                            Ensure your technical certifications and project experience are documented in the Skills section. Our algorithm prioritizes verified credentials in industrial engineering and supply chain management.
+                        </div>
+</details>
+<details class="group bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+<summary class="flex justify-between items-center p-md cursor-pointer list-none font-title-sm text-title-sm">
+                            What are the benefits of the Recruiter Premium tier?
+                            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-md pb-md text-on-surface-variant font-body-md text-body-md">
+                            Premium users gain access to AI-powered candidate ranking, unlimited direct messaging, and advanced analytics dashboards for tracking hiring velocity.
+                        </div>
+</details>
+<details class="group bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+<summary class="flex justify-between items-center p-md cursor-pointer list-none font-title-sm text-title-sm">
+                            How can I track my application status?
+                            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-md pb-md text-on-surface-variant font-body-md text-body-md">
+                            Navigate to 'My Applications' in your dashboard. Status pills indicate whether your profile is 'Under Review', 'Shortlisted', or 'Hired'.
+                        </div>
+</details>
+</div>
+</div>
+</section>
+<!-- Section 3: Contact Us -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-xxl items-start">
+<div>
+<h2 class="font-headline-md text-headline-md mb-md">Get in Touch</h2>
+<p class="text-on-surface-variant mb-xl font-body-lg text-body-lg">Have a specific inquiry? Fill out the form and our team will get back to you within 24 business hours.</p>
+<form class="space-y-lg">
+<div>
+<label class="block font-body-sm text-body-sm font-bold mb-xs">Full Name</label>
+<input class="w-full px-md py-sm rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<div>
+<label class="block font-body-sm text-body-sm font-bold mb-xs">Email Address</label>
+<input class="w-full px-md py-sm rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="john@company.com" type="email"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm font-bold mb-xs">Subject</label>
+<select class="w-full px-md py-sm rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none bg-surface-container-lowest">
+<option>General Inquiry</option>
+<option>Technical Support</option>
+<option>Sales &amp; Partnerships</option>
+<option>Media Relations</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm font-bold mb-xs">Message</label>
+<textarea class="w-full px-md py-sm rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none" placeholder="Describe how we can help..." rows="5"></textarea>
+</div>
+<button class="bg-primary text-on-primary px-xl py-md rounded-lg font-bold w-full sm:w-auto hover:opacity-90 transition-all active:scale-95" type="submit">Send Message</button>
+</form>
+</div>
+<div class="space-y-xl">
+<div>
+<h3 class="font-title-lg text-title-lg mb-lg">Global Operations</h3>
+<div class="space-y-md">
+<div class="flex gap-md items-start">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<div>
+<p class="font-bold">Bengaluru Innovation Center</p>
+<p class="text-on-surface-variant font-body-md text-body-md">12th Main Rd, HAL 2nd Stage, Indiranagar,<br/>Bengaluru, Karnataka 560038, India</p>
+</div>
+</div>
+<div class="flex gap-md items-center">
+<span class="material-symbols-outlined text-primary">mail</span>
+<p class="text-on-surface-variant font-body-md text-body-md">support@martinconnect.com</p>
+</div>
+<div class="flex gap-md items-center">
+<span class="material-symbols-outlined text-primary">call</span>
+<p class="text-on-surface-variant font-body-md text-body-md">+91 80 4455 6677</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden border border-outline-variant aspect-video relative soft-sharp-shadow">
+<!-- Map Placeholder -->
+<div class="w-full h-full bg-surface-container-high flex flex-col items-center justify-center">
+<img alt="Map Location" class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="A clean, minimalist abstract map of Bengaluru, India, featuring stylized street patterns in shades of deep navy and bright electric blue. The aesthetic is modern and data-driven, representing a tech-hub location. It includes a single, glowing blue pin marking the corporate office location, fitting the industrial corporate style of Martin Connect." data-location="Bengaluru" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsOgD7IOXXHderDQhnxiAP4-N6av8N3PjFmIiEVxsyqb5g-UWPeF_hoPNNLu41XPDXqm_6kd8ElPkDhAXvTqWAvo_0MSZ3gWBJRUdzWuVx5B46LvIAxi2o76s0LoxmT5vo-i-1SARLiy5p9quaxDNXzZ-m1FY1HypxGeZJDBogTLDx_re8meujtF4qTvI8hg4Z3Noes0Mt120skCfu35k10s4eZqactVRKYGDUeFlZSL12sG7AqTcn9Knetn4i28TwUrWmKW4s4WE"/>
+<div class="relative z-10 text-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-sm" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<div class="bg-inverse-surface text-on-primary px-md py-xs rounded-full text-mono-label uppercase">Our HQ Location</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface text-on-primary mt-xxl border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl px-lg py-xxl w-full max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<span class="font-title-sm text-title-sm font-bold text-on-primary mb-md block">Martin Connect</span>
+<p class="text-outline-variant font-body-sm text-body-sm mb-lg">Precise. Decisive. Industrial.</p>
+<p class="text-outline-variant font-body-sm text-body-sm">© 2024 Martin Connect. All rights reserved.</p>
+</div>
+<div>
+<h4 class="font-mono-label text-on-primary uppercase mb-md tracking-widest">Platform</h4>
+<ul class="space-y-sm">
+<li><a class="text-outline-variant hover:text-on-primary transition-all hover:underline font-body-sm text-body-sm" href="#">Job Seekers</a></li>
+<li><a class="text-outline-variant hover:text-on-primary transition-all hover:underline font-body-sm text-body-sm" href="#">Employers</a></li>
+<li><a class="text-outline-variant hover:text-on-primary transition-all hover:underline font-body-sm text-body-sm" href="#">Recruiter Portal</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-mono-label text-on-primary uppercase mb-md tracking-widest">Company</h4>
+<ul class="space-y-sm">
+<li><a class="text-secondary font-bold transition-all hover:underline font-body-sm text-body-sm" href="#">About Us</a></li>
+<li><a class="text-outline-variant hover:text-on-primary transition-all hover:underline font-body-sm text-body-sm" href="#">Help Center</a></li>
+<li><a class="text-outline-variant hover:text-on-primary transition-all hover:underline font-body-sm text-body-sm" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-mono-label text-on-primary uppercase mb-md tracking-widest">Connect</h4>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-outline-variant hover:text-on-primary cursor-pointer transition-all">public</span>
+<span class="material-symbols-outlined text-outline-variant hover:text-on-primary cursor-pointer transition-all">hub</span>
+<span class="material-symbols-outlined text-outline-variant hover:text-on-primary cursor-pointer transition-all">alternate_email</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interactions
+        document.querySelectorAll('details').forEach((el) => {
+            el.addEventListener('toggle', (e) => {
+                if (el.open) {
+                    document.querySelectorAll('details').forEach((other) => {
+                        if (other !== el) other.removeAttribute('open');
+                    });
+                }
+            });
+        });
+
+        // Form handling simulation
+        const contactForm = document.querySelector('form');
+        if(contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = e.target.querySelector('button');
+                const originalText = btn.textContent;
+                btn.textContent = 'Sending...';
+                btn.disabled = true;
+                setTimeout(() => {
+                    btn.textContent = 'Sent Successfully';
+                    btn.classList.replace('bg-primary', 'bg-green-600');
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.classList.replace('bg-green-600', 'bg-primary');
+                        btn.disabled = false;
+                        contactForm.reset();
+                    }, 2000);
+                }, 1500);
+            });
+        }
+    </script>
+</body></html>

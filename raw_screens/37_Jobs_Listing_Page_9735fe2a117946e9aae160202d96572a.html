@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jobs Listing | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .soft-sharp-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        .job-card:hover {
+            border-left: 3px solid #1E63F3;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1ff;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c3c6d8;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#00174b",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004a77",
+                        "surface-container": "#eaedff",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#273046",
+                        "outline": "#737687",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c3c6d8",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#cfe5ff",
+                        "on-tertiary-fixed": "#001d33",
+                        "surface-bright": "#faf8ff",
+                        "surface-container-high": "#e2e7ff",
+                        "on-surface": "#121b30",
+                        "surface-container-highest": "#dae2ff",
+                        "tertiary-fixed-dim": "#98cbff",
+                        "surface-tint": "#0053db",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary": "#2950ce",
+                        "primary": "#004bc9",
+                        "on-secondary-fixed": "#001452",
+                        "surface-container-low": "#f2f3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#fffbff",
+                        "surface-variant": "#dae2ff",
+                        "tertiary-container": "#0073b5",
+                        "on-background": "#121b30",
+                        "background": "#faf8ff",
+                        "secondary-container": "#476ae9",
+                        "on-surface-variant": "#424655",
+                        "on-primary-container": "#f1f1ff",
+                        "secondary-fixed": "#dde1ff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed-variant": "#0038b7",
+                        "primary-container": "#1e63f3",
+                        "surface-dim": "#d1d9f6",
+                        "error": "#ba1a1a",
+                        "surface": "#faf8ff",
+                        "tertiary": "#005a8f",
+                        "inverse-on-surface": "#eef0ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#ebf3ff",
+                        "secondary-fixed-dim": "#b7c4ff",
+                        "inverse-primary": "#b4c5ff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "container-max": "1440px",
+                        "xs": "4px",
+                        "sidebar-width": "260px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "xxl": "48px",
+                        "sm": "8px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["DM Sans"],
+                        "mono-label": ["IBM Plex Mono"],
+                        "display-lg": ["DM Sans"],
+                        "title-sm": ["DM Sans"],
+                        "display-md": ["DM Sans"],
+                        "headline-sm": ["DM Sans"],
+                        "title-lg": ["DM Sans"],
+                        "body-sm": ["DM Sans"],
+                        "title-md": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "body-md": ["DM Sans"],
+                        "headline-lg": ["DM Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased custom-scrollbar">
+<!-- Top Navigation Bar -->
+<nav class="bg-inverse-surface dark:bg-inverse-surface border-b border-outline-variant shadow-sm flex justify-between items-center w-full px-lg py-md h-[72px] sticky top-0 z-50">
+<div class="flex items-center gap-xl">
+<span class="font-headline-sm text-headline-sm font-bold text-on-primary">Martin Connect</span>
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-title-md text-title-md text-on-primary border-b-2 border-secondary pb-1" href="#">Jobs</a>
+<a class="font-title-md text-title-md text-outline-variant hover:text-on-primary transition-colors" href="#">Candidates</a>
+<a class="font-title-md text-title-md text-outline-variant hover:text-on-primary transition-colors" href="#">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline-variant">search</span>
+<input class="bg-surface-variant/10 border border-outline-variant/30 rounded-xl py-xs pl-xl pr-md text-on-primary font-body-md w-64 focus:outline-none focus:border-primary-container" placeholder="Search roles, skills..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-outline-variant hover:text-on-primary p-xs transition-colors">notifications</button>
+<button class="material-symbols-outlined text-outline-variant hover:text-on-primary p-xs transition-colors">settings</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Profile" data-alt="A professional headshot of a corporate recruiter in a high-key studio environment. The subject is a middle-aged man with a friendly expression, wearing a tailored navy blue blazer. The lighting is bright and clean, emphasizing a modern enterprise aesthetic with a neutral, soft-grey background that aligns with a precise and decisive brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiuj0tBXREB51vpaE6v_09dIuLg8M27z6zVPJJgLcN85_2YglGC5MDyXtJSfKDtPL-r0SKQOs_uP-XF1B4LXfUr2qAF4IAz1DtGnwFdHhsI47e9hExWH_V3P9lEZEtRgLd1m4VvannCuDHHUQCY-eq2CWcx7TCxblb_-6NIKNtKvBkx8iK1M4QyrOPButyRyHxDUeuRJL6lZds4I4wqnoaPW-ObKlbIilWA2FwaaKGZY5QySky9GLrDWd17pz_3_NibAKBTPSN--A"/>
+</div>
+<button class="bg-primary-container text-on-primary px-md py-xs rounded-lg font-title-sm hover:opacity-90 active:scale-95 transition-all">Post Job</button>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-lg py-lg grid grid-cols-12 gap-gutter">
+<!-- LEFT FILTER SIDEBAR (280px approx) -->
+<aside class="col-span-3">
+<div class="sticky top-[96px] bg-surface-container-lowest rounded-xl p-md soft-sharp-shadow border border-outline-variant/20 flex flex-col gap-lg max-h-[calc(100vh-120px)] overflow-y-auto custom-scrollbar">
+<div class="flex justify-between items-center">
+<h2 class="font-title-md text-title-md text-on-surface">Filters</h2>
+<button class="text-primary font-body-sm hover:underline">Clear All</button>
+</div>
+<!-- Experience -->
+<section>
+<label class="font-body-sm font-bold block mb-sm text-on-surface-variant uppercase tracking-wider">Experience</label>
+<div class="flex flex-col gap-xs">
+<label class="flex items-center gap-sm font-body-md cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">0-1 Years</span>
+</label>
+<label class="flex items-center gap-sm font-body-md cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">1-3 Years</span>
+</label>
+<label class="flex items-center gap-sm font-body-md cursor-pointer group">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-primary font-bold">3-6 Years</span>
+</label>
+<label class="flex items-center gap-sm font-body-md cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">6+ Years</span>
+</label>
+</div>
+</section>
+<!-- Salary Range -->
+<section>
+<label class="font-body-sm font-bold block mb-sm text-on-surface-variant uppercase tracking-wider">Salary Range (LPA)</label>
+<input class="w-full h-1 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary" max="50" min="0" type="range" value="25"/>
+<div class="flex justify-between mt-xs">
+<span class="font-mono-label text-mono-label">₹0</span>
+<span class="font-mono-label text-mono-label">₹50 LPA</span>
+</div>
+</section>
+<!-- Location -->
+<section>
+<label class="font-body-sm font-bold block mb-sm text-on-surface-variant uppercase tracking-wider">Location</label>
+<div class="relative">
+<input class="w-full rounded-xl border-outline-variant py-xs px-md font-body-md focus:border-primary-container focus:ring-2 focus:ring-primary-container/20" type="text" value="Bengaluru"/>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-primary">location_on</span>
+</div>
+</section>
+<!-- Work Mode -->
+<section>
+<label class="font-body-sm font-bold block mb-sm text-on-surface-variant uppercase tracking-wider">Work Mode</label>
+<div class="grid grid-cols-2 gap-xs">
+<button class="bg-primary-container text-on-primary rounded-lg py-xs font-body-sm">Remote</button>
+<button class="bg-surface-container-low text-on-surface-variant rounded-lg py-xs font-body-sm hover:bg-surface-container-high">On-site</button>
+<button class="bg-surface-container-low text-on-surface-variant rounded-lg py-xs font-body-sm hover:bg-surface-container-high">Hybrid</button>
+</div>
+</section>
+<!-- Company Size -->
+<section>
+<label class="font-body-sm font-bold block mb-sm text-on-surface-variant uppercase tracking-wider">Company Size</label>
+<select class="w-full rounded-xl border-outline-variant py-xs px-md font-body-md focus:border-primary-container">
+<option>Any Size</option>
+<option>1-50 (Startup)</option>
+<option>51-200 (SME)</option>
+<option>201-1000 (Mid-Market)</option>
+<option selected="">1000+ (Enterprise)</option>
+</select>
+</section>
+</div>
+</aside>
+<!-- CENTER RESULTS -->
+<div class="col-span-6 flex flex-col gap-lg">
+<header class="flex justify-between items-end pb-xs border-b border-outline-variant/30">
+<div>
+<h1 class="font-headline-sm text-headline-sm text-on-surface">4,820 Software Engineer jobs</h1>
+<p class="font-body-md text-on-surface-variant">Showing results for Bengaluru</p>
+</div>
+<div class="flex items-center gap-xs font-body-sm text-on-surface-variant">
+                    Sort by: 
+                    <select class="border-none bg-transparent font-bold text-on-surface focus:ring-0 p-0 cursor-pointer">
+<option>Relevance</option>
+<option>Newest</option>
+<option>Salary: High to Low</option>
+</select>
+</div>
+</header>
+<!-- Job Cards List -->
+<div class="flex flex-col gap-md">
+<!-- Card 1: Razorpay [Featured] -->
+<div class="job-card bg-surface-container-lowest p-md rounded-xl border border-outline-variant/20 soft-sharp-shadow transition-all group relative">
+<span class="absolute top-md right-md bg-[#EBF4FF] text-[#1E63F3] font-mono-label text-xs px-sm py-0.5 rounded-full uppercase font-bold tracking-tight">Featured</span>
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center border border-outline-variant/10 overflow-hidden shrink-0">
+<img alt="Razorpay Logo" data-alt="A minimalist tech logo displayed in a clean geometric container. The logo features sharp, industrial lines against a backdrop of deep blues and crisp whites. The style is modern corporate, professional and high-performance, fitting for a fintech leader like Razorpay in an enterprise recruitment dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqD7pPXZTJ4Qw9xuIl1qewrT65GniMzwH2A16WU6frdvCNOrx9SnPHGUTHhPystbJjnnxJOh2evDr-FdHE2CMRt8C1sKWr10ezjhjDmMDeeYW_BJbh-Te8-v8t8Uq_EYXJpzx33r3Ape3xFHaGblEYrcu6OV5llaP5V6cyWdkLa3ocb55OI9vGV8aWUSq3VKZ6l-TuktnqZHqwxL6cX30Y_dRScE_NrAB709iAGpMbV-zb35a25DtlRNBnSVL63Q-NUafEzfKgUW4"/>
+</div>
+<div class="flex-1">
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Full Stack Developer</h3>
+<div class="flex items-center gap-sm mt-xs">
+<span class="font-title-sm text-body-md font-bold">Razorpay</span>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-mono-label">4.8</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-md mt-md text-on-surface-variant font-body-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                    Bengaluru (HSR Layout)
+                                </div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">work</span>
+                                    2-5 Years
+                                </div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+                                    ₹22 - 35 LPA
+                                </div>
+</div>
+<div class="flex flex-wrap gap-xs mt-md">
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-0.5 rounded-lg text-xs font-medium">React</span>
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-0.5 rounded-lg text-xs font-medium">Node.js</span>
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-0.5 rounded-lg text-xs font-medium">AWS</span>
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-0.5 rounded-lg text-xs font-medium">Redis</span>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-sm mt-md pt-md border-t border-outline-variant/10">
+<button class="flex items-center gap-xs font-title-sm text-outline-variant hover:text-error transition-colors px-md">
+<span class="material-symbols-outlined">bookmark</span>
+                            Save
+                        </button>
+<button class="bg-primary-container text-on-primary px-xl py-xs rounded-lg font-title-sm hover:opacity-90 active:scale-95 transition-all">Apply Now</button>
+</div>
+</div>
+<!-- Card 2: Google [Premium] -->
+<div class="job-card bg-surface-container-lowest p-md rounded-xl border border-outline-variant/20 soft-sharp-shadow transition-all group relative">
+<span class="absolute top-md right-md bg-inverse-surface text-on-primary font-mono-label text-xs px-sm py-0.5 rounded-full uppercase font-bold tracking-tight">Premium</span>
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center border border-outline-variant/10 overflow-hidden shrink-0">
+<img alt="Google Logo" data-alt="A clean, corporate representation of the Google brand within a professional UI card. The image uses high-key, soft white lighting and focus on high-performance industrial design. The colors are centered around a minimal, enterprise-grade palette of white, grey, and subtle primary accents, reflecting a decisive and premium technological environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnw7voVhtmfa2MPtBz5xavQ7xVCCfe5ik-V8o4CGD-xULENK1tochSc0DkTl8VMaF5h4F_FS4MJW2YHEijYbgyXxb0FcjgB_b2ZILN1eoVbYpIpCofdMt3WwX1aVy9NZ-oW9EQsoGxZccjb_BLcdsiKT-r-i8seN8hXD7SPh-RFC2MGsYC6zX4ZGpN15DCUvipzk4JN0xRhq7hVKKglHYnuJLWAKSAdg_z0fkZmAevkt0csKUhnLuDBl2n1osyfuCNmj7N__zkB3E"/>
+</div>
+<div class="flex-1">
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">SDE III (Cloud Platform)</h3>
+<div class="flex items-center gap-sm mt-xs">
+<span class="font-title-sm text-body-md font-bold">Google</span>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-mono-label">4.9</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-md mt-md text-on-surface-variant font-body-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                    Bengaluru (Whitefield)
+                                </div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">work</span>
+                                    5-8 Years
+                                </div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+                                    ₹45 - 65 LPA
+                                </div>
+</div>
+<div class="flex flex-wrap gap-xs mt-md">
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-0.5 rounded-lg text-xs font-medium">Go</span>
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-0.5 rounded-lg text-xs font-medium">Kubernetes</span>
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-0.5 rounded-lg text-xs font-medium">Distributed Systems</span>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-sm mt-md pt-md border-t border-outline-variant/10">
+<button class="flex items-center gap-xs font-title-sm text-outline-variant hover:text-error transition-colors px-md">
+<span class="material-symbols-outlined">bookmark</span>
+                            Save
+                        </button>
+<button class="bg-primary-container text-on-primary px-xl py-xs rounded-lg font-title-sm hover:opacity-90 active:scale-95 transition-all">Apply Now</button>
+</div>
+</div>
+<!-- Card 3: TCS Digital -->
+<div class="job-card bg-surface-container-lowest p-md rounded-xl border border-outline-variant/20 soft-sharp-shadow transition-all group">
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center border border-outline-variant/10 overflow-hidden shrink-0">
+<img alt="TCS Logo" data-alt="A sleek glass facade of a modern corporate skyscraper at dawn. The image captures sharp architectural lines and a professional, industrial vibe. The color palette is dominated by cool blues and silver-greys, reflecting a stable and high-performance corporate environment, suitable for a legacy technology enterprise like TCS." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBMk7Ly3MzBBcUxSEnVtxtXsa05WJS5nZi9wHo9jgnMEkpDpqk0hURwY2Sp1D6UPjbzcd0SaCavC1QOgeju7yIbjki7JV0LiwpAWMuxrf2zfIT6r1lywbi4IlC7KwQPk-cgMPB7UKJUr6JEYNgx7xWQiQjdbccPXXYvFSa0WCgCCT-VYR31gmTJrYJHZCyyAtaPGqUeZnsmd4ypa22dCE5lv9jwOGo61pjjcHMz_cyL6AUGftfv15a6hvNYRN6lPntIAq8e9Kcais"/>
+</div>
+<div class="flex-1">
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Senior SDE (Digital Transformation)</h3>
+<div class="flex items-center gap-sm mt-xs">
+<span class="font-title-sm text-body-md font-bold">TCS Digital</span>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-mono-label">4.1</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-md mt-md text-on-surface-variant font-body-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                    Bengaluru (Electronic City)
+                                </div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">work</span>
+                                    4-7 Years
+                                </div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+                                    ₹18 - 28 LPA
+                                </div>
+</div>
+<div class="flex flex-wrap gap-xs mt-md">
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-0.5 rounded-lg text-xs font-medium">Java</span>
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-0.5 rounded-lg text-xs font-medium">Spring Boot</span>
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-0.5 rounded-lg text-xs font-medium">Microservices</span>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-sm mt-md pt-md border-t border-outline-variant/10">
+<button class="flex items-center gap-xs font-title-sm text-outline-variant hover:text-error transition-colors px-md">
+<span class="material-symbols-outlined">bookmark</span>
+                            Save
+                        </button>
+<button class="bg-primary-container text-on-primary px-xl py-xs rounded-lg font-title-sm hover:opacity-90 active:scale-95 transition-all">Apply Now</button>
+</div>
+</div>
+<!-- Card 4: Zepto -->
+<div class="job-card bg-surface-container-lowest p-md rounded-xl border border-outline-variant/20 soft-sharp-shadow transition-all group">
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center border border-outline-variant/10 overflow-hidden shrink-0">
+<img alt="Zepto Logo" data-alt="Close-up of a high-tech server component or circuit board with glowing light trails. The style is fast-paced, digital, and modern, utilizing a color palette of deep navy and neon blue accents. The lighting is crisp and dynamic, representing the high-speed operational efficiency of a quick-commerce unicorn like Zepto." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvsjLWo4sQ55tIa6puLHWjoCfxX62KvskKiexJue0WUrS-d101O3YNuPnyAZ_4stXaD3afc2IOlE5nIqG_hodcz0PvaCuMY618W6xUTlJNpnCD569Cgpj88IPJmQ9GssNyHqgDsw6WGrmJNBkVnpTwiNPaoZqv-0VBvJZcGhKhI_VFd36H5Xrz8pkhpaDbh5S9Ptz0DcaORI_ddnvwP-z9ejj0M4w-V9BXHTKQq3QcCUWn5diDvI4dGl7WpAGRnseInX7CHkmC9mg"/>
+</div>
+<div class="flex-1">
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Backend Engineer</h3>
+<div class="flex items-center gap-sm mt-xs">
+<span class="font-title-sm text-body-md font-bold">Zepto</span>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-mono-label">4.4</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-md mt-md text-on-surface-variant font-body-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                    Bengaluru (Remote Friendly)
+                                </div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">work</span>
+                                    3-5 Years
+                                </div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+                                    ₹30 - 45 LPA
+                                </div>
+</div>
+<div class="flex flex-wrap gap-xs mt-md">
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-0.5 rounded-lg text-xs font-medium">Python</span>
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-0.5 rounded-lg text-xs font-medium">FastAPI</span>
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-0.5 rounded-lg text-xs font-medium">PostgreSQL</span>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-sm mt-md pt-md border-t border-outline-variant/10">
+<button class="flex items-center gap-xs font-title-sm text-outline-variant hover:text-error transition-colors px-md">
+<span class="material-symbols-outlined">bookmark</span>
+                            Save
+                        </button>
+<button class="bg-primary-container text-on-primary px-xl py-xs rounded-lg font-title-sm hover:opacity-90 active:scale-95 transition-all">Apply Now</button>
+</div>
+</div>
+<!-- Repeatable job cards for density (Placeholder data for cards 5-8) -->
+<div class="job-card bg-surface-container-lowest p-md rounded-xl border border-outline-variant/20 soft-sharp-shadow transition-all group">
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center border border-outline-variant/10 shrink-0">
+<span class="material-symbols-outlined text-outline text-[32px]">apartment</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Senior Product Engineer</h3>
+<div class="flex items-center gap-sm mt-xs">
+<span class="font-title-sm text-body-md font-bold">Zomato</span>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-mono-label">4.5</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-md mt-md text-on-surface-variant font-body-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                    Bengaluru
+                                </div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">work</span>
+                                    4-6 Years
+                                </div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+                                    ₹35 - 50 LPA
+                                </div>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-sm mt-md pt-md border-t border-outline-variant/10">
+<button class="bg-primary-container text-on-primary px-xl py-xs rounded-lg font-title-sm hover:opacity-90 transition-all">Apply Now</button>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center items-center gap-sm mt-lg">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">3</button>
+<span class="px-xs text-outline">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">48</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- RIGHT RAIL PROMO (240px approx) -->
+<aside class="col-span-3">
+<div class="sticky top-[96px] flex flex-col gap-lg">
+<!-- Resume Score Widget -->
+<div class="bg-surface-container-lowest rounded-xl p-md soft-sharp-shadow border border-outline-variant/20">
+<h3 class="font-title-sm text-title-sm text-on-surface mb-md text-center">Resume Score</h3>
+<div class="relative w-32 h-32 mx-auto mb-md">
+<!-- SVG Gauge Circle -->
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-high" cx="64" cy="64" fill="transparent" r="56" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="64" cy="64" fill="transparent" r="56" stroke="currentColor" stroke-dasharray="351.85" stroke-dashoffset="98.5" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display-md text-[32px] text-on-surface leading-none">72%</span>
+<span class="font-body-sm text-on-surface-variant">Good</span>
+</div>
+</div>
+<p class="font-body-sm text-center text-on-surface-variant mb-md">Your resume is strong, but you can improve it by 15% with professional keywords.</p>
+<button class="w-full border border-primary text-primary py-xs rounded-lg font-title-sm hover:bg-primary/5 transition-colors">Upgrade Resume</button>
+</div>
+<!-- Set Job Alert -->
+<div class="bg-surface-container-lowest rounded-xl p-md soft-sharp-shadow border border-outline-variant/20">
+<div class="flex items-center gap-sm mb-sm text-primary">
+<span class="material-symbols-outlined">notifications_active</span>
+<h3 class="font-title-sm text-title-sm text-on-surface">Set Job Alert</h3>
+</div>
+<p class="font-body-sm text-on-surface-variant mb-md">Get notified instantly for "Software Engineer" roles in "Bengaluru".</p>
+<button class="w-full bg-on-surface text-surface-container-lowest py-xs rounded-lg font-title-sm hover:opacity-90 active:scale-95 transition-all">Activate Alert</button>
+</div>
+<!-- Premium Upgrade -->
+<div class="relative overflow-hidden rounded-xl p-md soft-sharp-shadow border border-outline-variant/10 text-on-primary" style="background: linear-gradient(135deg, #004bc9 0%, #2950ce 100%);">
+<!-- Subtle background pattern effect -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+<div class="relative z-10">
+<div class="bg-white/20 w-max px-sm py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest mb-sm">Exclusive Tier</div>
+<h3 class="font-headline-sm text-xl mb-xs">Martin Connect Premium</h3>
+<p class="font-body-sm text-on-primary/80 mb-md">Get priority listing, direct access to recruiters, and salary benchmarking tools.</p>
+<button class="w-full bg-white text-primary py-xs rounded-lg font-title-sm hover:bg-opacity-90 transition-all">Upgrade Now</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md soft-sharp-shadow border border-outline-variant/20">
+<h3 class="font-title-sm text-title-sm text-on-surface mb-sm">Recently Viewed</h3>
+<div class="flex flex-col gap-md">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded bg-surface-container shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px] text-outline">work</span>
+</div>
+<div>
+<p class="font-body-sm font-bold truncate w-32">Senior UI Designer</p>
+<p class="font-mono-label text-[10px] text-on-surface-variant">CRED • Bengaluru</p>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded bg-surface-container shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px] text-outline">work</span>
+</div>
+<div>
+<p class="font-body-sm font-bold truncate w-32">Lead SDE</p>
+<p class="font-mono-label text-[10px] text-on-surface-variant">Flipkart • Bengaluru</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface text-on-primary border-t border-outline-variant mt-xxl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl px-lg py-xxl w-full max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<span class="font-title-sm text-title-sm font-bold text-on-primary block mb-md">Martin Connect</span>
+<p class="font-body-sm text-outline-variant leading-relaxed">The industrial standard in high-performance recruitment. Precise. Decisive. Professional.</p>
+</div>
+<div>
+<h4 class="font-title-sm text-sm font-bold uppercase tracking-widest mb-md">Job Seekers</h4>
+<ul class="flex flex-col gap-sm font-body-sm text-outline-variant">
+<li><a class="hover:text-on-primary hover:underline transition-all" href="#">Browse Jobs</a></li>
+<li><a class="hover:text-on-primary hover:underline transition-all" href="#">Salary Guide</a></li>
+<li><a class="hover:text-on-primary hover:underline transition-all" href="#">Resume Builder</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-title-sm text-sm font-bold uppercase tracking-widest mb-md">Employers</h4>
+<ul class="flex flex-col gap-sm font-body-sm text-outline-variant">
+<li><a class="hover:text-on-primary hover:underline transition-all" href="#">Post a Job</a></li>
+<li><a class="hover:text-on-primary hover:underline transition-all" href="#">Candidate Search</a></li>
+<li><a class="hover:text-on-primary hover:underline transition-all" href="#">Enterprise Solutions</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-title-sm text-sm font-bold uppercase tracking-widest mb-md">Company</h4>
+<ul class="flex flex-col gap-sm font-body-sm text-outline-variant">
+<li><a class="hover:text-on-primary hover:underline transition-all" href="#">About Us</a></li>
+<li><a class="hover:text-on-primary hover:underline transition-all" href="#">Terms of Service</a></li>
+<li><a class="hover:text-on-primary hover:underline transition-all" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 py-lg px-lg text-center">
+<p class="font-body-sm text-outline-variant">© 2024 Martin Connect. Precise. Decisive. Industrial.</p>
+</div>
+</footer>
+<script>
+        // Simple interactivity for demonstration
+        document.querySelectorAll('.job-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('scale-[1.01]');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('scale-[1.01]');
+            });
+        });
+
+        // Toggle Bookmark state micro-interaction
+        document.querySelectorAll('.material-symbols-outlined').forEach(icon => {
+            if (icon.innerText === 'bookmark') {
+                icon.parentElement.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (icon.style.fontVariationSettings.includes("'FILL' 1")) {
+                        icon.style.fontVariationSettings = "'FILL' 0";
+                        icon.classList.remove('text-primary');
+                        icon.classList.add('text-outline-variant');
+                    } else {
+                        icon.style.fontVariationSettings = "'FILL' 1";
+                        icon.classList.remove('text-outline-variant');
+                        icon.classList.add('text-primary');
+                    }
+                });
+            }
+        });
+    </script>
+</body></html>

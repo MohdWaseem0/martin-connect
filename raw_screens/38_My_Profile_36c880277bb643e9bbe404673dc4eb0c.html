@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Arjun Mehta - Profile | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .profile-strength-ring {
+            background: conic-gradient(from 0deg, #1E63F3 0% 72%, #E8EEF7 72% 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#cfe5ff",
+                      "tertiary-container": "#0073b5",
+                      "on-secondary-container": "#fffbff",
+                      "error": "#ba1a1a",
+                      "on-background": "#121b30",
+                      "background": "#faf8ff",
+                      "primary-container": "#1e63f3",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#0038b7",
+                      "tertiary-fixed-dim": "#98cbff",
+                      "tertiary": "#005a8f",
+                      "on-primary-fixed": "#00174b",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#dae2ff",
+                      "outline": "#737687",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed-dim": "#b7c4ff",
+                      "secondary-fixed": "#dde1ff",
+                      "on-tertiary-fixed": "#001d33",
+                      "on-tertiary": "#ffffff",
+                      "on-surface": "#121b30",
+                      "inverse-primary": "#b4c5ff",
+                      "surface-tint": "#0053db",
+                      "outline-variant": "#c3c6d8",
+                      "secondary-container": "#476ae9",
+                      "primary-fixed": "#dbe1ff",
+                      "primary": "#004bc9",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-dim": "#d1d9f6",
+                      "on-tertiary-container": "#ebf3ff",
+                      "on-surface-variant": "#424655",
+                      "surface-container": "#eaedff",
+                      "inverse-surface": "#273046",
+                      "secondary": "#2950ce",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#f1f1ff",
+                      "surface-container-highest": "#dae2ff",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "surface-container-low": "#f2f3ff",
+                      "on-secondary-fixed": "#001452",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "inverse-on-surface": "#eef0ff",
+                      "on-error": "#ffffff",
+                      "surface-container-high": "#e2e7ff",
+                      "surface": "#faf8ff",
+                      "on-tertiary-fixed-variant": "#004a77",
+                      "surface-bright": "#faf8ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xxl": "48px",
+                      "md": "16px",
+                      "xl": "32px",
+                      "lg": "24px",
+                      "gutter": "24px",
+                      "unit": "4px",
+                      "sm": "8px",
+                      "sidebar-width": "260px",
+                      "xs": "4px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "mono-label": ["IBM Plex Mono"],
+                      "body-sm": ["DM Sans"],
+                      "headline-lg-mobile": ["DM Sans"],
+                      "display-lg": ["DM Sans"],
+                      "title-lg": ["DM Sans"],
+                      "display-md": ["DM Sans"],
+                      "title-sm": ["DM Sans"],
+                      "title-md": ["DM Sans"],
+                      "body-md": ["DM Sans"],
+                      "body-lg": ["DM Sans"],
+                      "headline-md": ["DM Sans"],
+                      "headline-lg": ["DM Sans"],
+                      "headline-sm": ["DM Sans"]
+              },
+              "fontSize": {
+                      "mono-label": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                      "body-sm": ["12px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "title-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "display-md": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                      "title-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full w-sidebar-width bg-inverse-surface text-on-primary flex flex-col py-lg gap-sm border-r border-outline-variant z-50">
+<div class="px-md mb-xl">
+<h1 class="font-title-lg text-title-lg font-bold text-on-primary">Martin Connect</h1>
+<p class="font-body-sm text-body-sm text-outline-variant opacity-80">Recruiter Portal • Premium</p>
+</div>
+<nav class="flex-1 flex flex-col gap-sm">
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm transition-all hover:bg-on-surface-variant/20" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm transition-all hover:bg-on-surface-variant/20" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-body-md text-body-md">Jobs</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm transition-all hover:bg-on-surface-variant/20" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Talent Pool</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm transition-all hover:bg-on-surface-variant/20" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<span class="font-body-md text-body-md">Interviews</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm transition-all hover:bg-on-surface-variant/20" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-body-md text-body-md">Messages</span>
+</a>
+<a class="flex items-center gap-md bg-secondary text-on-primary rounded-xl px-md py-sm mx-sm shadow-sm transition-transform active:translate-x-1" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-body-md text-body-md">My Profile</span>
+</a>
+</nav>
+<div class="mt-auto px-sm flex flex-col gap-sm">
+<button class="bg-primary-container text-on-primary py-sm rounded-xl font-body-md font-bold mx-sm mb-md hover:bg-primary transition-colors">
+                Upgrade Plan
+            </button>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md text-body-md">Help Center</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md text-body-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-sidebar-width min-h-screen">
+<!-- Top Bar -->
+<header class="h-[72px] bg-white border-b border-outline-variant flex items-center justify-between px-lg sticky top-0 z-40">
+<div class="flex items-center gap-md">
+<span class="font-body-sm text-body-sm text-outline">Candidates / Arjun Mehta /</span>
+<span class="font-title-sm text-title-sm font-bold">Profile Settings</span>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md text-outline-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">settings</span>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-sm">
+<div class="text-right">
+<p class="font-body-sm text-body-sm font-bold leading-none">Arjun Mehta</p>
+<p class="font-body-sm text-body-sm text-outline">Sr. Software Engineer</p>
+</div>
+<img alt="Arjun Mehta" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary/20" data-alt="A professional portrait of a male software engineer with short dark hair and a confident expression, wearing a tailored navy blazer over a light grey shirt. The background is a blurred office environment with soft morning light, creating a professional and focused atmosphere. High-resolution corporate photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfnOYfLEqbh6tMIKjLM4eSHMbkzUXnbOuUplvo3379c3aXaA8leg6E_GJ5wp7EMKoZ7k3Rx9TexIN__7YWJSL-853xbiNJ72hUtMJy21w6lX7nMplQ6lRof0rxttqbFWkL7ItL2YdXNvTO2a3-ucr_cTdZDSTrUuErv-0F_Bp0RsAT0qdNC5KEYcEJrh09AFxgVHac_mKpL-Hn_ylX8OKOzdiLlg_yCBcc-VFPRhlXI7uy8Hb3MnzDB5KlpuMRU6l6XQL8o0YNoLM"/>
+</div>
+</div>
+</header>
+<div class="max-w-container-max mx-auto p-lg">
+<!-- Profile Header Card -->
+<div class="bg-white rounded-xl border border-outline-variant p-lg shadow-[0px_2px_4px_rgba(8,17,38,0.05),0px_1px_2px_rgba(8,17,38,0.1)] mb-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-lg">
+<div class="flex items-center gap-xl">
+<!-- Profile Strength Ring -->
+<div class="relative flex items-center justify-center">
+<div class="w-24 h-24 rounded-full profile-strength-ring p-1">
+<div class="bg-white w-full h-full rounded-full p-1">
+<img alt="Arjun Mehta" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi29CZVI0Lfk_RM4Gm5okUcloyvrQ_pEC_F8YolIUZw3_tL1Zd6Z190aY1cHjDm0_ykvs2vCHIQC2PXG1Smyr4m_DwTxlauF_5ej-Pt8fCiSfhQa250welM2Lsc6dvGSVLVVT6cCeCudeQcVICvEwl7FncuGcr44QftQkKiz1QIBJDwthWl8Bh1zQhBfTlokshGbi8ZDdImq4iLdHCsmHcFrTKFP7NxE4TpqjGlM9RWFj32cXTAxzt1RVi4KeYtYFFIyh8G2YktsA"/>
+</div>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-primary text-on-primary text-[10px] font-bold px-2 py-1 rounded-full border-2 border-white">
+                                72%
+                            </div>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm mb-xs">Arjun Mehta</h2>
+<p class="font-title-sm text-title-sm text-outline font-normal mb-sm">Senior Software Engineer</p>
+<div class="flex flex-wrap gap-md items-center">
+<span class="flex items-center gap-xs text-body-sm font-body-sm text-outline">
+<span class="material-symbols-outlined text-[18px]">location_on</span> Bengaluru, India
+                                </span>
+<span class="flex items-center gap-xs text-body-sm font-body-sm text-outline">
+<span class="material-symbols-outlined text-[18px]">verified</span> Verified Profile
+                                </span>
+<div class="flex items-center gap-sm bg-surface-container-low px-md py-1 rounded-full border border-outline-variant">
+<span class="font-body-sm text-body-sm font-bold text-secondary">Open to Work</span>
+<div class="w-8 h-4 bg-green-500 rounded-full relative cursor-pointer shadow-inner">
+<div class="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full shadow-sm"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-md">
+<button class="px-lg py-sm border border-primary text-primary font-bold rounded-lg hover:bg-primary/5 transition-colors">
+                            Download CV
+                        </button>
+<button class="px-lg py-sm bg-primary text-on-primary font-bold rounded-lg hover:bg-primary-container transition-colors shadow-sm active:scale-95 transition-transform">
+                            Edit Profile
+                        </button>
+</div>
+</div>
+</div>
+<!-- Tab Navigation -->
+<div class="flex items-center gap-xl border-b border-outline-variant mb-lg overflow-x-auto whitespace-nowrap scrollbar-hide">
+<button class="tab-btn active border-b-2 border-primary text-primary font-bold pb-md px-1 transition-all" onclick="switchTab('personal')">Personal</button>
+<button class="tab-btn text-outline-variant hover:text-on-surface font-medium pb-md px-1 transition-all" onclick="switchTab('experience')">Experience</button>
+<button class="tab-btn text-outline-variant hover:text-on-surface font-medium pb-md px-1 transition-all" onclick="switchTab('education')">Education</button>
+<button class="tab-btn text-outline-variant hover:text-on-surface font-medium pb-md px-1 transition-all" onclick="switchTab('skills')">Skills</button>
+<button class="tab-btn text-outline-variant hover:text-on-surface font-medium pb-md px-1 transition-all" onclick="switchTab('resume')">Resume</button>
+<button class="text-outline-variant hover:text-on-surface font-medium pb-md px-1 transition-all">Certifications</button>
+<button class="text-outline-variant hover:text-on-surface font-medium pb-md px-1 transition-all">Portfolio</button>
+<button class="text-outline-variant hover:text-on-surface font-medium pb-md px-1 transition-all">Languages</button>
+</div>
+<!-- Tab Content -->
+<div class="tab-pane" id="personal-content">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Form Side -->
+<div class="lg:col-span-2 space-y-lg">
+<section class="bg-white rounded-xl border border-outline-variant p-lg shadow-[0px_2px_4px_rgba(8,17,38,0.05)]">
+<h3 class="font-title-md text-title-md mb-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">person</span> Basic Information
+                            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-sm">
+<label class="block font-body-sm text-body-sm font-bold text-on-surface">Full Name</label>
+<input class="w-full h-11 px-md border border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="text" value="Arjun Mehta"/>
+</div>
+<div class="space-y-sm">
+<label class="block font-body-sm text-body-sm font-bold text-on-surface">Email Address</label>
+<div class="relative">
+<input class="w-full h-11 px-md border border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="email" value="arjun.mehta@devmail.com"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-green-600" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<div class="space-y-sm">
+<label class="block font-body-sm text-body-sm font-bold text-on-surface">Phone Number</label>
+<div class="relative">
+<input class="w-full h-11 px-md border border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="text" value="+91 98765 43210"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-green-600" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<div class="space-y-sm">
+<label class="block font-body-sm text-body-sm font-bold text-on-surface">Date of Birth</label>
+<input class="w-full h-11 px-md border border-outline-variant rounded-lg" type="text" value="12 April 1996"/>
+</div>
+<div class="space-y-sm">
+<label class="block font-body-sm text-body-sm font-bold text-on-surface">Gender</label>
+<select class="w-full h-11 px-md border border-outline-variant rounded-lg">
+<option selected="">Male</option>
+<option>Female</option>
+<option>Prefer not to say</option>
+</select>
+</div>
+<div class="space-y-sm">
+<label class="block font-body-sm text-body-sm font-bold text-on-surface">Current Location</label>
+<input class="w-full h-11 px-md border border-outline-variant rounded-lg" type="text" value="Bengaluru, KA"/>
+</div>
+</div>
+</section>
+<section class="bg-white rounded-xl border border-outline-variant p-lg shadow-[0px_2px_4px_rgba(8,17,38,0.05)]">
+<h3 class="font-title-md text-title-md mb-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">currency_rupee</span> Career Details
+                            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-sm">
+<label class="block font-body-sm text-body-sm font-bold text-on-surface">Total Experience</label>
+<input class="w-full h-11 px-md border border-outline-variant rounded-lg" type="text" value="4 Years"/>
+</div>
+<div class="space-y-sm">
+<label class="block font-body-sm text-body-sm font-bold text-on-surface">Notice Period</label>
+<input class="w-full h-11 px-md border border-outline-variant rounded-lg" type="text" value="30 Days"/>
+</div>
+<div class="space-y-sm">
+<label class="block font-body-sm text-body-sm font-bold text-on-surface">Current CTC</label>
+<input class="w-full h-11 px-md border border-outline-variant rounded-lg font-mono-label text-mono-label" type="text" value="₹14 LPA"/>
+</div>
+<div class="space-y-sm">
+<label class="block font-body-sm text-body-sm font-bold text-on-surface">Expected CTC</label>
+<input class="w-full h-11 px-md border border-outline-variant rounded-lg font-mono-label text-mono-label" type="text" value="₹20-24 LPA"/>
+</div>
+</div>
+<div class="mt-lg space-y-sm">
+<label class="block font-body-sm text-body-sm font-bold text-on-surface">About Me</label>
+<textarea class="w-full p-md border border-outline-variant rounded-lg resize-none" rows="4">Product-focused Senior Software Engineer with 4 years of experience building scalable backend microservices and high-performance frontend interfaces. Passionate about system design and cloud architecture.</textarea>
+</div>
+</section>
+</div>
+<!-- Side Stats/Links -->
+<div class="space-y-lg">
+<section class="bg-white rounded-xl border border-outline-variant p-lg shadow-[0px_2px_4px_rgba(8,17,38,0.05)]">
+<h3 class="font-title-sm text-title-sm mb-lg">Social Connections</h3>
+<div class="space-y-md">
+<a class="flex items-center justify-between p-md border border-outline-variant rounded-lg hover:border-primary transition-colors group" href="#">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-blue-50 flex items-center justify-center rounded-lg">
+<img alt="LinkedIn" class="w-6 h-6 grayscale group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTKH0ayqfaOTU7IbIu8NFZMAN1drImnsuXtYrnHgWiNldF38agWESFw0O3G0RPX6WOqF5xscoJ3M9cXVSdJGecwI5kYGD83vNsLHZEjhVx8ruEwJmovN9GBCv2uw8hnStdeX_qlThgY1vwQN-ihierlVgSf2B4Y9e1mD3fQsZDda30CgfYW76aDMNdCLcwoXQuJnfPI4dXN-oVOds3XQVg7gQpcrxqA2AlpuNkx3wwcLt4_YB_QfOQsJ4xJwu1jhcYMjkCbZkgtH8"/>
+</div>
+<div>
+<p class="font-body-md text-body-md font-bold">LinkedIn</p>
+<p class="font-body-sm text-body-sm text-outline">Connected</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">open_in_new</span>
+</a>
+<a class="flex items-center justify-between p-md border border-outline-variant rounded-lg hover:border-primary transition-colors group" href="#">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-gray-100 flex items-center justify-center rounded-lg">
+<img alt="GitHub" class="w-6 h-6 grayscale group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPU0Zh6v2770R1Ze-hZsh8UbfFGhCjN96MTn0_T23xd0llEfSh2hyAOG2NaFgJ_QInpXlIhzBRQif1aEjK2bLJlkF34RbCFwDoG47Kj2xUaZzrRdlEDNOClTSyUjRdaFPek2NLHL2NdKkZajo2yCqb5LGW0y98OcAHQxxSz4bNkKlq505zPXJOO-TAD-iFv0629O9onoNQ0JjgcUocDrOfAbYyg5uRvIchMM_plahtyVc8Ym0jXelglWMz_ok3ew1kiaPzXtwkB0k"/>
+</div>
+<div>
+<p class="font-body-md text-body-md font-bold">GitHub</p>
+<p class="font-body-sm text-body-sm text-outline">Connected</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">open_in_new</span>
+</a>
+</div>
+</section>
+<section class="bg-primary text-on-primary rounded-xl p-lg shadow-lg relative overflow-hidden">
+<div class="absolute -right-8 -bottom-8 opacity-10">
+<span class="material-symbols-outlined text-[120px]">bolt</span>
+</div>
+<h3 class="font-title-sm text-title-sm mb-sm">Profile Visibility</h3>
+<p class="font-body-sm text-body-sm opacity-80 mb-lg">Your profile is visible to 400+ premium recruiters in the industrial tech sector.</p>
+<div class="space-y-md">
+<div class="flex justify-between items-center text-body-sm">
+<span>Profile Views (30d)</span>
+<span class="font-bold">124</span>
+</div>
+<div class="w-full bg-white/20 h-1.5 rounded-full">
+<div class="w-[60%] bg-white h-full rounded-full shadow-[0_0_8px_rgba(255,255,255,0.5)]"></div>
+</div>
+<div class="flex justify-between items-center text-body-sm">
+<span>Search Appearances</span>
+<span class="font-bold">2.1k</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<!-- Experience Tab Content (Hidden by default) -->
+<div class="tab-pane hidden" id="experience-content">
+<div class="bg-white rounded-xl border border-outline-variant p-lg shadow-[0px_2px_4px_rgba(8,17,38,0.05)]">
+<div class="flex justify-between items-center mb-xl">
+<h3 class="font-title-md text-title-md">Work Experience</h3>
+<button class="flex items-center gap-xs text-primary font-bold hover:underline">
+<span class="material-symbols-outlined">add</span> Add Experience
+                        </button>
+</div>
+<div class="relative space-y-xl pl-8 before:content-[''] before:absolute before:left-[15px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant">
+<!-- Entry 1 -->
+<div class="relative group">
+<div class="absolute -left-[25px] top-1 w-[12px] h-[12px] rounded-full bg-primary ring-4 ring-white"></div>
+<div class="flex gap-lg">
+<div class="w-14 h-14 bg-surface-container-low rounded-lg border border-outline-variant flex items-center justify-center p-2 shrink-0">
+<img alt="TCS Logo" class="max-w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQenHlEH1_YpMQHgTjXgGa_3CKIfAsNF0RZcf1ge-nF8wVOLSi-CnNbSyIkmJWv7sHpQSSG1aXno7Aw7VYbbpcSXbYL_M2Kh-60EIRl0IDhHhgVUHJyTlhOWCowr3YckVTDYaQ_-pIEnUAukMbEtDjALkYK8mk5vbLLEjNykej4aCX6vsmh_V_b-GAxJaOHhP13BRL9jmKAXvTNhkbWFU39AmiSYqsaIvF86-LhMHGpXs8SD53ZCftQ9n9-PCOL574pM_cf_2yAWU"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h4 class="font-title-sm text-title-sm">Senior Software Engineer</h4>
+<span class="font-mono-label text-mono-label text-outline">Oct 2022 - Present</span>
+</div>
+<p class="text-secondary font-bold font-body-md mb-md">Tata Consultancy Services (TCS)</p>
+<p class="text-on-surface-variant font-body-md mb-lg leading-relaxed">Lead developer for high-traffic payment gateway microservices. Managed AWS infrastructure and Dockerized deployment workflows.</p>
+<div class="flex flex-wrap gap-sm">
+<span class="px-md py-1 bg-surface-container-low border border-outline-variant rounded-full text-body-sm font-mono-label">Microservices</span>
+<span class="px-md py-1 bg-surface-container-low border border-outline-variant rounded-full text-body-sm font-mono-label">AWS</span>
+<span class="px-md py-1 bg-surface-container-low border border-outline-variant rounded-full text-body-sm font-mono-label">Docker</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="relative group">
+<div class="absolute -left-[25px] top-1 w-[12px] h-[12px] rounded-full bg-outline-variant ring-4 ring-white"></div>
+<div class="flex gap-lg">
+<div class="w-14 h-14 bg-surface-container-low rounded-lg border border-outline-variant flex items-center justify-center p-2 shrink-0">
+<img alt="Wipro Logo" class="max-w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd1DC4n0u7PUX_2prjGpgHvMXHUQuNFmItz4fPOSjY16d45QHcGEMWMnfFVQrN3_kIroAGZY4v8NTHs1si-D6r_nl83411ecfj-ywTdE5cS204pRelewHlpQI3nBUzSD5tPAxNPfj7NEuBhAzXOzjQXiKn3X3Dsl212AhJ9IkcWz1cBgA5ARHrldr6zHKnEJDK53fGbqWpiWxF3usLfy8gPAQUYeNaGCLedNxggtHTD4X9k31IOYk_pM8m5LvQx4oIP50fWD1PazE"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h4 class="font-title-sm text-title-sm font-normal">Software Engineer</h4>
+<span class="font-mono-label text-mono-label text-outline">Jun 2020 - Sep 2022</span>
+</div>
+<p class="text-on-surface-variant font-bold font-body-md mb-md">Wipro Technologies</p>
+<p class="text-on-surface-variant font-body-md mb-lg leading-relaxed">Built responsive dashboard interfaces for fintech clients using React.js and Node.js backend. Optimized query performance by 40%.</p>
+<div class="flex flex-wrap gap-sm">
+<span class="px-md py-1 bg-surface-container-low border border-outline-variant rounded-full text-body-sm font-mono-label">React</span>
+<span class="px-md py-1 bg-surface-container-low border border-outline-variant rounded-full text-body-sm font-mono-label">Node.js</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Skills Tab Content (Hidden by default) -->
+<div class="tab-pane hidden" id="skills-content">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Skill Card -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant hover:border-primary transition-all group">
+<div class="flex justify-between items-center mb-md">
+<h4 class="font-title-sm text-title-sm">Python</h4>
+<span class="px-md py-1 bg-green-100 text-green-700 text-[10px] font-bold uppercase rounded-full">Expert</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full mb-md">
+<div class="w-[95%] bg-primary h-full rounded-full"></div>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Data processing, Django, Flask, Automation.</p>
+</div>
+<!-- Skill Card -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant hover:border-primary transition-all group">
+<div class="flex justify-between items-center mb-md">
+<h4 class="font-title-sm text-title-sm">React.js</h4>
+<span class="px-md py-1 bg-green-100 text-green-700 text-[10px] font-bold uppercase rounded-full">Expert</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full mb-md">
+<div class="w-[90%] bg-primary h-full rounded-full"></div>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Redux, Context API, Hooks, Performance.</p>
+</div>
+<!-- Skill Card -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant hover:border-primary transition-all group">
+<div class="flex justify-between items-center mb-md">
+<h4 class="font-title-sm text-title-sm">Node.js</h4>
+<span class="px-md py-1 bg-blue-100 text-blue-700 text-[10px] font-bold uppercase rounded-full">Advanced</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full mb-md">
+<div class="w-[85%] bg-primary h-full rounded-full"></div>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Express, NestJS, Event Loop, Scaling.</p>
+</div>
+</div>
+</div>
+<!-- Resume Tab Content (Hidden by default) -->
+<div class="tab-pane hidden" id="resume-content">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+<section class="bg-white rounded-xl border border-outline-variant p-lg shadow-[0px_2px_4px_rgba(8,17,38,0.05)]">
+<h3 class="font-title-md text-title-md mb-lg">Resume Document</h3>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-xxl text-center hover:border-primary transition-colors cursor-pointer mb-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-[48px] text-outline mb-md">cloud_upload</span>
+<p class="font-title-sm text-title-sm mb-xs">Drag and drop files here</p>
+<p class="font-body-sm text-body-sm text-outline">PDF, DOCX, maximum 5MB</p>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-lg border border-outline-variant">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-red-100 flex items-center justify-center rounded text-red-600">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-bold">Arjun_Mehta_Resume_2024.pdf</p>
+<p class="font-body-sm text-body-sm text-outline">248 KB • Uploaded 2 days ago</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="material-symbols-outlined text-outline hover:text-primary">visibility</button>
+<button class="material-symbols-outlined text-outline hover:text-error">delete</button>
+</div>
+</div>
+</section>
+<section class="bg-white rounded-xl border border-outline-variant p-lg shadow-[0px_2px_4px_rgba(8,17,38,0.05)] flex flex-col">
+<h3 class="font-title-md text-title-md mb-lg">AI Resume Analysis</h3>
+<div class="flex-1 flex flex-col items-center justify-center py-lg">
+<div class="relative w-32 h-32 flex items-center justify-center mb-lg">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-surface-container-low" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="80.2" stroke-width="8"></circle>
+</svg>
+<span class="absolute font-headline-md text-headline-md">78</span>
+</div>
+<p class="font-title-sm text-title-sm text-secondary mb-xl">Good Score (78/100)</p>
+<div class="w-full space-y-md">
+<div class="p-md bg-yellow-50 rounded-lg border border-yellow-100 flex gap-md">
+<span class="material-symbols-outlined text-yellow-600">lightbulb</span>
+<div>
+<p class="font-body-sm text-body-sm font-bold text-yellow-800">Improvement Tip</p>
+<p class="font-body-sm text-body-sm text-yellow-700">Add more quantifiable achievements. Instead of "Improved performance", use "Optimized load times by 35%".</p>
+</div>
+</div>
+<div class="p-md bg-green-50 rounded-lg border border-green-100 flex gap-md">
+<span class="material-symbols-outlined text-green-600">verified_user</span>
+<div>
+<p class="font-body-sm text-body-sm font-bold text-green-800">Strong Points</p>
+<p class="font-body-sm text-body-sm text-green-700">Keyword matching for 'System Design' and 'AWS' is excellent for senior roles.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-inverse-surface text-on-primary mt-xxl border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl px-lg py-xxl w-full max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<h2 class="font-title-sm text-title-sm font-bold text-on-primary mb-md">Martin Connect</h2>
+<p class="font-body-sm text-body-sm text-outline-variant opacity-80 mb-md leading-relaxed">
+                        Precision-engineered recruitment for the industrial and high-performance tech ecosystem.
+                    </p>
+<p class="font-body-sm text-body-sm text-outline-variant opacity-80">© 2024 Martin Connect. Precise. Decisive. Industrial.</p>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-bold mb-md">Job Seekers</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Search Jobs</a></li>
+<li><a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Career Advice</a></li>
+<li><a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Assessments</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-bold mb-md">Employers</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Post a Job</a></li>
+<li><a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Talent Sourcing</a></li>
+<li><a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Enterprise Solutions</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-bold mb-md">Legal</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Terms of Service</a></li>
+<li><a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</main>
+<script>
+        function switchTab(tabId) {
+            // Hide all panes
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.add('hidden'));
+            
+            // Remove active styles from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active', 'border-b-2', 'border-primary', 'text-primary', 'font-bold');
+                btn.classList.add('text-outline-variant', 'font-medium');
+            });
+
+            // Show target pane
+            const targetPane = document.getElementById(tabId + '-content');
+            if (targetPane) targetPane.classList.remove('hidden');
+
+            // Set active button styles
+            const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(btn => btn.innerText.toLowerCase() === tabId);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-outline-variant', 'font-medium');
+                activeBtn.classList.add('active', 'border-b-2', 'border-primary', 'text-primary', 'font-bold');
+            }
+        }
+    </script>
+</body></html>

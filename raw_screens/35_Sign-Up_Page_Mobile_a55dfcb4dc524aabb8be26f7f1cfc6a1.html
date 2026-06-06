@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign Up | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#dde1ff",
+                    "tertiary-container": "#0073b5",
+                    "surface-dim": "#d1d9f6",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#f1f1ff",
+                    "secondary": "#2950ce",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#0038b7",
+                    "on-background": "#121b30",
+                    "secondary-fixed-dim": "#b7c4ff",
+                    "on-primary-fixed": "#00174b",
+                    "on-tertiary-fixed-variant": "#004a77",
+                    "surface-container-low": "#f2f3ff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-secondary-container": "#fffbff",
+                    "primary-fixed": "#dbe1ff",
+                    "background": "#faf8ff",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-surface-variant": "#424655",
+                    "surface-bright": "#faf8ff",
+                    "on-tertiary-container": "#ebf3ff",
+                    "tertiary-fixed-dim": "#98cbff",
+                    "surface-container-high": "#e2e7ff",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#001452",
+                    "inverse-surface": "#273046",
+                    "tertiary": "#005a8f",
+                    "surface-container": "#eaedff",
+                    "primary": "#004bc9",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#dae2ff",
+                    "inverse-primary": "#b4c5ff",
+                    "primary-container": "#1e63f3",
+                    "on-tertiary-fixed": "#001d33",
+                    "on-surface": "#121b30",
+                    "secondary-container": "#476ae9",
+                    "surface-container-highest": "#dae2ff",
+                    "outline-variant": "#c3c6d8",
+                    "outline": "#737687",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eef0ff",
+                    "tertiary-fixed": "#cfe5ff",
+                    "surface-tint": "#0053db",
+                    "surface": "#faf8ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "sidebar-width": "260px",
+                    "unit": "4px",
+                    "xxl": "48px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "container-max": "1440px",
+                    "md": "16px",
+                    "gutter": "24px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "mono-label": ["IBM Plex Mono"],
+                    "headline-md": ["DM Sans"],
+                    "title-md": ["DM Sans"],
+                    "body-lg": ["DM Sans"],
+                    "title-lg": ["DM Sans"],
+                    "headline-lg": ["DM Sans"],
+                    "display-lg": ["DM Sans"],
+                    "body-sm": ["DM Sans"],
+                    "title-sm": ["DM Sans"],
+                    "headline-lg-mobile": ["DM Sans"],
+                    "body-md": ["DM Sans"],
+                    "headline-sm": ["DM Sans"],
+                    "display-md": ["DM Sans"]
+            },
+            "fontSize": {
+                    "mono-label": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "title-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["12px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "title-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-md": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .custom-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        .step-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .active-role {
+            border-left: 4px solid #1E63F3 !important;
+            background-color: #EBF4FF !important;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col items-center justify-center p-md">
+<!-- Top Navigation Placeholder Suppression: Transactional Screen -->
+<main class="w-full max-w-[480px] space-y-lg">
+<!-- Logo Branding Section -->
+<header class="text-center mb-xl">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary mb-xs">Martin Connect</h1>
+<p class="font-body-md text-on-surface-variant">Join the elite recruitment ecosystem.</p>
+</header>
+<!-- Multi-Step Container -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl custom-shadow overflow-hidden">
+<!-- Step Indicator -->
+<div class="flex h-1.5 w-full bg-surface-container-high">
+<div class="h-full bg-primary-container step-transition w-1/2" id="progress-bar"></div>
+</div>
+<div class="p-lg">
+<!-- Step 1: Role Selection -->
+<div class="step-transition" id="step-1">
+<h2 class="font-title-lg text-title-lg mb-sm">Choose your path</h2>
+<p class="font-body-sm text-on-surface-variant mb-lg">Are you looking for high-impact talent or your next career-defining role?</p>
+<div class="space-y-md">
+<!-- Role Card: Seeker -->
+<button class="w-full flex items-center p-md border border-outline-variant rounded-xl text-left hover:border-primary-container transition-all active:scale-[0.98]" id="role-seeker" onclick="selectRole('seeker')">
+<div class="h-12 w-12 rounded-full bg-secondary-fixed flex items-center justify-center text-primary mr-md">
+<span class="material-symbols-outlined">person_search</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm">I'm a Candidate</h3>
+<p class="font-body-sm text-on-surface-variant">Access exclusive executive roles and manage your career.</p>
+</div>
+</button>
+<!-- Role Card: Employer -->
+<button class="w-full flex items-center p-md border border-outline-variant rounded-xl text-left hover:border-primary-container transition-all active:scale-[0.98]" id="role-employer" onclick="selectRole('employer')">
+<div class="h-12 w-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary mr-md">
+<span class="material-symbols-outlined">corporate_fare</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm">I'm an Employer</h3>
+<p class="font-body-sm text-on-surface-variant">Post high-value jobs and manage your talent pipeline.</p>
+</div>
+</button>
+</div>
+<div class="mt-xl">
+<button class="w-full py-md px-lg bg-primary-container text-on-primary font-bold rounded-lg opacity-50 cursor-not-allowed transition-all" disabled="" id="btn-next-1" onclick="goToStep(2)">
+                            Continue
+                        </button>
+</div>
+</div>
+<!-- Step 2: Form Details (Hidden Initially) -->
+<div class="hidden step-transition opacity-0 transform translate-x-4" id="step-2">
+<button class="flex items-center text-primary font-title-sm mb-lg" onclick="goToStep(1)">
+<span class="material-symbols-outlined mr-xs">arrow_back</span>
+                        Back
+                    </button>
+<h2 class="font-title-lg text-title-lg mb-sm">Create account</h2>
+<p class="font-body-sm text-on-surface-variant mb-lg" id="role-context-text">Fill in your professional credentials.</p>
+<form class="space-y-lg" onsubmit="handleSubmit(event)">
+<div class="grid grid-cols-2 gap-md">
+<div class="flex flex-col">
+<label class="font-body-sm font-bold text-on-surface mb-sm" for="first_name">First Name</label>
+<input class="w-full h-12 px-md border border-outline-variant rounded-lg focus:border-primary-container focus:ring-1 focus:ring-primary-container bg-surface outline-none transition-all" id="first_name" placeholder="John" required="" type="text"/>
+</div>
+<div class="flex flex-col">
+<label class="font-body-sm font-bold text-on-surface mb-sm" for="last_name">Last Name</label>
+<input class="w-full h-12 px-md border border-outline-variant rounded-lg focus:border-primary-container focus:ring-1 focus:ring-primary-container bg-surface outline-none transition-all" id="last_name" placeholder="Doe" required="" type="text"/>
+</div>
+</div>
+<div class="flex flex-col">
+<label class="font-body-sm font-bold text-on-surface mb-sm" for="email">Email Address</label>
+<input class="w-full h-12 px-md border border-outline-variant rounded-lg focus:border-primary-container focus:ring-1 focus:ring-primary-container bg-surface outline-none transition-all" id="email" placeholder="name@company.com" required="" type="email"/>
+</div>
+<div class="flex flex-col">
+<label class="font-body-sm font-bold text-on-surface mb-sm" for="password">Password</label>
+<div class="relative">
+<input class="w-full h-12 px-md border border-outline-variant rounded-lg focus:border-primary-container focus:ring-1 focus:ring-primary-container bg-surface outline-none transition-all" id="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+<p class="font-body-sm text-on-surface-variant mt-xs">Min. 8 characters with one special symbol.</p>
+</div>
+<div class="flex items-start gap-md pt-sm">
+<input class="mt-1 h-5 w-5 rounded border-outline-variant text-primary focus:ring-primary-container" id="terms" required="" type="checkbox"/>
+<label class="font-body-sm text-on-surface-variant leading-relaxed" for="terms">
+                                I agree to the <a class="text-primary underline" href="#">Terms of Service</a> and <a class="text-primary underline" href="#">Privacy Policy</a> of Martin Connect.
+                            </label>
+</div>
+<button class="w-full py-md px-lg bg-primary-container text-on-primary font-bold rounded-lg custom-shadow hover:brightness-110 active:scale-[0.98] transition-all mt-md" type="submit">
+                            Complete Registration
+                        </button>
+</form>
+</div>
+<!-- Success State (Hidden) -->
+<div class="hidden text-center py-xl step-transition opacity-0 scale-95" id="step-success">
+<div class="h-20 w-20 bg-[#DCFCE7] text-[#16A34A] rounded-full flex items-center justify-center mx-auto mb-lg">
+<span class="material-symbols-outlined" style="font-size: 40px;">check_circle</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm mb-sm text-on-surface">Welcome Aboard!</h2>
+<p class="font-body-md text-on-surface-variant mb-xl">Your profile is being processed. You'll receive a confirmation email shortly to verify your identity.</p>
+<a class="inline-block px-xl py-md bg-primary-container text-on-primary font-bold rounded-lg" href="#">Go to Dashboard</a>
+</div>
+</div>
+</div>
+<!-- Footer Links -->
+<footer class="text-center space-y-md">
+<p class="font-body-md text-on-surface-variant">
+                Already have an account? <a class="text-primary font-bold" href="#">Log in</a>
+</p>
+<div class="flex justify-center gap-lg">
+<a class="font-mono-label uppercase text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+<a class="font-mono-label uppercase text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="font-mono-label uppercase text-on-surface-variant hover:text-primary transition-colors" href="#">System Status</a>
+</div>
+</footer>
+</main>
+<!-- Side Content Hidden on Mobile, Visual Polish for Tablet/Desktop -->
+<div class="hidden lg:block fixed left-0 top-0 h-full w-[40%] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A wide-angle architectural photograph of a sleek, modern glass and steel skyscraper reaching into a clear blue sky. The building features clean lines and a high-performance industrial aesthetic, reflecting the urban environment with clarity. The lighting is bright and crisp, emphasizing a professional, high-authority corporate atmosphere. The overall mood is decisive and technologically advanced, mirroring a precise recruitment ecosystem." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSS49_kCcb5UbldK44g_iHb4-3o6OdPtQaWaUHi-qS3fFpIAr_1CIJyAXK-SXdZR2AQB3Epv4XliRZKaGrOc9rlyjPhchD4y2nePIdHzWg7V3SuWG3LjAhxLHXU7wwOUMoAvdjQ2Y5RsOvauckpamP6x-aDW0-p1s-Zu2naaA2QTPfT_fFIlJDwftlfa8pGspY4C2EFgPtDMfMLtGwrQONMNUM22tRQ3w-tskcpaSGR-XHdXDjQhlKptZfgF9EyhkOw8O9gJHiwWE"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex flex-col justify-end p-xxl text-white">
+<div class="max-w-md">
+<span class="font-mono-label uppercase bg-white/20 px-sm py-xs rounded mb-md inline-block">Industrial Recruitment</span>
+<h3 class="font-headline-lg text-headline-lg mb-lg">Powering the next generation of industry leaders.</h3>
+<p class="font-body-lg text-body-lg opacity-90">Precision-matched candidates meet operational excellence. Join over 5,000 corporate partners globally.</p>
+</div>
+</div>
+</div>
+<script>
+        let selectedRole = null;
+
+        function selectRole(role) {
+            selectedRole = role;
+            
+            // UI Update
+            document.getElementById('role-seeker').classList.remove('active-role');
+            document.getElementById('role-employer').classList.remove('active-role');
+            
+            const selectedElement = document.getElementById(`role-${role}`);
+            selectedElement.classList.add('active-role');
+            
+            // Enable Next Button
+            const nextBtn = document.getElementById('btn-next-1');
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+
+            // Context update for step 2
+            const contextText = document.getElementById('role-context-text');
+            if (role === 'seeker') {
+                contextText.innerText = 'Tell us about your expertise and find your next opportunity.';
+            } else {
+                contextText.innerText = 'Set up your company profile to start discovering elite talent.';
+            }
+        }
+
+        function goToStep(step) {
+            const step1 = document.getElementById('step-1');
+            const step2 = document.getElementById('step-2');
+            const progress = document.getElementById('progress-bar');
+
+            if (step === 2) {
+                step1.classList.add('hidden');
+                step2.classList.remove('hidden');
+                setTimeout(() => {
+                    step2.classList.remove('opacity-0', 'translate-x-4');
+                    step2.classList.add('opacity-100', 'translate-x-0');
+                }, 10);
+                progress.style.width = '100%';
+            } else {
+                step2.classList.add('hidden', 'opacity-0', 'translate-x-4');
+                step2.classList.remove('opacity-100', 'translate-x-0');
+                step1.classList.remove('hidden');
+                progress.style.width = '50%';
+            }
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const step2 = document.getElementById('step-2');
+            const success = document.getElementById('step-success');
+            const progressBar = document.getElementById('progress-bar');
+
+            step2.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                step2.classList.add('hidden');
+                success.classList.remove('hidden');
+                setTimeout(() => {
+                    success.classList.remove('opacity-0', 'scale-95');
+                    success.classList.add('opacity-100', 'scale-100');
+                }, 10);
+            }, 300);
+            
+            // Final progress visual
+            progressBar.classList.add('bg-[#16A34A]');
+        }
+    </script>
+</body></html>

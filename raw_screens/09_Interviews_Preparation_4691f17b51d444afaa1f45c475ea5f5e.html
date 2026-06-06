@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Interviews | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-sharp-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        .sidebar-active-accent {
+            border-left: 4px solid #1E63F3;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E8EEF7;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#cfe5ff",
+                      "tertiary-container": "#0073b5",
+                      "on-secondary-container": "#fffbff",
+                      "error": "#ba1a1a",
+                      "on-background": "#121b30",
+                      "background": "#faf8ff",
+                      "primary-container": "#1e63f3",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#0038b7",
+                      "tertiary-fixed-dim": "#98cbff",
+                      "tertiary": "#005a8f",
+                      "on-primary-fixed": "#00174b",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#dae2ff",
+                      "outline": "#737687",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed-dim": "#b7c4ff",
+                      "secondary-fixed": "#dde1ff",
+                      "on-tertiary-fixed": "#001d33",
+                      "on-tertiary": "#ffffff",
+                      "on-surface": "#121b30",
+                      "inverse-primary": "#b4c5ff",
+                      "surface-tint": "#0053db",
+                      "outline-variant": "#c3c6d8",
+                      "secondary-container": "#476ae9",
+                      "primary-fixed": "#dbe1ff",
+                      "primary": "#004bc9",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-dim": "#d1d9f6",
+                      "on-tertiary-container": "#ebf3ff",
+                      "on-surface-variant": "#424655",
+                      "surface-container": "#eaedff",
+                      "inverse-surface": "#273046",
+                      "secondary": "#2950ce",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#f1f1ff",
+                      "surface-container-highest": "#dae2ff",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "surface-container-low": "#f2f3ff",
+                      "on-secondary-fixed": "#001452",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "inverse-on-surface": "#eef0ff",
+                      "on-error": "#ffffff",
+                      "surface-container-high": "#e2e7ff",
+                      "surface": "#faf8ff",
+                      "on-tertiary-fixed-variant": "#004a77",
+                      "surface-bright": "#faf8ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "4px",
+                      "xl": "8px",
+                      "card": "12px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xxl": "48px",
+                      "md": "16px",
+                      "xl": "32px",
+                      "lg": "24px",
+                      "gutter": "24px",
+                      "unit": "4px",
+                      "sm": "8px",
+                      "sidebar-width": "260px",
+                      "xs": "4px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "mono-label": ["IBM Plex Mono"],
+                      "body-sm": ["DM Sans"],
+                      "headline-lg-mobile": ["DM Sans"],
+                      "display-lg": ["DM Sans"],
+                      "title-lg": ["DM Sans"],
+                      "display-md": ["DM Sans"],
+                      "title-sm": ["DM Sans"],
+                      "title-md": ["DM Sans"],
+                      "body-md": ["DM Sans"],
+                      "body-lg": ["DM Sans"],
+                      "headline-md": ["DM Sans"],
+                      "headline-lg": ["DM Sans"],
+                      "headline-sm": ["DM Sans"]
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex overflow-hidden">
+<!-- SideNavBar (Authority Source: JSON) -->
+<aside class="hidden md:flex flex-col h-full py-lg gap-sm bg-inverse-surface text-on-primary fixed left-0 w-sidebar-width z-50 border-r border-outline-variant">
+<div class="px-md mb-xl">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<h1 class="font-title-lg text-title-lg font-bold text-on-primary leading-tight">Martin Connect</h1>
+<p class="font-body-sm text-body-sm text-outline-variant">Recruiter Portal</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm transition-all hover:bg-on-surface-variant/20" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm transition-all hover:bg-on-surface-variant/20" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-body-md text-body-md">Jobs</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm transition-all hover:bg-on-surface-variant/20" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Talent Pool</span>
+</a>
+<!-- Active State Logic: Interviews Screen maps to "Interviews" tab -->
+<a class="flex items-center gap-md bg-secondary text-on-primary rounded-xl px-md py-sm mx-sm active:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event_available</span>
+<span class="font-body-md text-body-md">Interviews</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm transition-all hover:bg-on-surface-variant/20" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-body-md text-body-md">Messages</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm transition-all hover:bg-on-surface-variant/20" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+</nav>
+<div class="px-md mt-auto pt-lg border-t border-outline-variant/30">
+<div class="bg-surface-variant/10 p-md rounded-xl mb-md">
+<p class="font-body-sm text-body-sm text-on-primary mb-sm">Premium Tier</p>
+<button class="w-full bg-primary text-on-primary py-xs rounded-xl font-body-md text-body-md hover:bg-primary-container transition-colors">Upgrade Plan</button>
+</div>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md text-body-md">Help Center</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md text-body-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-sidebar-width h-screen overflow-y-auto flex flex-col">
+<!-- Top Header Area -->
+<header class="sticky top-0 z-40 bg-white border-b border-[#E8EEF7] px-lg py-md flex items-center justify-between">
+<div>
+<nav class="flex items-center gap-xs text-outline font-body-sm text-body-sm mb-xs">
+<span>Portal</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">Interviews</span>
+</nav>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Interview Pipeline</h2>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-xl pr-md py-xs bg-surface-container-low border border-[#E8EEF7] rounded-xl text-body-md w-64 focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Search scheduled calls..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-xs text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<img alt="Profile" class="w-10 h-10 rounded-full border-2 border-primary-container" data-alt="A professional headshot of a smiling middle-aged male corporate executive in a sharp navy blue suit, set against a blurred clean office background with high-key lighting. The style is modern, professional, and bright, reflecting a sophisticated corporate environment with a clean and clear focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSg5GcptOWF_-95noKl91QHGX9pqfXxMy_8EN3mC56bZNuiPdF78fgWS3OZSvKkNvn8nsXiPMCsd2_Ljcwt7tFMB8dbWmfuZNWrqLrUsAsqE_ta4tl3NxZU9rW5V716Ztd7ayKY1gOQjFvQluXqEz4f3yk8SnR0q9QG2vkz-LUOEKz3guk1AaYGPONxeuqA92ScHPq3Gcvhf9nR6Tr6C52xiR5o9BOnnGknJp1BhNOV19jg6Xik6dbIsoZy4DK78Nk97BW0ASbCuI"/>
+</div>
+</div>
+</header>
+<!-- Dynamic Content Tabs Area -->
+<section class="p-lg max-w-container-max mx-auto w-full">
+<!-- Tab Navigation -->
+<div class="flex items-center gap-xl border-b border-[#E8EEF7] mb-xl">
+<button class="pb-md px-xs font-title-sm text-title-sm border-b-2 border-primary text-primary flex items-center gap-sm transition-all" id="tab-btn-scheduled" onclick="switchTab('scheduled')">
+                    Scheduled <span class="bg-primary/10 text-primary px-sm py-[2px] rounded-full text-body-sm">3</span>
+</button>
+<button class="pb-md px-xs font-title-sm text-title-sm border-b-2 border-transparent text-outline-variant hover:text-on-surface transition-all flex items-center gap-sm" id="tab-btn-completed" onclick="switchTab('completed')">
+                    Completed <span class="bg-surface-variant/50 text-outline px-sm py-[2px] rounded-full text-body-sm">8</span>
+</button>
+<button class="pb-md px-xs font-title-sm text-title-sm border-b-2 border-transparent text-outline-variant hover:text-on-surface transition-all flex items-center gap-sm" id="tab-btn-mock" onclick="switchTab('mock')">
+                    AI Mock <span class="bg-tertiary-fixed text-on-tertiary-fixed px-sm py-[2px] rounded-full text-body-sm">78/100</span>
+</button>
+</div>
+<!-- Tab Content: Scheduled (Active) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter" id="tab-scheduled">
+<div class="lg:col-span-8 flex flex-col gap-lg">
+<!-- Card 1: Today/Amber -->
+<div class="bg-white rounded-card border-l-[4px] border-[#D97706] soft-sharp-shadow p-lg flex flex-col md:flex-row gap-lg group hover:border-[#1E63F3] transition-all">
+<div class="flex-shrink-0 flex flex-col items-center justify-center bg-error-container/20 w-24 h-24 rounded-xl">
+<span class="font-mono-label text-mono-label text-[#D97706] uppercase">Today</span>
+<span class="font-headline-sm text-headline-sm text-[#D97706]">15</span>
+<span class="font-body-sm text-body-sm text-outline">2:00 PM</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Amazon</h3>
+<p class="font-body-md text-body-md text-outline">SDE-1 HR Round</p>
+</div>
+<span class="bg-[#FEF9EC] text-[#D97706] font-body-sm text-body-sm px-sm py-1 rounded-lg font-bold">Urgent</span>
+</div>
+<div class="flex items-center gap-md mb-lg">
+<div class="flex items-center gap-sm">
+<img class="w-6 h-6 rounded-full" data-alt="Close up portrait of Priyanka Rao, a professional human resources recruiter, wearing business casual attire. She has a warm, confident expression. The lighting is soft and professional, and the background is a modern, light-filled corporate office space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeSP3KZZjWYaJliZ-Ae552ydOfCF4lb9c9ZqAeaxUswPGzZWhGh1UJP29MT9U0V5h4q9bS51_Pdndk7DPGV9ZQgfeiY7ypO7ZZiUfk_50WaYhggx8tDd2FV23g-RcNrgd6pkP4faw3BIOC3uZJxClPiNPKL7hnXegg4UWpPHHwNa4LR92mSqYHQs_0J69Iw5GVSksn3KTwKmYSPkuXZfrzcQZpDnF4wrimEjEOBl2vUhPXlangd3FcdWXdpCHSVGVtfGiXpjNNuMQ"/>
+<span class="font-body-sm text-body-sm text-on-surface">Priyanka Rao</span>
+</div>
+<div class="h-4 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-xs text-outline font-body-sm">
+<span class="material-symbols-outlined text-[18px]">videocam</span>
+<span>AWS Chime</span>
+</div>
+</div>
+<div class="flex gap-md">
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-bold hover:bg-primary-container transition-all flex items-center gap-sm">
+                                    Join Meeting <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border border-[#E8EEF7] text-on-surface px-lg py-sm rounded-lg hover:bg-surface-container-low transition-all">Reschedule</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Jan 16/Blue -->
+<div class="bg-white rounded-card border-l-[4px] border-[#1E63F3] soft-sharp-shadow p-lg flex flex-col md:flex-row gap-lg hover:border-[#1E63F3] transition-all">
+<div class="flex-shrink-0 flex flex-col items-center justify-center bg-primary-fixed w-24 h-24 rounded-xl">
+<span class="font-mono-label text-mono-label text-primary uppercase">Thu</span>
+<span class="font-headline-sm text-headline-sm text-primary">16</span>
+<span class="font-body-sm text-body-sm text-outline">11:00 AM</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Flipkart</h3>
+<p class="font-body-md text-body-md text-outline">SDE-2 Technical Round 2</p>
+</div>
+<span class="bg-[#EBF4FF] text-[#1E63F3] font-body-sm text-body-sm px-sm py-1 rounded-lg font-bold">In 2 Days</span>
+</div>
+<div class="flex items-center gap-md mb-lg">
+<div class="flex items-center gap-sm">
+<img class="w-6 h-6 rounded-full" data-alt="A portrait of Rohit Sharma, a technical lead interviewer, in a modern, well-lit studio office setting. He is wearing a smart dark polo shirt. The aesthetic is sharp, precise, and industrial with a clean, blurred technology-focused workspace in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7eedPdOhd4CjMXTX320mL4jT4sRwMdytBgZ6-3K8-qMl8pzemrY6f3S0-jYcRgEmE-z42-Qb0eSVZhBi9ZWAFlv5qXph9A1mJXfSvwCPo6MCcV1oMydTzCOl1UuM2dptzTrW1grzMcPrHenagrGmIXu4qUah_BfhReDwdRB7pLTeMHNx9dKuqUg5rbHcjNPmlkNYf-akEUln0yO17VUAqNMrnjkK8cellZUBE1I0-9EwD_13nzLDwbcRbjbuRvFCYCr5MGkCcJos"/>
+<span class="font-body-sm text-body-sm text-on-surface">Rohit Sharma</span>
+</div>
+<div class="h-4 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-xs text-outline font-body-sm">
+<span class="material-symbols-outlined text-[18px]">code</span>
+<span>Hackerrank Pair</span>
+</div>
+</div>
+<div class="flex gap-md">
+<button class="border border-primary text-primary px-lg py-sm rounded-lg font-bold hover:bg-primary-container hover:text-white transition-all flex items-center gap-sm">
+                                    Prepare <span class="material-symbols-outlined">psychology</span>
+</button>
+<button class="border border-[#E8EEF7] text-on-surface px-lg py-sm rounded-lg hover:bg-surface-container-low transition-all">Details</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Jan 17 -->
+<div class="bg-white rounded-card border-l-[1px] border-[#E8EEF7] soft-sharp-shadow p-lg flex flex-col md:flex-row gap-lg hover:border-[#1E63F3] transition-all">
+<div class="flex-shrink-0 flex flex-col items-center justify-center bg-surface-container w-24 h-24 rounded-xl">
+<span class="font-mono-label text-mono-label text-outline-variant uppercase">Fri</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">17</span>
+<span class="font-body-sm text-body-sm text-outline">4:00 PM</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">PhonePe</h3>
+<p class="font-body-md text-body-md text-outline">Backend Dev System Design</p>
+</div>
+</div>
+<div class="flex items-center gap-md mb-lg">
+<div class="flex items-center gap-sm text-outline italic">
+<span class="material-symbols-outlined text-[20px]">person_search</span>
+<span class="font-body-sm text-body-sm">Panel to be assigned</span>
+</div>
+<div class="h-4 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-xs text-outline font-body-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>Google Meet</span>
+</div>
+</div>
+<div class="flex gap-md">
+<button class="border border-[#E8EEF7] text-on-surface px-lg py-sm rounded-lg hover:bg-surface-container-low transition-all">View Invite</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar: Preparation Tracker -->
+<div class="lg:col-span-4 flex flex-col gap-lg">
+<div class="bg-white rounded-card soft-sharp-shadow p-lg border border-[#E8EEF7]">
+<h4 class="font-title-sm text-title-sm mb-lg">Daily Preparation</h4>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between text-body-sm mb-xs">
+<span>LeetCode Daily</span>
+<span class="text-primary font-bold">85%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[85%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-xs">
+<span>System Design Prep</span>
+<span class="text-secondary font-bold">40%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[40%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-xs">
+<span>Mock Interviews</span>
+<span class="text-tertiary font-bold">12/15</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[80%]"></div>
+</div>
+</div>
+</div>
+<button class="w-full mt-lg py-sm bg-surface-container-high rounded-xl text-primary font-bold hover:bg-primary hover:text-white transition-all">Resume Learning</button>
+</div>
+<!-- AI Coach Promotion -->
+<div class="bg-inverse-surface text-on-primary rounded-card p-lg border border-outline-variant relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-title-sm text-title-sm mb-sm">AI Coach: Martin</h4>
+<p class="font-body-sm text-body-sm text-outline-variant mb-lg">"Your next interview is Amazon. Practice the 'Leadership Principles' session to improve your score."</p>
+<button class="bg-secondary px-md py-xs rounded-lg font-bold text-body-md flex items-center gap-sm">Start Session <span class="material-symbols-outlined text-[16px]">bolt</span></button>
+</div>
+<div class="absolute -bottom-8 -right-8 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab Content: Completed (Hidden) -->
+<div class="hidden animate-in fade-in duration-300" id="tab-completed">
+<div class="bg-white rounded-card border border-[#E8EEF7] soft-sharp-shadow overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#F7F9FC]">
+<th class="px-lg py-md font-mono-label text-mono-label text-outline uppercase">Company</th>
+<th class="px-lg py-md font-mono-label text-mono-label text-outline uppercase">Role</th>
+<th class="px-lg py-md font-mono-label text-mono-label text-outline uppercase">Date</th>
+<th class="px-lg py-md font-mono-label text-mono-label text-outline uppercase">Status</th>
+<th class="px-lg py-md font-mono-label text-mono-label text-outline uppercase text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#E8EEF7]">
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-bold text-primary">R</div>
+<span class="font-body-md font-bold">Razorpay</span>
+</div>
+</td>
+<td class="px-lg py-md text-body-md text-outline">Full Stack Engineer</td>
+<td class="px-lg py-md text-body-md font-mono-label">12 Dec 2023</td>
+<td class="px-lg py-md">
+<span class="bg-[#DCFCE7] text-[#16A34A] px-sm py-1 rounded-full text-body-sm font-bold">Passed</span>
+</td>
+<td class="px-lg py-md text-right">
+<a class="text-primary hover:underline font-body-sm" href="#">View Feedback</a>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-bold text-secondary">I</div>
+<span class="font-body-md font-bold">Infosys</span>
+</div>
+</td>
+<td class="px-lg py-md text-body-md text-outline">Lead Consultant</td>
+<td class="px-lg py-md text-body-md font-mono-label">05 Dec 2023</td>
+<td class="px-lg py-md">
+<span class="bg-[#FEE2E2] text-[#DC2626] px-sm py-1 rounded-full text-body-sm font-bold">Failed</span>
+</td>
+<td class="px-lg py-md text-right">
+<a class="text-primary hover:underline font-body-sm" href="#">View Feedback</a>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-bold text-tertiary">T</div>
+<span class="font-body-md font-bold">TCS</span>
+</div>
+</td>
+<td class="px-lg py-md text-body-md text-outline">System Architect</td>
+<td class="px-lg py-md text-body-md font-mono-label">28 Nov 2023</td>
+<td class="px-lg py-md">
+<span class="bg-[#FEF9EC] text-[#D97706] px-sm py-1 rounded-full text-body-sm font-bold">Under Review</span>
+</td>
+<td class="px-lg py-md text-right">
+<a class="text-primary hover:underline font-body-sm" href="#">View Timeline</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Tab Content: AI Mock (Hidden) -->
+<div class="hidden animate-in fade-in duration-300" id="tab-mock">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-xl">
+<!-- Stat Card -->
+<div class="md:col-span-3 bg-primary-container text-on-primary rounded-card p-lg flex flex-col md:flex-row items-center justify-between">
+<div class="flex items-center gap-lg">
+<div class="w-24 h-24 rounded-full border-[8px] border-on-primary/20 flex items-center justify-center relative">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-white" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="55" stroke-width="8"></circle>
+</svg>
+<span class="absolute font-headline-sm text-headline-sm">78</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md">AI Interview Readiness</h3>
+<p class="text-on-primary/80 font-body-md">You're in the top 15% of candidates for SDE-2 roles this week.</p>
+</div>
+</div>
+<button class="mt-lg md:mt-0 bg-white text-primary px-xl py-sm rounded-xl font-bold hover:bg-surface-bright transition-all">Detailed Insights</button>
+</div>
+<!-- AI Session Cards -->
+<div class="bg-white rounded-card border border-[#E8EEF7] p-lg soft-sharp-shadow hover:border-primary transition-all group">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center mb-lg group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">code</span>
+</div>
+<h4 class="font-title-sm text-title-sm mb-sm text-on-surface">Coding Interview</h4>
+<p class="font-body-md text-body-md text-outline mb-lg">Live coding simulation with DSA and complexity analysis.</p>
+<button class="w-full py-sm border border-primary text-primary rounded-lg font-bold hover:bg-primary hover:text-white transition-all">Start Mock</button>
+</div>
+<div class="bg-white rounded-card border border-[#E8EEF7] p-lg soft-sharp-shadow hover:border-secondary transition-all group">
+<div class="w-12 h-12 bg-secondary-fixed rounded-xl flex items-center justify-center mb-lg group-hover:bg-secondary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">architecture</span>
+</div>
+<h4 class="font-title-sm text-title-sm mb-sm text-on-surface">System Design</h4>
+<p class="font-body-md text-body-md text-outline mb-lg">Scalability, Database design, and Architecture tradeoffs.</p>
+<button class="w-full py-sm border border-secondary text-secondary rounded-lg font-bold hover:bg-secondary hover:text-white transition-all">Start Mock</button>
+</div>
+<div class="bg-white rounded-card border border-[#E8EEF7] p-lg soft-sharp-shadow hover:border-tertiary transition-all group">
+<div class="w-12 h-12 bg-tertiary-fixed rounded-xl flex items-center justify-center mb-lg group-hover:bg-tertiary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<h4 class="font-title-sm text-title-sm mb-sm text-on-surface">Behavioral</h4>
+<p class="font-body-md text-body-md text-outline mb-lg">Situation-Task-Action-Result (STAR) technique mastery.</p>
+<button class="w-full py-sm border border-tertiary text-tertiary rounded-lg font-bold hover:bg-tertiary hover:text-white transition-all">Start Mock</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer (Authority Source: JSON) -->
+<footer class="mt-auto bg-inverse-surface text-on-primary">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl px-lg py-xxl w-full max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<h5 class="font-title-sm text-title-sm font-bold text-on-primary mb-md">Martin Connect</h5>
+<p class="font-body-sm text-body-sm text-outline-variant leading-relaxed">Precise. Decisive. Industrial. Recruitment intelligence for the modern professional.</p>
+</div>
+<div>
+<h6 class="font-mono-label text-mono-label text-secondary uppercase mb-md">Job Seekers</h6>
+<ul class="flex flex-col gap-sm font-body-sm text-body-sm text-outline-variant">
+<li><a class="hover:text-on-primary transition-all hover:underline" href="#">Explore Roles</a></li>
+<li><a class="hover:text-on-primary transition-all hover:underline" href="#">AI Coaching</a></li>
+<li><a class="hover:text-on-primary transition-all hover:underline" href="#">Salary Benchmarks</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-mono-label text-mono-label text-secondary uppercase mb-md">Company</h6>
+<ul class="flex flex-col gap-sm font-body-sm text-body-sm text-outline-variant">
+<li><a class="hover:text-on-primary transition-all hover:underline" href="#">About Us</a></li>
+<li><a class="hover:text-on-primary transition-all hover:underline" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-on-primary transition-all hover:underline" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-mono-label text-mono-label text-secondary uppercase mb-md">Newsletter</h6>
+<div class="flex gap-xs">
+<input class="bg-surface-container-highest/20 border border-outline-variant/30 rounded px-sm py-1 text-body-sm w-full" placeholder="Email" type="text"/>
+<button class="p-1 bg-primary rounded"><span class="material-symbols-outlined text-white text-[18px]">send</span></button>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 px-lg py-md text-center font-body-sm text-body-sm text-outline-variant">
+                © 2024 Martin Connect. Precise. Decisive. Industrial.
+            </div>
+</footer>
+</main>
+<script>
+        function switchTab(tabName) {
+            const tabs = ['scheduled', 'completed', 'mock'];
+            tabs.forEach(t => {
+                const content = document.getElementById(`tab-${t}`);
+                const btn = document.getElementById(`tab-btn-${t}`);
+                if (t === tabName) {
+                    content.classList.remove('hidden');
+                    btn.classList.remove('text-outline-variant', 'border-transparent');
+                    btn.classList.add('text-primary', 'border-primary');
+                } else {
+                    content.classList.add('hidden');
+                    btn.classList.add('text-outline-variant', 'border-transparent');
+                    btn.classList.remove('text-primary', 'border-primary');
+                }
+            });
+        }
+    </script>
+</body></html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Login | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#dde1ff",
+                    "tertiary-container": "#0073b5",
+                    "surface-dim": "#d1d9f6",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#f1f1ff",
+                    "secondary": "#2950ce",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#0038b7",
+                    "on-background": "#121b30",
+                    "secondary-fixed-dim": "#b7c4ff",
+                    "on-primary-fixed": "#00174b",
+                    "on-tertiary-fixed-variant": "#004a77",
+                    "surface-container-low": "#f2f3ff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-secondary-container": "#fffbff",
+                    "primary-fixed": "#dbe1ff",
+                    "background": "#faf8ff",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-surface-variant": "#424655",
+                    "surface-bright": "#faf8ff",
+                    "on-tertiary-container": "#ebf3ff",
+                    "tertiary-fixed-dim": "#98cbff",
+                    "surface-container-high": "#e2e7ff",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#001452",
+                    "inverse-surface": "#273046",
+                    "tertiary": "#005a8f",
+                    "surface-container": "#eaedff",
+                    "primary": "#004bc9",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#dae2ff",
+                    "inverse-primary": "#b4c5ff",
+                    "primary-container": "#1e63f3",
+                    "on-tertiary-fixed": "#001d33",
+                    "on-surface": "#121b30",
+                    "secondary-container": "#476ae9",
+                    "surface-container-highest": "#dae2ff",
+                    "outline-variant": "#c3c6d8",
+                    "outline": "#737687",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eef0ff",
+                    "tertiary-fixed": "#cfe5ff",
+                    "surface-tint": "#0053db",
+                    "surface": "#faf8ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "sidebar-width": "260px",
+                    "unit": "4px",
+                    "xxl": "48px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "container-max": "1440px",
+                    "md": "16px",
+                    "gutter": "24px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "mono-label": ["IBM Plex Mono"],
+                    "headline-md": ["DM Sans"],
+                    "title-md": ["DM Sans"],
+                    "body-lg": ["DM Sans"],
+                    "title-lg": ["DM Sans"],
+                    "headline-lg": ["DM Sans"],
+                    "display-lg": ["DM Sans"],
+                    "body-sm": ["DM Sans"],
+                    "title-sm": ["DM Sans"],
+                    "headline-lg-mobile": ["DM Sans"],
+                    "body-md": ["DM Sans"],
+                    "headline-sm": ["DM Sans"],
+                    "display-md": ["DM Sans"]
+            },
+            "fontSize": {
+                    "mono-label": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "title-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["12px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "title-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-md": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-sharp-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        input:focus {
+            outline: none !important;
+            border-color: #1E63F3 !important;
+            box-shadow: 0 0 0 2px rgba(30, 99, 243, 0.1) !important;
+        }
+        .bg-login-gradient {
+            background: radial-gradient(circle at top right, #e2e7ff 0%, #faf8ff 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col items-center justify-center overflow-x-hidden p-md bg-login-gradient">
+<!-- Top Branding Section -->
+<header class="w-full max-w-sm mb-xl text-center">
+<div class="mb-lg flex justify-center">
+<div class="w-16 h-16 bg-primary-container rounded-xl flex items-center justify-center shadow-lg transform rotate-3">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="hub">hub</span>
+</div>
+</div>
+<h1 class="font-headline-sm text-headline-sm text-primary mb-xs">Martin Connect</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">The Industrial Recruitment Hub</p>
+</header>
+<!-- Main Login Card -->
+<main class="w-full max-w-sm bg-surface-container-lowest border border-outline-variant rounded-xl soft-sharp-shadow p-lg relative overflow-hidden">
+<!-- Decorative Accent -->
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
+<form class="space-y-lg" onsubmit="event.preventDefault();">
+<!-- Input: Email -->
+<div class="space-y-xs">
+<label class="font-body-sm text-body-sm font-bold text-on-surface-variant block ml-xs" for="email">Corporate Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline" data-icon="mail">mail</span>
+<input class="w-full pl-[48px] pr-md py-md bg-surface border border-outline-variant rounded-lg font-body-md focus:ring-primary-container focus:border-primary-container transition-all" id="email" placeholder="name@company.com" type="email"/>
+</div>
+</div>
+<!-- Input: Password -->
+<div class="space-y-xs">
+<div class="flex justify-between items-center px-xs">
+<label class="font-body-sm text-body-sm font-bold text-on-surface-variant block" for="password">Password</label>
+<a class="text-primary font-body-sm text-body-sm hover:underline" href="#">Forgot?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline" data-icon="lock">lock</span>
+<input class="w-full pl-[48px] pr-md py-md bg-surface border border-outline-variant rounded-lg font-body-md focus:ring-primary-container focus:border-primary-container transition-all" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-outline hover:text-primary" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Action: Sign In -->
+<button class="w-full bg-primary-container text-white font-title-sm text-title-sm py-md rounded-lg active:scale-[0.98] transition-transform shadow-md flex items-center justify-center gap-sm" type="submit">
+                Sign In
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="flex items-center gap-md my-xl">
+<div class="h-px bg-outline-variant flex-grow"></div>
+<span class="font-mono-label text-mono-label text-outline uppercase tracking-wider">or join with</span>
+<div class="h-px bg-outline-variant flex-grow"></div>
+</div>
+<!-- Social Logins -->
+<div class="grid grid-cols-2 gap-md mb-lg">
+<button class="flex items-center justify-center gap-sm py-md border border-outline-variant rounded-lg bg-surface hover:bg-surface-container-low transition-colors">
+<img alt="Google" class="w-5 h-5" data-alt="A clean, isolated professional rendering of the Google logo for a modern corporate login screen. The colors are crisp and high-contrast against a white background, representing digital integration and reliability. The lighting is soft and even, highlighting the sleek minimalist design of the interface. This asset is intended to convey seamless authentication within a high-performance industrial tech platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5oSWy4-aWh9C49sn_u4zxGYRMmvPspxp_GV4jCBl5lvyMHurjjklMKauMuzPsquVzStrSGdAE1aV-PFId_yZuNC7NpFFNX14LtPKGwiUxlj_78EALRsSCah1MoEeD14raJfzVw_eSAav9RU1YP_jDoGGabvVMAG0YwjOyC_JkN4rA6iJBf4P_EDwRuSpsNcrKcBKUdEBGwlE8tJfxrdPqSX9A5QHFfR6Y5T8DGXPMUXYhnCdQbh1JHEyt245Tcrypp9Qcjfjr7PQ"/>
+<span class="font-body-md text-body-md font-bold text-on-surface">Google</span>
+</button>
+<button class="flex items-center justify-center gap-sm py-md border border-outline-variant rounded-lg bg-surface hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-blue-700" data-icon="linkedin" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dine_in</span>
+<span class="font-body-md text-body-md font-bold text-on-surface">LinkedIn</span>
+</button>
+</div>
+</main>
+<!-- Footer Action -->
+<footer class="mt-lg w-full max-w-sm text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Don't have an account? 
+            <a class="text-primary font-bold hover:underline" href="#">Request Access</a>
+</p>
+</footer>
+<!-- Bottom Illustration (Mobile Optimization) -->
+<div class="fixed bottom-0 left-0 w-full h-1/4 opacity-10 pointer-events-none -z-10 overflow-hidden">
+<div class="flex justify-around items-end h-full">
+<div class="w-24 h-48 bg-primary rounded-t-full"></div>
+<div class="w-16 h-32 bg-secondary rounded-t-full"></div>
+<div class="w-32 h-64 bg-tertiary rounded-t-full"></div>
+<div class="w-20 h-40 bg-primary-fixed rounded-t-full"></div>
+</div>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('.material-symbols-outlined').classList.add('text-primary');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('.material-symbols-outlined').classList.remove('text-primary');
+            });
+        });
+
+        // Toggle Password Visibility
+        const passInput = document.getElementById('password');
+        const passToggle = passInput.nextElementSibling;
+        passToggle.addEventListener('click', () => {
+            const isPass = passInput.type === 'password';
+            passInput.type = isPass ? 'text' : 'password';
+            passToggle.querySelector('span').innerText = isPass ? 'visibility_off' : 'visibility';
+        });
+    </script>
+</body></html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Full Stack Developer | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .soft-sharp-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        .left-accent-hover:hover {
+            border-left: 3px solid #1E63F3;
+            transition: border-left 0.2s ease-in-out;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1ff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c3c6d8;
+            border-radius: 4px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#00174b",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004a77",
+                        "surface-container": "#eaedff",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#273046",
+                        "outline": "#737687",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c3c6d8",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#cfe5ff",
+                        "on-tertiary-fixed": "#001d33",
+                        "surface-bright": "#faf8ff",
+                        "surface-container-high": "#e2e7ff",
+                        "on-surface": "#121b30",
+                        "surface-container-highest": "#dae2ff",
+                        "tertiary-fixed-dim": "#98cbff",
+                        "surface-tint": "#0053db",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary": "#2950ce",
+                        "primary": "#004bc9",
+                        "on-secondary-fixed": "#001452",
+                        "surface-container-low": "#f2f3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#fffbff",
+                        "surface-variant": "#dae2ff",
+                        "tertiary-container": "#0073b5",
+                        "on-background": "#121b30",
+                        "background": "#faf8ff",
+                        "secondary-container": "#476ae9",
+                        "on-surface-variant": "#424655",
+                        "on-primary-container": "#f1f1ff",
+                        "secondary-fixed": "#dde1ff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed-variant": "#0038b7",
+                        "primary-container": "#1e63f3",
+                        "surface-dim": "#d1d9f6",
+                        "error": "#ba1a1a",
+                        "surface": "#faf8ff",
+                        "tertiary": "#005a8f",
+                        "inverse-on-surface": "#eef0ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#ebf3ff",
+                        "secondary-fixed-dim": "#b7c4ff",
+                        "inverse-primary": "#b4c5ff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "container-max": "1440px",
+                        "xs": "4px",
+                        "sidebar-width": "260px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "xxl": "48px",
+                        "sm": "8px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["DM Sans"],
+                        "mono-label": ["IBM Plex Mono"],
+                        "display-lg": ["DM Sans"],
+                        "title-sm": ["DM Sans"],
+                        "display-md": ["DM Sans"],
+                        "headline-sm": ["DM Sans"],
+                        "title-lg": ["DM Sans"],
+                        "body-sm": ["DM Sans"],
+                        "title-md": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "body-md": ["DM Sans"],
+                        "headline-lg": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "mono-label": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "display-md": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "title-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-sm": ["12px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md">
+<!-- TopNavBar -->
+<header class="bg-inverse-surface dark:bg-inverse-surface border-b border-outline-variant shadow-sm flex justify-between items-center w-full px-lg py-md h-[72px] sticky top-0 z-50">
+<div class="flex items-center gap-xl">
+<div class="font-headline-sm text-headline-sm font-bold text-on-primary">Martin Connect</div>
+<nav class="hidden md:flex gap-lg items-center">
+<a class="font-title-md text-title-md text-on-primary border-b-2 border-secondary pb-1 transition-colors" href="#">Jobs</a>
+<a class="font-title-md text-title-md text-outline-variant hover:text-on-primary transition-colors" href="#">Candidates</a>
+<a class="font-title-md text-title-md text-outline-variant hover:text-on-primary transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex items-center bg-on-surface-variant/10 rounded-full px-md py-xs text-on-primary gap-sm">
+<span class="material-symbols-outlined text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm placeholder:text-outline-variant w-48" placeholder="Search roles..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-primary p-xs hover:bg-on-surface-variant/10 rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-primary p-xs hover:bg-on-surface-variant/10 rounded-full transition-colors">settings</button>
+<div class="h-8 w-8 rounded-full bg-secondary-container flex items-center justify-center border border-outline-variant overflow-hidden">
+<img alt="User Profile" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALjlP9A3ItIlVRYCH19JILFAHZ5Pm-25axaz_vbeiVK1vUdmL3nGONaQ9oQ7QtgtAmFXV06EFxIYxfkwaNCLGxSvfao35cFgJN4XWp1nwIVhRkqBfW0_hy7_b7jmHYCROogdhlW6cYqLDP4rO5VZ_50BqKaADSooffElZQj0i4FF98idrwdNPGo-i77P41Y-MG39kbi_khzE21_hcKSOVUTsy0JJjQSFmKT51emg7wstzq1k5RCuB43O-5WJHtrDTMtcZPhyG3XeA"/>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-lg py-xl flex flex-col md:flex-row gap-gutter">
+<!-- MAIN CONTENT (740px) -->
+<div class="flex-1 max-w-[740px]">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-xs mb-lg text-on-surface-variant">
+<a class="font-body-sm text-body-sm hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="font-body-sm text-body-sm hover:text-primary transition-colors" href="#">Jobs</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-body-sm text-body-sm text-outline">Software Engineering</span>
+</nav>
+<!-- Job Header Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg soft-sharp-shadow mb-lg">
+<div class="flex items-start justify-between mb-md">
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-xl border border-outline-variant flex items-center justify-center bg-white overflow-hidden p-xs">
+<img class="w-full h-full object-contain" data-alt="The corporate logo for Razorpay, a high-tech fintech company. The logo is displayed in a clean, minimalist style against a white background, using professional blue and black tones. The visual identity reflects a modern, fast-growing technology firm with a focus on precision and digital financial services." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDe3zemPKzfIqVbXN_uwOOJ4F0ubOL-EN1fLIb-5pedxPwtAIqIhBdWcTQmxAzYcmgIGk-besj1dEDL1Rqaz2NFRUfqS4vhH8vuPABPIne1-7tRmYNP6yX88Cl17yQDSPLZlJdP383-kpeQovoE59087IDP8-wDc47Vr4zjpgtdrKvATjGf-ASaXCNf-_SYK6iptsrV9UUqYePug7CEQaNA7pL9I1uK5R-3oDZ06JqsStbdEedZZ-RVjdTaaWWDavx9yTPzCHhL4M"/>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md text-on-surface mb-xs">Full Stack Developer</h1>
+<div class="flex items-center gap-sm">
+<span class="font-title-sm text-title-sm text-on-surface-variant">Razorpay</span>
+<div class="flex items-center bg-tertiary-container/10 px-xs py-[2px] rounded">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-mono-label text-mono-label text-tertiary-container ml-[2px]">4.5</span>
+</div>
+</div>
+</div>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-primary transition-colors p-sm bg-surface-container-low rounded-full">share</button>
+</div>
+<div class="flex flex-wrap gap-sm">
+<span class="flex items-center gap-xs px-md py-xs bg-surface-container-high rounded-full font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Bengaluru
+                    </span>
+<span class="flex items-center gap-xs px-md py-xs bg-surface-container-high rounded-full font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[16px]">home_work</span> Hybrid
+                    </span>
+<span class="flex items-center gap-xs px-md py-xs bg-surface-container-high rounded-full font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[16px]">work_history</span> 3-6 yrs
+                    </span>
+<span class="flex items-center gap-xs px-md py-xs bg-surface-container-high rounded-full font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[16px]">payments</span> ₹20-32 LPA
+                    </span>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex border-b border-outline-variant mb-lg gap-xl">
+<button class="font-title-md text-title-md py-md border-b-2 border-primary text-primary transition-colors">Overview</button>
+<button class="font-title-md text-title-md py-md text-outline hover:text-on-surface transition-colors">Company</button>
+<button class="font-title-md text-title-md py-md text-outline hover:text-on-surface transition-colors">Reviews</button>
+<button class="font-title-md text-title-md py-md text-outline hover:text-on-surface transition-colors">Salaries</button>
+</div>
+<!-- Content Body -->
+<div class="space-y-xl">
+<section>
+<h2 class="font-title-lg text-title-lg text-on-surface mb-md">Job Description</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        Razorpay is looking for an experienced Full Stack Developer to join our core engineering team. You will be responsible for architecting and building high-performance, scalable financial applications. We value clean code, strong architectural patterns, and a "customer-first" mindset.
+                    </p>
+</section>
+<section>
+<h2 class="font-title-lg text-title-lg text-on-surface mb-md">Key Responsibilities</h2>
+<ul class="space-y-sm list-none">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-[2px] text-[18px]">check_circle</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant">Design and implement low-latency, high-availability, and performant applications.</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-[2px] text-[18px]">check_circle</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant">Writing reusable, testable, and efficient code.</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-[2px] text-[18px]">check_circle</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant">Integration of user-facing elements developed by front-end developers with server side logic.</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-[2px] text-[18px]">check_circle</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant">Implementation of security and data protection across the stack.</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-[2px] text-[18px]">check_circle</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant">Integration of data storage solutions such as PostgreSQL, Redis, and S3.</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-[2px] text-[18px]">check_circle</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant">Collaborating with cross-functional teams to define, design, and ship new features.</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-[2px] text-[18px]">check_circle</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant">Mentor junior developers and participate in design and code reviews.</span>
+</li>
+</ul>
+</section>
+<section>
+<h2 class="font-title-lg text-title-lg text-on-surface mb-md">Required Skills</h2>
+<div class="flex flex-wrap gap-sm">
+<span class="px-md py-sm bg-surface-container-low border border-outline-variant rounded-lg font-mono-label text-mono-label text-primary">React.js</span>
+<span class="px-md py-sm bg-surface-container-low border border-outline-variant rounded-lg font-mono-label text-mono-label text-primary">Node.js</span>
+<span class="px-md py-sm bg-surface-container-low border border-outline-variant rounded-lg font-mono-label text-mono-label text-primary">TypeScript</span>
+<span class="px-md py-sm bg-surface-container-low border border-outline-variant rounded-lg font-mono-label text-mono-label text-primary">PostgreSQL</span>
+<span class="px-md py-sm bg-surface-container-low border border-outline-variant rounded-lg font-mono-label text-mono-label text-primary">AWS</span>
+<span class="px-md py-sm bg-surface-container-low border border-outline-variant rounded-lg font-mono-label text-mono-label text-primary">Docker</span>
+</div>
+</section>
+<section class="pb-xxl">
+<h2 class="font-title-lg text-title-lg text-on-surface mb-md">Perks &amp; Benefits</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<div class="flex gap-md p-md bg-surface-container-lowest border border-outline-variant rounded-xl">
+<span class="material-symbols-outlined text-primary-container text-[32px]">health_and_safety</span>
+<div>
+<p class="font-title-sm text-title-sm text-on-surface">Comprehensive Health Insurance</p>
+<p class="font-body-sm text-body-sm text-outline">Covering family and mental wellness support.</p>
+</div>
+</div>
+<div class="flex gap-md p-md bg-surface-container-lowest border border-outline-variant rounded-xl">
+<span class="material-symbols-outlined text-primary-container text-[32px]">laptop_mac</span>
+<div>
+<p class="font-title-sm text-title-sm text-on-surface">Modern Work Kit</p>
+<p class="font-body-sm text-body-sm text-outline">Latest Macbook and home-office allowance.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- RIGHT PANEL (360px) -->
+<aside class="w-full md:w-[360px]">
+<div class="sticky top-[96px] space-y-lg">
+<!-- Action Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg soft-sharp-shadow">
+<button class="w-full bg-primary-container text-on-primary py-md rounded-lg font-title-md text-title-md shadow-sm active:scale-95 transition-all mb-md">Apply Now</button>
+<button class="w-full border border-primary-container text-primary-container py-md rounded-lg font-title-md text-title-md active:scale-95 transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">bookmark</span> Save Job
+                    </button>
+<div class="mt-lg pt-lg border-t border-outline-variant">
+<p class="font-body-sm text-body-sm text-outline mb-md">RECRUITER FOR THIS ROLE</p>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of Neha Gupta, a corporate recruiter for a tech company. She is dressed in modern business casual attire against a clean, softly blurred office background. The lighting is bright and professional, projecting an image of approachability, expertise, and corporate leadership in a light-mode UI setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuyQz2zGLKJU3x0_EHo_RWszzoMVp6HlE7h1KsHC_BRss8Mfq0-5_fYb9DCZM7eMdlZXTXjIH-5OU5ckbveYQ1xRunl04qUwHs1yLH8KWxKapAKvEGbtSakues7U3vhU2J0rciGfrXlKQRxaIhh2suqmrnCiYGdB6L8fv8GSY3AzjzXngZrT7ORACQ4V4VDu4cgqYho3Daoc_qa4f0cc0pRp8oNcT1_9f7TimBWb3ZxlfTsemRYpmZLANGVt95DNXWhm31rMVOOX4"/>
+</div>
+<div>
+<p class="font-title-sm text-title-sm text-on-surface">Neha Gupta</p>
+<p class="font-body-sm text-body-sm text-outline">Senior Tech Recruiter</p>
+</div>
+<button class="ml-auto material-symbols-outlined text-primary-container">mail</button>
+</div>
+</div>
+</div>
+<!-- Similar Jobs -->
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-md">Similar Jobs</h3>
+<div class="space-y-md">
+<!-- Job Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md soft-sharp-shadow left-accent-hover group cursor-pointer transition-all">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-10 h-10 rounded border border-outline-variant flex items-center justify-center bg-white p-xs">
+<img class="w-full h-full object-contain" data-alt="Corporate logo for Zomato, featuring their signature red and white minimal brand identity in a clean, high-resolution digital format. The design represents a contemporary tech giant in the food-logistics space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn5xFbpjOwc4O8FX79KmorlD7-JSecmkjT8xvYBjxCVjeUtxL_SYTWUZLAjtOGo4RsNT0geFL6Gg6NXxqBpgxY37HcNVasBUzttr9rMCc-cfLqxcoWvOnR7UbD32-p5HkLNUC-hihD_btb1XVgqTEhvypOtf0G3IXbIIO5gavV_5BzL-QN-c7lD0TwRMn8liGVF5MGN48_n435cQEvMktdiBgKRsvNzVzcfqk_aHCRtgaKUFEgpgChLlmgCV45vR5mq7cDKbESIr0"/>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">Senior Backend Engineer</h4>
+<p class="font-body-sm text-body-sm text-outline">Zomato • Gurgaon</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-mono-label text-mono-label text-on-surface-variant">₹24 - 40 LPA</span>
+<span class="font-body-sm text-body-sm text-outline">2d ago</span>
+</div>
+</div>
+<!-- Job Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md soft-sharp-shadow left-accent-hover group cursor-pointer transition-all">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-10 h-10 rounded border border-outline-variant flex items-center justify-center bg-white p-xs">
+<img class="w-full h-full object-contain" data-alt="The corporate branding for Cred, showcasing a sophisticated and sleek minimalist logo in dark monochrome. The visual language is high-end, premium, and focused on fintech innovation and luxury design aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6z-aweETmzpRpqWZ2k_ac1YDwo-oj5uwP11v46xTG6AZXllt6QE_hWEuPTuybHksL4g7Up8d4H0rT2qVilNcAFitDD4so7Q0xFYofAcu_LorYz0PyfPvkCj8AE031_XP-GF43WVPVaosSMPEpG2TBg-8wSIzma3ZkJTsx7P310RDhFGL9MsA-tp3pd9D8u03h029kJZQaGSb44RI-fU67aW7twVCL6Q2_cKzxTbB95q0s0ybT9DN0zVR2MGc-J9SCY6oQ-JA49UI"/>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">Lead Full Stack Engineer</h4>
+<p class="font-body-sm text-body-sm text-outline">Cred • Bengaluru</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-mono-label text-mono-label text-on-surface-variant">₹30 - 45 LPA</span>
+<span class="font-body-sm text-body-sm text-outline">4d ago</span>
+</div>
+</div>
+<!-- Job Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md soft-sharp-shadow left-accent-hover group cursor-pointer transition-all">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-10 h-10 rounded border border-outline-variant flex items-center justify-center bg-white p-xs">
+<img class="w-full h-full object-contain" data-alt="The corporate logo for PhonePe, featuring their purple and white brand identity in a modern, digital-first style. The logo represents a leader in mobile payments and digital finance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClMpIZW7M571ECHyAzt0nejAu-5ykUeMgmRHmGbMWctcChaSLPxwJ5VRCg93kFlH29FWLchn6aqFnz6DaeUNVOJlq9u1MIJ-cv60Q-pxO_8yxlPvgBqtC1tDJFw1430wh3sVoKaPfBX6NOUESbbJs5XeFHaiT5wzfVnVMaYn90WQ2iqBfS0XD3MoVnnlE2IzClXImD1it9MOzw604sa-BcwNya6aIp22bBQPviEXxFAPqoZ4igRBsctYFNdyFbMcaHpGdWTSDbHDE"/>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">Software Engineer II</h4>
+<p class="font-body-sm text-body-sm text-outline">PhonePe • Pune</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-mono-label text-mono-label text-on-surface-variant">₹18 - 28 LPA</span>
+<span class="font-body-sm text-body-sm text-outline">1w ago</span>
+</div>
+</div>
+<button class="w-full py-sm text-center font-title-sm text-title-sm text-primary hover:bg-primary/5 rounded-lg transition-all">View All Similar Jobs</button>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface dark:bg-inverse-surface border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl px-lg py-xxl w-full max-w-container-max mx-auto">
+<div class="flex flex-col gap-md">
+<div class="font-title-sm text-title-sm font-bold text-on-primary">Martin Connect</div>
+<p class="font-body-sm text-body-sm text-outline-variant leading-relaxed">
+                    Connecting precision engineering talent with the most decisive industrial innovators of the decade.
+                </p>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm text-on-primary mb-md">For Seekers</h4>
+<div class="flex flex-col gap-sm">
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Browse Jobs</a>
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Companies</a>
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Career Advice</a>
+</div>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm text-on-primary mb-md">For Employers</h4>
+<div class="flex flex-col gap-sm">
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Post a Job</a>
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Hiring Solutions</a>
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Recruiter Portal</a>
+</div>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm text-on-primary mb-md">Company</h4>
+<div class="flex flex-col gap-sm">
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">About Us</a>
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Privacy Policy</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-lg py-md border-t border-outline-variant/30 text-center">
+<p class="font-body-sm text-body-sm text-outline-variant">© 2024 Martin Connect. Precise. Decisive. Industrial.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.96)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+
+        // Tab switching logic (visual only for this demo)
+        document.querySelectorAll('.flex.border-b button').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.flex.border-b button').forEach(t => {
+                    t.classList.remove('border-b-2', 'border-primary', 'text-primary');
+                    t.classList.add('text-outline');
+                });
+                this.classList.remove('text-outline');
+                this.classList.add('border-b-2', 'border-primary', 'text-primary');
+            });
+        });
+    </script>
+</body></html>

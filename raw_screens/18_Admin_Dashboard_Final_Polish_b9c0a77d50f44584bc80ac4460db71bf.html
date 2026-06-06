@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Super Admin Dashboard | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'DM Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c3c6d8; border-radius: 10px; }
+        .soft-sharp-shadow { box-shadow: 0px 4px 12px rgba(8, 17, 38, 0.04), 0px 1px 2px rgba(8, 17, 38, 0.08); }
+        .chart-gradient { fill: url(#line-gradient); }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#0073b5",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#b7c4ff",
+                        "surface-container": "#eaedff",
+                        "surface": "#faf8ff",
+                        "secondary-fixed": "#dde1ff",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#8A9BB8",
+                        "tertiary-fixed": "#cfe5ff",
+                        "surface-tint": "#1E63F3",
+                        "inverse-primary": "#b4c5ff",
+                        "inverse-surface": "#273046",
+                        "primary-fixed": "#dbe1ff",
+                        "on-primary-container": "#f1f1ff",
+                        "surface-container-low": "#f2f3ff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#00174b",
+                        "surface-container-highest": "#dae2ff",
+                        "surface-dim": "#d1d9f6",
+                        "secondary": "#2950ce",
+                        "primary": "#1E63F3",
+                        "outline": "#8A9BB8",
+                        "on-tertiary-fixed-variant": "#004a77",
+                        "tertiary-fixed-dim": "#98cbff",
+                        "on-surface": "#121b30",
+                        "outline-variant": "#E8EEF7",
+                        "on-secondary-fixed": "#001452",
+                        "tertiary": "#005a8f",
+                        "surface-container-high": "#e2e7ff",
+                        "inverse-on-surface": "#eef0ff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#476ae9",
+                        "on-error": "#ffffff",
+                        "primary-container": "#1E63F3",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#121b30",
+                        "background": "#faf8ff",
+                        "surface-bright": "#faf8ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#001d33",
+                        "on-secondary-fixed-variant": "#0038b7",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-secondary-container": "#fffbff",
+                        "on-tertiary-container": "#ebf3ff",
+                        "surface-variant": "#dae2ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "4px",
+                        "lg": "8px",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "sm": "8px",
+                        "sidebar-width": "260px",
+                        "unit": "4px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "xxl": "48px",
+                        "lg": "24px",
+                        "xs": "4px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-['DM_Sans']">
+<!-- Sidebar Component (SideNavBar) -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-[#081126] flex flex-col py-lg border-r border-white/5 z-50">
+<div class="px-lg mb-xxl">
+<h1 class="text-[24px] font-bold text-white leading-none tracking-tight">Martin Connect</h1>
+<p class="text-[12px] font-medium text-outline mt-xs uppercase tracking-widest opacity-60">Admin Panel</p>
+</div>
+<nav class="flex-1 px-sm space-y-xs">
+<a class="flex items-center gap-md px-md py-sm text-white border-r-4 border-primary bg-primary/10 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="dashboard">dashboard</span>
+<span class="font-bold text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-outline hover:text-white hover:bg-white/5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="font-medium text-body-md">Jobs</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-outline hover:text-white hover:bg-white/5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-medium text-body-md">Candidates</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-outline hover:text-white hover:bg-white/5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-medium text-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-outline hover:text-white hover:bg-white/5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium text-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-lg space-y-md">
+<button class="w-full py-md bg-primary text-white font-bold rounded-xl text-body-md hover:brightness-110 shadow-lg shadow-primary/20 transition-all">
+                Post New Job
+            </button>
+<div class="border-t border-white/10 pt-md space-y-xs">
+<a class="flex items-center gap-md px-md py-sm text-outline hover:text-white transition-colors cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="text-body-md">Support</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-outline hover:text-white transition-colors cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-body-md">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<main class="ml-[260px] min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex justify-between items-center h-16 px-lg sticky top-0 z-40 bg-white border-b border-outline-variant">
+<div class="flex items-center gap-lg flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline/60" data-icon="search">search</span>
+<input class="w-full pl-10 pr-md py-2.5 bg-background border border-outline-variant rounded-xl text-body-md focus:ring-2 focus:ring-primary/10 focus:border-primary outline-none transition-all placeholder:text-outline/40" placeholder="Global system search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex gap-md">
+<button class="w-10 h-10 flex items-center justify-center text-outline hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-outline hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="flex items-center gap-md pl-lg border-l border-outline-variant">
+<div class="text-right">
+<div class="flex items-center gap-xs">
+<p class="font-bold text-body-md text-on-surface">Rohan Kapoor</p>
+<span class="px-1.5 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">ADMIN</span>
+</div>
+<p class="text-[11px] text-outline font-medium">Super Admin</p>
+</div>
+<img alt="Rohan Kapoor" class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-Lss7ID71JKvl--u83cUntSTj4ygMraFQuMi0K0eK6z5RKCWCUozv6XH-64oHZHnv2omwuu85NoXSZS7ywfGEv1vBeNtJYirE3Hf9e2VL-2CEYPewLGJnpAlMR82MY_j7xZiZHHPQQgTsHz-F8fWvBSuZiIS5P56ZRe45bDer5M3Bkj9eP0HI-A9LWuCXndqrmBzfgKo-oOQUNqLwsIR1TdMR3IIUl-Ti9fQrz0Ao-KdsBnkgZJyIuSDgpqLvIoe6kK11ptkMCEA"/>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="p-gutter max-w-[1440px] mx-auto w-full space-y-gutter">
+<!-- KPI Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-lg">
+<!-- KPI Card 1 -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant soft-sharp-shadow hover:border-primary transition-all group">
+<p class="text-[11px] font-bold text-outline uppercase tracking-widest mb-xs">Total Users</p>
+<h3 class="text-[28px] font-bold text-on-surface">2.4M+</h3>
+<div class="flex items-center gap-xs mt-md text-[#16A34A]">
+<span class="material-symbols-outlined text-[16px] font-bold">trending_up</span>
+<span class="text-[11px] font-bold">12% growth</span>
+</div>
+</div>
+<!-- KPI Card 2 -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant soft-sharp-shadow hover:border-primary transition-all group">
+<p class="text-[11px] font-bold text-outline uppercase tracking-widest mb-xs">Active Cos.</p>
+<h3 class="text-[28px] font-bold text-on-surface">48k+</h3>
+<div class="flex items-center gap-xs mt-md text-[#16A34A]">
+<span class="material-symbols-outlined text-[16px] font-bold">trending_up</span>
+<span class="text-[11px] font-bold">8% growth</span>
+</div>
+</div>
+<!-- KPI Card 3 -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant soft-sharp-shadow hover:border-primary transition-all group">
+<p class="text-[11px] font-bold text-outline uppercase tracking-widest mb-xs">Live Jobs</p>
+<h3 class="text-[28px] font-bold text-on-surface">3.2M+</h3>
+<div class="flex items-center gap-xs mt-md text-primary">
+<span class="material-symbols-outlined text-[16px] font-bold">sync</span>
+<span class="text-[11px] font-bold">Real-time</span>
+</div>
+</div>
+<!-- KPI Card 4 -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant soft-sharp-shadow hover:border-primary transition-all group">
+<p class="text-[11px] font-bold text-outline uppercase tracking-widest mb-xs">MRR</p>
+<h3 class="text-[28px] font-bold text-on-surface flex items-baseline gap-xs">
+<span class="text-[16px] font-medium opacity-40">₹</span>1.84 Cr
+                    </h3>
+<div class="flex items-center gap-xs mt-md text-[#16A34A]">
+<span class="material-symbols-outlined text-[16px] font-bold">arrow_upward</span>
+<span class="text-[11px] font-bold">₹12L vs LY</span>
+</div>
+</div>
+<!-- KPI Card 5 -->
+<div class="bg-error/5 p-lg rounded-xl border border-error/10 soft-sharp-shadow hover:border-error transition-all group">
+<p class="text-[11px] font-bold text-outline uppercase tracking-widest mb-xs">Pending Verif.</p>
+<h3 class="text-[28px] font-bold text-error">14</h3>
+<div class="flex items-center gap-xs mt-md text-error/60">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="text-[11px] font-medium">Avg. 4h wait</span>
+</div>
+</div>
+<!-- KPI Card 6 -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant soft-sharp-shadow hover:border-primary transition-all group">
+<p class="text-[11px] font-bold text-outline uppercase tracking-widest mb-xs">Tickets</p>
+<h3 class="text-[28px] font-bold text-on-surface">47</h3>
+<div class="flex items-center gap-xs mt-md text-[#D97706]">
+<span class="material-symbols-outlined text-[16px] font-bold">warning</span>
+<span class="text-[11px] font-bold">8 Critical</span>
+</div>
+</div>
+</section>
+<!-- Chart Row -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Line Chart: New Registrations -->
+<div class="lg:col-span-2 bg-white p-lg rounded-xl border border-outline-variant soft-sharp-shadow">
+<div class="flex justify-between items-start mb-xl">
+<div>
+<h2 class="text-[20px] font-bold text-on-surface">User Registration Growth</h2>
+<p class="text-body-sm text-outline font-medium">Platform performance for the last 30 days</p>
+</div>
+<div class="flex p-1 bg-background rounded-lg border border-outline-variant">
+<button class="px-4 py-1.5 bg-white text-primary font-bold rounded-md shadow-sm text-body-sm">Daily</button>
+<button class="px-4 py-1.5 text-outline hover:text-on-surface font-bold text-body-sm transition-colors">Weekly</button>
+</div>
+</div>
+<div class="h-[280px] w-full relative mt-xl">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 800 200">
+<defs>
+<lineargradient id="line-gradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#1E63F3" stop-opacity="0.12"></stop>
+<stop offset="100%" stop-color="#1E63F3" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Minimal Grid Lines -->
+<line stroke="#E8EEF7" stroke-dasharray="4" stroke-width="1" x1="0" x2="800" y1="0" y2="0"></line>
+<line stroke="#E8EEF7" stroke-dasharray="4" stroke-width="1" x1="0" x2="800" y1="66" y2="66"></line>
+<line stroke="#E8EEF7" stroke-dasharray="4" stroke-width="1" x1="0" x2="800" y1="133" y2="133"></line>
+<line stroke="#E8EEF7" stroke-width="1" x1="0" x2="800" y1="200" y2="200"></line>
+<!-- Area Shading -->
+<path class="chart-gradient" d="M0,180 C100,170 150,140 200,145 C300,155 350,110 400,105 C500,100 550,60 600,65 C700,75 750,20 800,25 L800,200 L0,200 Z"></path>
+<!-- Smooth Spline -->
+<path d="M0,180 C100,170 150,140 200,145 C300,155 350,110 400,105 C500,100 550,60 600,65 C700,75 750,20 800,25" fill="none" stroke="#1E63F3" stroke-linecap="round" stroke-width="3"></path>
+<!-- Key Data Points -->
+<circle cx="800" cy="25" fill="white" r="5" stroke="#1E63F3" stroke-width="3"></circle>
+</svg>
+<div class="absolute -bottom-6 w-full flex justify-between px-xs text-[10px] font-bold text-outline/60 uppercase tracking-tighter">
+<span>01 OCT</span><span>07 OCT</span><span>14 OCT</span><span>21 OCT</span><span>28 OCT</span><span>30 OCT</span>
+</div>
+</div>
+</div>
+<!-- Stacked Bar: Revenue by Plan -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant soft-sharp-shadow">
+<h2 class="text-[20px] font-bold text-on-surface mb-xl">Revenue Split</h2>
+<div class="space-y-lg">
+<div class="group cursor-default">
+<div class="flex justify-between items-center mb-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">corporate_fare</span>
+<span class="text-body-md font-bold">Enterprise</span>
+</div>
+<span class="text-[13px] font-bold text-primary">₹84L (46%)</span>
+</div>
+<div class="w-full h-2.5 bg-background rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[46%] rounded-full transition-all duration-700"></div>
+</div>
+</div>
+<div class="group cursor-default">
+<div class="flex justify-between items-center mb-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-tertiary text-[20px]">rocket_launch</span>
+<span class="text-body-md font-bold">Growth</span>
+</div>
+<span class="text-[13px] font-bold text-tertiary">₹62L (34%)</span>
+</div>
+<div class="w-full h-2.5 bg-background rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[34%] rounded-full transition-all duration-700"></div>
+</div>
+</div>
+<div class="group cursor-default">
+<div class="flex justify-between items-center mb-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">person</span>
+<span class="text-body-md font-bold">Seeker Prime</span>
+</div>
+<span class="text-[13px] font-bold text-secondary">₹38L (20%)</span>
+</div>
+<div class="w-full h-2.5 bg-background rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[20%] rounded-full transition-all duration-700"></div>
+</div>
+</div>
+</div>
+<div class="mt-xl p-lg bg-background rounded-xl border border-outline-variant/60">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="auto_graph">auto_graph</span>
+</div>
+<div>
+<p class="text-[12px] font-bold text-outline uppercase tracking-wider mb-xs">Top Sector</p>
+<p class="text-body-md font-bold text-on-surface">FinTech / SaaS</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tables & Events Row -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left: Moderation Columns -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Company Verification Queue -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden soft-sharp-shadow">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<h2 class="text-[18px] font-bold text-on-surface">Company Verification Queue</h2>
+<button class="text-primary font-bold text-body-sm hover:underline flex items-center gap-xs">
+                                View All (14) <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-background">
+<tr>
+<th class="px-lg py-md text-[11px] font-bold text-outline uppercase tracking-widest">Company</th>
+<th class="px-lg py-md text-[11px] font-bold text-outline uppercase tracking-widest">Location</th>
+<th class="px-lg py-md text-[11px] font-bold text-outline uppercase tracking-widest">Docs</th>
+<th class="px-lg py-md text-[11px] font-bold text-outline uppercase tracking-widest">Status</th>
+<th class="px-lg py-md text-[11px] font-bold text-outline uppercase tracking-widest text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-background/50 transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center font-bold text-primary">Z</div>
+<span class="font-bold text-body-md">Zomato Hyderabad</span>
+</div>
+</td>
+<td class="px-lg py-md text-body-md text-outline font-medium">Hyderabad, IN</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="flex -space-x-1">
+<span class="w-7 h-7 rounded border border-white bg-background flex items-center justify-center" title="Company Profile"><span class="material-symbols-outlined text-[14px] text-primary">description</span></span>
+<span class="w-7 h-7 rounded border border-white bg-background flex items-center justify-center" title="Tax ID"><span class="material-symbols-outlined text-[14px] text-primary">badge</span></span>
+</div>
+<span class="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded-full font-bold">2/2</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-2.5 py-1 bg-[#FEF9EC] text-[#B45309] rounded-full text-[10px] font-bold uppercase tracking-wider">Under Review</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="px-5 py-1.5 bg-primary text-white rounded-lg font-bold text-[12px] hover:brightness-110 shadow-sm transition-all">Review</button>
+</td>
+</tr>
+<tr class="hover:bg-background/50 transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-9 h-9 rounded-lg bg-tertiary/10 flex items-center justify-center font-bold text-tertiary">N</div>
+<span class="font-bold text-body-md">NewAge Corp</span>
+</div>
+</td>
+<td class="px-lg py-md text-body-md text-outline font-medium">Mumbai, IN</td>
+<td class="px-lg py-md">
+<span class="w-7 h-7 rounded bg-background flex items-center justify-center"><span class="material-symbols-outlined text-[14px] text-primary">description</span></span>
+</td>
+<td class="px-lg py-md">
+<span class="px-2.5 py-1 bg-[#FEF9EC] text-[#B45309] rounded-full text-[10px] font-bold uppercase tracking-wider">Under Review</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="px-5 py-1.5 bg-primary text-white rounded-lg font-bold text-[12px] hover:brightness-110 shadow-sm transition-all">Review</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Job Moderation Queue -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden soft-sharp-shadow">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<h2 class="text-[18px] font-bold text-on-surface">Job Moderation Queue</h2>
+<div class="flex items-center gap-sm">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-error"></span>
+</span>
+<span class="text-body-sm text-error font-bold">4 Urgent Flags</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-background">
+<tr>
+<th class="px-lg py-md text-[11px] font-bold text-outline uppercase tracking-widest">Job Title</th>
+<th class="px-lg py-md text-[11px] font-bold text-outline uppercase tracking-widest">Flag Reason</th>
+<th class="px-lg py-md text-[11px] font-bold text-outline uppercase tracking-widest">Reputation</th>
+<th class="px-lg py-md text-[11px] font-bold text-outline uppercase tracking-widest text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-background/50 transition-colors group">
+<td class="px-lg py-md font-bold text-body-md">WFM Associate (Remote)</td>
+<td class="px-lg py-md">
+<span class="text-error bg-error/5 px-2 py-0.5 rounded text-[11px] font-bold border border-error/10">Suspected Phishing</span>
+</td>
+<td class="px-lg py-md">
+<div class="flex text-error/40 gap-0.5">
+<span class="material-symbols-outlined text-[16px] !fill-1 text-error/80">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+</td>
+<td class="px-lg py-md text-right">
+<div class="flex gap-sm justify-end">
+<button class="w-9 h-9 flex items-center justify-center text-error border border-error/20 rounded-lg hover:bg-error hover:text-white transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+<button class="w-9 h-9 flex items-center justify-center text-outline border border-outline-variant rounded-lg hover:bg-background transition-all"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-background/50 transition-colors group">
+<td class="px-lg py-md font-bold text-body-md">Crypto Mining Consultant</td>
+<td class="px-lg py-md">
+<span class="text-[#B45309] bg-[#FEF9EC] px-2 py-0.5 rounded text-[11px] font-bold border border-[#B45309]/10">Spam Content</span>
+</td>
+<td class="px-lg py-md">
+<div class="flex text-[#B45309]/40 gap-0.5">
+<span class="material-symbols-outlined text-[16px] !fill-1 text-[#B45309]/80">star</span>
+<span class="material-symbols-outlined text-[16px] !fill-1 text-[#B45309]/80">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+</td>
+<td class="px-lg py-md text-right">
+<div class="flex gap-sm justify-end">
+<button class="w-9 h-9 flex items-center justify-center text-error border border-error/20 rounded-lg hover:bg-error hover:text-white transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+<button class="w-9 h-9 flex items-center justify-center text-outline border border-outline-variant rounded-lg hover:bg-background transition-all"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right: Activity Feed -->
+<div class="lg:col-span-4 bg-white rounded-xl border border-outline-variant soft-sharp-shadow flex flex-col h-full overflow-hidden max-h-[800px]">
+<div class="p-lg border-b border-outline-variant">
+<h2 class="text-[18px] font-bold text-on-surface">Real-time Events</h2>
+<p class="text-body-sm text-outline font-medium">Live system activity stream</p>
+</div>
+<div class="flex-1 overflow-y-auto p-lg custom-scrollbar space-y-lg">
+<!-- Timeline Item 1 -->
+<div class="flex gap-md relative">
+<div class="absolute left-[11px] top-6 bottom-[-24px] w-[2px] bg-background"></div>
+<div class="z-10 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center border-2 border-white shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="person_add">person_add</span>
+</div>
+<div class="pb-xl">
+<p class="text-body-md"><span class="font-bold text-on-surface">500+ New Seekers</span> registered in the last hour.</p>
+<p class="text-[10px] font-bold text-outline/60 mt-xs uppercase tracking-wider">Just Now</p>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="flex gap-md relative">
+<div class="absolute left-[11px] top-6 bottom-[-24px] w-[2px] bg-background"></div>
+<div class="z-10 w-6 h-6 rounded-full bg-[#DCFCE7] flex items-center justify-center border-2 border-white shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-[#16A34A]" data-icon="payments">payments</span>
+</div>
+<div class="pb-xl">
+<p class="text-body-md"><span class="font-bold text-on-surface">Reliance Retail</span> upgraded to Enterprise Plan.</p>
+<p class="text-[10px] font-bold text-outline/60 mt-xs uppercase tracking-wider">12 mins ago</p>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="flex gap-md relative">
+<div class="absolute left-[11px] top-6 bottom-[-24px] w-[2px] bg-background"></div>
+<div class="z-10 w-6 h-6 rounded-full bg-error/10 flex items-center justify-center border-2 border-white shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-error" data-icon="report">report</span>
+</div>
+<div class="pb-xl">
+<p class="text-body-md"><span class="font-bold text-on-surface text-error">Server Spike:</span> API Latency increased by 200ms in Mumbai-1 Region.</p>
+<p class="text-[10px] font-bold text-outline/60 mt-xs uppercase tracking-wider">24 mins ago</p>
+</div>
+</div>
+<!-- Timeline Item 4 -->
+<div class="flex gap-md relative">
+<div class="absolute left-[11px] top-6 bottom-[-24px] w-[2px] bg-background"></div>
+<div class="z-10 w-6 h-6 rounded-full bg-[#FEF9EC] flex items-center justify-center border-2 border-white shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-[#B45309]" data-icon="edit">edit</span>
+</div>
+<div class="pb-xl">
+<p class="text-body-md"><span class="font-bold text-on-surface">Admin Smith</span> updated moderation policy #442.</p>
+<p class="text-[10px] font-bold text-outline/60 mt-xs uppercase tracking-wider">1 hour ago</p>
+</div>
+</div>
+<!-- Timeline Item 5 -->
+<div class="flex gap-md">
+<div class="z-10 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center border-2 border-white shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="campaign">campaign</span>
+</div>
+<div>
+<p class="text-body-md"><span class="font-bold text-on-surface">System Broadcast:</span> Scheduled maintenance on Sunday 02:00 IST.</p>
+<p class="text-[10px] font-bold text-outline/60 mt-xs uppercase tracking-wider">2 hours ago</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Info -->
+<footer class="mt-auto px-lg py-md border-t border-outline-variant bg-white flex justify-between items-center">
+<div class="flex gap-lg">
+<div class="flex items-center gap-sm">
+<span class="w-2 h-2 rounded-full bg-[#16A34A]"></span>
+<span class="text-[10px] font-bold text-outline uppercase tracking-wider">99.98% Uptime</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="cloud">cloud</span>
+<span class="text-[10px] font-bold text-outline uppercase tracking-wider">AWS-Mumbai-Prod</span>
+</div>
+</div>
+<p class="text-[11px] font-medium text-outline">© 2024 Martin Connect v4.2.1-stable</p>
+</footer>
+</main>
+<script>
+        // Micro-interaction for hover states on KPI cards
+        document.querySelectorAll('section div.soft-sharp-shadow').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('-translate-y-1');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('-translate-y-1');
+            });
+        });
+    </script>
+</body></html>

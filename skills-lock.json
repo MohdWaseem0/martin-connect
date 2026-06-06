@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "skills": {
+    "automate-github-issues": {
+      "source": "google-labs-code/jules-skills",
+      "sourceType": "github",
+      "skillPath": "skills/automate-github-issues/SKILL.md",
+      "computedHash": "438813c94c20af4d94d1d0e75ce7251d302ccea865fb7b06229ffec9e52957fd"
+    },
+    "deploy-to-vercel": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/deploy-to-vercel/SKILL.md",
+      "computedHash": "03e0eaaa9bf13ba1e7ffa387f5893de6f324c0868c627001f179395a8feaa7c9"
+    },
+    "design-md": {
+      "source": "F:\\martin connect cluade\\temp_skills\\plugins\\stitch-utilities\\skills\\design-md",
+      "sourceType": "local",
+      "computedHash": "44af3e6e89a42a765d9cebf943f1e2ff3cdf43d1958341eb43fb7b74116f6691"
+    },
+    "enhance-prompt": {
+      "source": "F:\\martin connect cluade\\temp_skills\\plugins\\stitch-utilities\\skills\\enhance-prompt",
+      "sourceType": "local",
+      "computedHash": "28c47bcbc0e8d81f48fbbbe41d227efe4018a32c5d4674b0d052a70d215072d3"
+    },
+    "local-action-verification": {
+      "source": "google-labs-code/jules-skills",
+      "sourceType": "github",
+      "skillPath": "skills/local-action-verification/SKILL.md",
+      "computedHash": "3dcddd917d92ede8268fa19df54b6011e19297e3c787c46ed24b1e53ba4b8dd3"
+    },
+    "react:components": {
+      "source": "F:\\martin connect cluade\\temp_skills\\plugins\\stitch-build\\skills\\react-components",
+      "sourceType": "local",
+      "computedHash": "ddb6007b09a408e387250d82ad5a6cd2ca22b87b703aac2d2bcb706200653425"
+    },
+    "remotion": {
+      "source": "F:\\martin connect cluade\\temp_skills\\plugins\\stitch-build\\skills\\remotion",
+      "sourceType": "local",
+      "computedHash": "e117a6fd18d8bef4774034300c1d0b3db71e39c94d935227b03793f8ee1f6e49"
+    },
+    "shadcn-ui": {
+      "source": "F:\\martin connect cluade\\temp_skills\\plugins\\stitch-build\\skills\\shadcn-ui",
+      "sourceType": "local",
+      "computedHash": "119a14a004bd30fa99d386df599bd0db8d057cca146f7ee08349daed48b2ea55"
+    },
+    "stitch-loop": {
+      "source": "F:\\martin connect cluade\\temp_skills\\plugins\\stitch-utilities\\skills\\stitch-loop",
+      "sourceType": "local",
+      "computedHash": "cf47da05045ce0c11f1a8b21dc4ef9bbfed0122d68548a48786cb1608257d574"
+    },
+    "stitch::code-to-design": {
+      "source": "F:\\martin connect cluade\\temp_skills\\plugins\\stitch-design\\skills\\code-to-design",
+      "sourceType": "local",
+      "computedHash": "11efe5e52248bb1f623e2a797fd8561b05ef2b2457ebd8cd1c664f7c20340d18"
+    },
+    "stitch::extract-design-md": {
+      "source": "F:\\martin connect cluade\\temp_skills\\plugins\\stitch-design\\skills\\extract-design-md",
+      "sourceType": "local",
+      "computedHash": "1c53df54291fb64eb19477110defb369565a408d4ea7a5477e1130168ec90af8"
+    },
+    "stitch::extract-static-html": {
+      "source": "F:\\martin connect cluade\\temp_skills\\plugins\\stitch-design\\skills\\extract-static-html",
+      "sourceType": "local",
+      "computedHash": "6ddd90a8d1360d765a228749c3b4001b0c9631190cb8571fa6678707ae847454"
+    },
+    "stitch::generate-design": {
+      "source": "F:\\martin connect cluade\\temp_skills\\plugins\\stitch-design\\skills\\generate-design",
+      "sourceType": "local",
+      "computedHash": "b854eb1747fbd02220bb7323590030fa644b8de126f8f6311749905ea09d7ae9"
+    },
+    "stitch::manage-design-system": {
+      "source": "F:\\martin connect cluade\\temp_skills\\plugins\\stitch-design\\skills\\manage-design-system",
+      "sourceType": "local",
+      "computedHash": "ea8544bc8c150e4979334246ffbe8daa5acebb7cc2966937cd4064d90186c3c4"
+    },
+    "stitch::react-native": {
+      "source": "google-labs-code/stitch-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-native/SKILL.md",
+      "computedHash": "067609acd3702efe0869b3d561b22901d4bd93bec8510ac91538bda37546f205"
+    },
+    "stitch::upload-to-stitch": {
+      "source": "F:\\martin connect cluade\\temp_skills\\plugins\\stitch-design\\skills\\upload-to-stitch",
+      "sourceType": "local",
+      "computedHash": "48cccbf989aa624632bb3007e46415ef628f5c511a7047deeb0b217454847f83"
+    },
+    "taste-design": {
+      "source": "F:\\martin connect cluade\\temp_skills\\plugins\\stitch-utilities\\skills\\taste-design",
+      "sourceType": "local",
+      "computedHash": "3772ea408777070865890e10d693118baa1e1de14ee5bacdf6ab46fdea7359bb"
+    },
+    "vercel-cli-with-tokens": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/vercel-cli-with-tokens/SKILL.md",
+      "computedHash": "eb16b20dcbe6ce51e0372083d624e0847af1b09487ec99249227d5a8eddebfc0"
+    },
+    "vercel-composition-patterns": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/composition-patterns/SKILL.md",
+      "computedHash": "575757e3e25761c8c562d6e395d29f0b76c98b1273c0bd72d88e6ab1bc9c7d42"
+    },
+    "vercel-optimize": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/vercel-optimize/SKILL.md",
+      "computedHash": "c6898b3425a2e2bdf17cbcf38bb5aece2894ee79096961f4140f984e185a4b70"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-best-practices/SKILL.md",
+      "computedHash": "ca7b0c0c6e5f2750043f7f0cd72d16ac4e2abc48f9b5500d047a4b77a2506212"
+    },
+    "vercel-react-native-skills": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-native-skills/SKILL.md",
+      "computedHash": "41d24eafa7c3d82e270439808f7cfbc4d51aeb2d14f2809a2267c16275784d06"
+    },
+    "vercel-react-view-transitions": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-view-transitions/SKILL.md",
+      "computedHash": "c8952fc9127fa0564d0cb71dccb4215a5608ac933b5831104f09173a97a46f85"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "computedHash": "f3bc47f890f42a44db1007ab390709ec368e4b8c089baee6b0007182236ac474"
+    },
+    "writing-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/writing-guidelines/SKILL.md",
+      "computedHash": "25aa3a33a97bddbcb1847ce4a6169106ec25e5b19b15b99c66e75ab383866ef2"
+    }
+  }
+}

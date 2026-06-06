@@ -1,0 +1,328 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Company Directory | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#dbe1ff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#121b30",
+                    "tertiary-container": "#0073b5",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#faf8ff",
+                    "surface-container-low": "#f2f3ff",
+                    "secondary": "#2950ce",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#98cbff",
+                    "surface-bright": "#faf8ff",
+                    "primary": "#004bc9",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#eaedff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "tertiary": "#005a8f",
+                    "secondary-fixed": "#dde1ff",
+                    "on-secondary-fixed": "#001452",
+                    "surface-dim": "#d1d9f6",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-secondary-container": "#fffbff",
+                    "on-primary-container": "#f1f1ff",
+                    "inverse-surface": "#273046",
+                    "on-secondary-fixed-variant": "#0038b7",
+                    "on-tertiary-fixed-variant": "#004a77",
+                    "surface-container-highest": "#dae2ff",
+                    "primary-container": "#1e63f3",
+                    "on-tertiary-container": "#ebf3ff",
+                    "on-background": "#121b30",
+                    "outline-variant": "#c3c6d8",
+                    "inverse-primary": "#b4c5ff",
+                    "secondary-fixed-dim": "#b7c4ff",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#eef0ff",
+                    "background": "#faf8ff",
+                    "tertiary-fixed": "#cfe5ff",
+                    "on-tertiary-fixed": "#001d33",
+                    "surface-tint": "#0053db",
+                    "outline": "#737687",
+                    "on-surface-variant": "#424655",
+                    "on-primary-fixed": "#00174b",
+                    "surface-variant": "#dae2ff",
+                    "secondary-container": "#476ae9",
+                    "surface-container-high": "#e2e7ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "xs": "4px",
+                    "xxl": "48px",
+                    "sidebar-width": "260px",
+                    "container-max": "1440px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["DM Sans"],
+                    "headline-md": ["DM Sans"],
+                    "display-lg": ["DM Sans"],
+                    "display-md": ["DM Sans"],
+                    "title-md": ["DM Sans"],
+                    "title-lg": ["DM Sans"],
+                    "mono-label": ["IBM Plex Mono"],
+                    "body-md": ["DM Sans"],
+                    "title-sm": ["DM Sans"],
+                    "headline-lg": ["DM Sans"],
+                    "body-lg": ["DM Sans"],
+                    "headline-lg-mobile": ["DM Sans"],
+                    "body-sm": ["DM Sans"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-sharp-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        .company-card:hover {
+            border-left: 3px solid #1E63F3;
+        }
+        .active-filter {
+            background-color: #1E63F3;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-inverse-surface flex justify-between items-center w-full px-lg py-md h-[72px] fixed top-0 z-50 border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-xl">
+<span class="font-headline-sm text-headline-sm font-bold text-on-primary">Martin Connect</span>
+<nav class="hidden md:flex gap-lg">
+<a class="font-title-md text-title-md text-outline-variant hover:text-on-primary transition-colors" href="#">Jobs</a>
+<a class="font-title-md text-title-md text-on-primary border-b-2 border-secondary pb-1" href="#">Candidates</a>
+<a class="font-title-md text-title-md text-outline-variant hover:text-on-primary transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden lg:flex items-center bg-surface-variant/10 rounded-full px-md py-xs">
+<span class="material-symbols-outlined text-outline-variant mr-xs">search</span>
+<input class="bg-transparent border-none text-on-primary placeholder:text-outline-variant focus:ring-0 text-body-sm w-64" placeholder="Search companies..." type="text">
+</div>
+<button class="material-symbols-outlined text-on-primary hover:bg-on-surface-variant/10 p-sm rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-primary hover:bg-on-surface-variant/10 p-sm rounded-full transition-colors">settings</button>
+<button class="bg-primary-container text-on-primary px-lg py-sm rounded-xl font-bold active:scale-95 transition-transform">Post Job</button>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden md:flex flex-col h-full py-lg gap-sm fixed left-0 top-[72px] w-sidebar-width bg-inverse-surface border-r border-outline-variant z-40">
+<div class="px-md mb-lg">
+<div class="flex items-center gap-md p-md bg-on-surface-variant/10 rounded-xl">
+<div class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center font-bold text-on-primary">MC</div>
+<div>
+<p class="font-title-lg text-title-lg font-bold text-on-primary leading-none">Recruiter Portal</p>
+<p class="font-body-sm text-body-sm text-outline-variant">Premium Tier</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm hover:bg-on-surface-variant/20 transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm hover:bg-on-surface-variant/20 transition-all" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-body-md text-body-md">Jobs</span>
+</a>
+<a class="flex items-center gap-md bg-secondary text-on-primary rounded-xl px-md py-sm mx-sm" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Talent Pool</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm hover:bg-on-surface-variant/20 transition-all" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<span class="font-body-md text-body-md">Interviews</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm hover:bg-on-surface-variant/20 transition-all" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-body-md text-body-md">Messages</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm hover:bg-on-surface-variant/20 transition-all" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+</nav>
+<div class="px-md mt-auto pt-lg space-y-1 border-t border-outline-variant/30">
+<button class="w-full bg-secondary-container text-on-secondary-container py-md rounded-xl font-bold mb-md">Upgrade Plan</button>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md text-body-md">Help Center</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm mx-sm" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md text-body-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="md:ml-sidebar-width pt-[104px] pb-xxl px-lg max-w-container-max mx-auto">
+<!-- Header Section -->
+<section class="mb-xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Explore Companies Hiring Now</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">48,000+ companies from startups to Fortune 500 enterprises</p>
+</section>
+<!-- Filters Row 1 -->
+<section class="flex flex-wrap gap-sm mb-md"><button class="bg-primary text-on-primary px-lg py-sm rounded-full font-bold text-body-md transition-all active:scale-95">All</button><button class="bg-surface-container hover:bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full font-bold text-body-md transition-all active:scale-95">IT &amp; Software</button><button class="bg-surface-container hover:bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full font-bold text-body-md transition-all active:scale-95">BFSI</button><button class="bg-surface-container hover:bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full font-bold text-body-md transition-all active:scale-95">E-Commerce</button><button class="bg-surface-container hover:bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full font-bold text-body-md transition-all active:scale-95">Healthcare</button><button class="bg-surface-container hover:bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full font-bold text-body-md transition-all active:scale-95">Consulting</button><button class="bg-surface-container hover:bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full font-bold text-body-md transition-all active:scale-95">Startup</button></section>
+<!-- Filters Row 2 -->
+<section class="flex flex-wrap items-center gap-md pb-xl border-b border-outline-variant mb-xl">
+<div class="flex flex-col gap-xs">
+<span class="font-body-sm font-bold text-on-surface-variant">Location</span>
+<select class="bg-white border-outline-variant rounded-xl px-md py-sm text-body-md min-w-[160px] focus:ring-primary-container focus:border-primary-container">
+<option>All Locations</option>
+<option>Bangalore</option>
+<option>Mumbai</option>
+<option>Delhi NCR</option>
+<option>Hyderabad</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-body-sm font-bold text-on-surface-variant">Company size</span>
+<select class="bg-white border-outline-variant rounded-xl px-md py-sm text-body-md min-w-[160px] focus:ring-primary-container focus:border-primary-container">
+<option>Any Size</option>
+<option>1-50 employees</option>
+<option>51-200 employees</option>
+<option>201-1000 employees</option>
+<option>1000+ employees</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-body-sm font-bold text-on-surface-variant">Rating</span>
+<select class="bg-white border-outline-variant rounded-xl px-md py-sm text-body-md min-w-[140px] focus:ring-primary-container focus:border-primary-container">
+<option>All Ratings</option>
+<option>4.5+ ★</option>
+<option>4.0+ ★</option>
+<option>3.5+ ★</option>
+</select>
+</div>
+<div class="ml-auto flex flex-col gap-xs">
+<span class="font-body-sm font-bold text-on-surface-variant">Sort by</span>
+<select class="bg-white border-outline-variant rounded-xl px-md py-sm text-body-md min-w-[160px] focus:ring-primary-container focus:border-primary-container">
+<option>Recommended</option>
+<option>Most Openings</option>
+<option>Top Rated</option>
+<option>Newest</option>
+</select>
+</div>
+</section>
+<!-- Company Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-xl">
+<!-- TCS -->
+<article class="company-card bg-surface-container-lowest p-lg border border-outline-variant rounded-xl soft-sharp-shadow transition-all group flex flex-col hover:shadow-lg hover:border-primary/50"><div class="flex justify-between items-start mb-md"><img class="w-14 h-14 rounded-lg object-contain bg-surface-container-low p-2" data-alt="Company Logo" src="{{DATA:IMAGE:ID}}"><span class="bg-tertiary-container text-on-tertiary px-sm py-1 rounded-full font-mono-label text-mono-label uppercase">IT Services</span></div><h3 class="font-title-sm text-title-sm text-on-surface mb-xs group-hover:text-primary transition-colors">TCS</h3><div class="flex items-center gap-sm mb-md"><span class="font-body-sm text-on-surface-variant">500K+ employees</span><span class="w-1 h-1 bg-outline-variant rounded-full"></span><div class="flex items-center text-amber-500 font-bold text-body-sm">4.0 <span class="material-symbols-outlined text-[16px] ml-1">star</span></div></div><p class="font-body-sm text-on-surface-variant line-clamp-2 mb-lg">Global leader in IT services, digital and business solutions with a massive workforce across 46 countries.</p><div class="mt-auto flex items-center gap-md"><span class="flex-1 bg-primary-container/10 text-primary-fixed-dim bg-primary-fixed text-on-primary-fixed-variant px-sm py-2 rounded-lg font-bold text-body-sm text-center">2,840 open roles</span><button class="flex-1 border border-primary text-primary px-lg py-2 rounded-lg font-bold text-body-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Jobs</button></div></article>
+<!-- Razorpay -->
+<article class="company-card bg-surface-container-lowest p-lg border border-outline-variant rounded-xl soft-sharp-shadow transition-all group flex flex-col hover:shadow-lg hover:border-primary/50"><div class="flex justify-between items-start mb-md"><img class="w-14 h-14 rounded-lg object-contain bg-surface-container-low p-2" data-alt="Company Logo" src="{{DATA:IMAGE:ID}}"><span class="bg-tertiary-container text-on-tertiary px-sm py-1 rounded-full font-mono-label text-mono-label uppercase">IT Services</span></div><h3 class="font-title-sm text-title-sm text-on-surface mb-xs group-hover:text-primary transition-colors">TCS</h3><div class="flex items-center gap-sm mb-md"><span class="font-body-sm text-on-surface-variant">500K+ employees</span><span class="w-1 h-1 bg-outline-variant rounded-full"></span><div class="flex items-center text-amber-500 font-bold text-body-sm">4.0 <span class="material-symbols-outlined text-[16px] ml-1">star</span></div></div><p class="font-body-sm text-on-surface-variant line-clamp-2 mb-lg">Global leader in IT services, digital and business solutions with a massive workforce across 46 countries.</p><div class="mt-auto flex items-center gap-md"><span class="flex-1 bg-primary-container/10 text-primary-fixed-dim bg-primary-fixed text-on-primary-fixed-variant px-sm py-2 rounded-lg font-bold text-body-sm text-center">2,840 open roles</span><button class="flex-1 border border-primary text-primary px-lg py-2 rounded-lg font-bold text-body-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Jobs</button></div></article>
+<!-- Swiggy -->
+<article class="company-card bg-surface-container-lowest p-lg border border-outline-variant rounded-xl soft-sharp-shadow transition-all group flex flex-col hover:shadow-lg hover:border-primary/50"><div class="flex justify-between items-start mb-md"><img class="w-14 h-14 rounded-lg object-contain bg-surface-container-low p-2" data-alt="Company Logo" src="{{DATA:IMAGE:ID}}"><span class="bg-tertiary-container text-on-tertiary px-sm py-1 rounded-full font-mono-label text-mono-label uppercase">IT Services</span></div><h3 class="font-title-sm text-title-sm text-on-surface mb-xs group-hover:text-primary transition-colors">TCS</h3><div class="flex items-center gap-sm mb-md"><span class="font-body-sm text-on-surface-variant">500K+ employees</span><span class="w-1 h-1 bg-outline-variant rounded-full"></span><div class="flex items-center text-amber-500 font-bold text-body-sm">4.0 <span class="material-symbols-outlined text-[16px] ml-1">star</span></div></div><p class="font-body-sm text-on-surface-variant line-clamp-2 mb-lg">Global leader in IT services, digital and business solutions with a massive workforce across 46 countries.</p><div class="mt-auto flex items-center gap-md"><span class="flex-1 bg-primary-container/10 text-primary-fixed-dim bg-primary-fixed text-on-primary-fixed-variant px-sm py-2 rounded-lg font-bold text-body-sm text-center">2,840 open roles</span><button class="flex-1 border border-primary text-primary px-lg py-2 rounded-lg font-bold text-body-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Jobs</button></div></article>
+<!-- Microsoft -->
+<article class="company-card bg-surface-container-lowest p-lg border border-outline-variant rounded-xl soft-sharp-shadow transition-all group flex flex-col hover:shadow-lg hover:border-primary/50"><div class="flex justify-between items-start mb-md"><img class="w-14 h-14 rounded-lg object-contain bg-surface-container-low p-2" data-alt="Company Logo" src="{{DATA:IMAGE:ID}}"><span class="bg-tertiary-container text-on-tertiary px-sm py-1 rounded-full font-mono-label text-mono-label uppercase">IT Services</span></div><h3 class="font-title-sm text-title-sm text-on-surface mb-xs group-hover:text-primary transition-colors">TCS</h3><div class="flex items-center gap-sm mb-md"><span class="font-body-sm text-on-surface-variant">500K+ employees</span><span class="w-1 h-1 bg-outline-variant rounded-full"></span><div class="flex items-center text-amber-500 font-bold text-body-sm">4.0 <span class="material-symbols-outlined text-[16px] ml-1">star</span></div></div><p class="font-body-sm text-on-surface-variant line-clamp-2 mb-lg">Global leader in IT services, digital and business solutions with a massive workforce across 46 countries.</p><div class="mt-auto flex items-center gap-md"><span class="flex-1 bg-primary-container/10 text-primary-fixed-dim bg-primary-fixed text-on-primary-fixed-variant px-sm py-2 rounded-lg font-bold text-body-sm text-center">2,840 open roles</span><button class="flex-1 border border-primary text-primary px-lg py-2 rounded-lg font-bold text-body-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Jobs</button></div></article>
+<!-- HDFC -->
+<article class="company-card bg-surface-container-lowest p-lg border border-outline-variant rounded-xl soft-sharp-shadow transition-all group flex flex-col hover:shadow-lg hover:border-primary/50"><div class="flex justify-between items-start mb-md"><img class="w-14 h-14 rounded-lg object-contain bg-surface-container-low p-2" data-alt="Company Logo" src="{{DATA:IMAGE:ID}}"><span class="bg-tertiary-container text-on-tertiary px-sm py-1 rounded-full font-mono-label text-mono-label uppercase">IT Services</span></div><h3 class="font-title-sm text-title-sm text-on-surface mb-xs group-hover:text-primary transition-colors">TCS</h3><div class="flex items-center gap-sm mb-md"><span class="font-body-sm text-on-surface-variant">500K+ employees</span><span class="w-1 h-1 bg-outline-variant rounded-full"></span><div class="flex items-center text-amber-500 font-bold text-body-sm">4.0 <span class="material-symbols-outlined text-[16px] ml-1">star</span></div></div><p class="font-body-sm text-on-surface-variant line-clamp-2 mb-lg">Global leader in IT services, digital and business solutions with a massive workforce across 46 countries.</p><div class="mt-auto flex items-center gap-md"><span class="flex-1 bg-primary-container/10 text-primary-fixed-dim bg-primary-fixed text-on-primary-fixed-variant px-sm py-2 rounded-lg font-bold text-body-sm text-center">2,840 open roles</span><button class="flex-1 border border-primary text-primary px-lg py-2 rounded-lg font-bold text-body-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Jobs</button></div></article>
+<!-- Amazon -->
+<article class="company-card bg-surface-container-lowest p-lg border border-outline-variant rounded-xl soft-sharp-shadow transition-all group flex flex-col hover:shadow-lg hover:border-primary/50"><div class="flex justify-between items-start mb-md"><img class="w-14 h-14 rounded-lg object-contain bg-surface-container-low p-2" data-alt="Company Logo" src="{{DATA:IMAGE:ID}}"><span class="bg-tertiary-container text-on-tertiary px-sm py-1 rounded-full font-mono-label text-mono-label uppercase">IT Services</span></div><h3 class="font-title-sm text-title-sm text-on-surface mb-xs group-hover:text-primary transition-colors">TCS</h3><div class="flex items-center gap-sm mb-md"><span class="font-body-sm text-on-surface-variant">500K+ employees</span><span class="w-1 h-1 bg-outline-variant rounded-full"></span><div class="flex items-center text-amber-500 font-bold text-body-sm">4.0 <span class="material-symbols-outlined text-[16px] ml-1">star</span></div></div><p class="font-body-sm text-on-surface-variant line-clamp-2 mb-lg">Global leader in IT services, digital and business solutions with a massive workforce across 46 countries.</p><div class="mt-auto flex items-center gap-md"><span class="flex-1 bg-primary-container/10 text-primary-fixed-dim bg-primary-fixed text-on-primary-fixed-variant px-sm py-2 rounded-lg font-bold text-body-sm text-center">2,840 open roles</span><button class="flex-1 border border-primary text-primary px-lg py-2 rounded-lg font-bold text-body-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Jobs</button></div></article>
+<!-- Infosys -->
+<article class="company-card bg-surface-container-lowest p-lg border border-outline-variant rounded-xl soft-sharp-shadow transition-all group flex flex-col hover:shadow-lg hover:border-primary/50"><div class="flex justify-between items-start mb-md"><img class="w-14 h-14 rounded-lg object-contain bg-surface-container-low p-2" data-alt="Company Logo" src="{{DATA:IMAGE:ID}}"><span class="bg-tertiary-container text-on-tertiary px-sm py-1 rounded-full font-mono-label text-mono-label uppercase">IT Services</span></div><h3 class="font-title-sm text-title-sm text-on-surface mb-xs group-hover:text-primary transition-colors">TCS</h3><div class="flex items-center gap-sm mb-md"><span class="font-body-sm text-on-surface-variant">500K+ employees</span><span class="w-1 h-1 bg-outline-variant rounded-full"></span><div class="flex items-center text-amber-500 font-bold text-body-sm">4.0 <span class="material-symbols-outlined text-[16px] ml-1">star</span></div></div><p class="font-body-sm text-on-surface-variant line-clamp-2 mb-lg">Global leader in IT services, digital and business solutions with a massive workforce across 46 countries.</p><div class="mt-auto flex items-center gap-md"><span class="flex-1 bg-primary-container/10 text-primary-fixed-dim bg-primary-fixed text-on-primary-fixed-variant px-sm py-2 rounded-lg font-bold text-body-sm text-center">2,840 open roles</span><button class="flex-1 border border-primary text-primary px-lg py-2 rounded-lg font-bold text-body-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Jobs</button></div></article>
+<!-- Zepto -->
+<article class="company-card bg-surface-container-lowest p-lg border border-outline-variant rounded-xl soft-sharp-shadow transition-all group flex flex-col hover:shadow-lg hover:border-primary/50"><div class="flex justify-between items-start mb-md"><img class="w-14 h-14 rounded-lg object-contain bg-surface-container-low p-2" data-alt="Company Logo" src="{{DATA:IMAGE:ID}}"><span class="bg-tertiary-container text-on-tertiary px-sm py-1 rounded-full font-mono-label text-mono-label uppercase">IT Services</span></div><h3 class="font-title-sm text-title-sm text-on-surface mb-xs group-hover:text-primary transition-colors">TCS</h3><div class="flex items-center gap-sm mb-md"><span class="font-body-sm text-on-surface-variant">500K+ employees</span><span class="w-1 h-1 bg-outline-variant rounded-full"></span><div class="flex items-center text-amber-500 font-bold text-body-sm">4.0 <span class="material-symbols-outlined text-[16px] ml-1">star</span></div></div><p class="font-body-sm text-on-surface-variant line-clamp-2 mb-lg">Global leader in IT services, digital and business solutions with a massive workforce across 46 countries.</p><div class="mt-auto flex items-center gap-md"><span class="flex-1 bg-primary-container/10 text-primary-fixed-dim bg-primary-fixed text-on-primary-fixed-variant px-sm py-2 rounded-lg font-bold text-body-sm text-center">2,840 open roles</span><button class="flex-1 border border-primary text-primary px-lg py-2 rounded-lg font-bold text-body-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Jobs</button></div></article>
+<!-- Accenture -->
+<article class="company-card bg-surface-container-lowest p-lg border border-outline-variant rounded-xl soft-sharp-shadow transition-all group flex flex-col hover:shadow-lg hover:border-primary/50"><div class="flex justify-between items-start mb-md"><img class="w-14 h-14 rounded-lg object-contain bg-surface-container-low p-2" data-alt="Company Logo" src="{{DATA:IMAGE:ID}}"><span class="bg-tertiary-container text-on-tertiary px-sm py-1 rounded-full font-mono-label text-mono-label uppercase">IT Services</span></div><h3 class="font-title-sm text-title-sm text-on-surface mb-xs group-hover:text-primary transition-colors">TCS</h3><div class="flex items-center gap-sm mb-md"><span class="font-body-sm text-on-surface-variant">500K+ employees</span><span class="w-1 h-1 bg-outline-variant rounded-full"></span><div class="flex items-center text-amber-500 font-bold text-body-sm">4.0 <span class="material-symbols-outlined text-[16px] ml-1">star</span></div></div><p class="font-body-sm text-on-surface-variant line-clamp-2 mb-lg">Global leader in IT services, digital and business solutions with a massive workforce across 46 countries.</p><div class="mt-auto flex items-center gap-md"><span class="flex-1 bg-primary-container/10 text-primary-fixed-dim bg-primary-fixed text-on-primary-fixed-variant px-sm py-2 rounded-lg font-bold text-body-sm text-center">2,840 open roles</span><button class="flex-1 border border-primary text-primary px-lg py-2 rounded-lg font-bold text-body-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Jobs</button></div></article>
+<!-- CRED -->
+<article class="company-card bg-surface-container-lowest p-lg border border-outline-variant rounded-xl soft-sharp-shadow transition-all group flex flex-col hover:shadow-lg hover:border-primary/50"><div class="flex justify-between items-start mb-md"><img class="w-14 h-14 rounded-lg object-contain bg-surface-container-low p-2" data-alt="Company Logo" src="{{DATA:IMAGE:ID}}"><span class="bg-tertiary-container text-on-tertiary px-sm py-1 rounded-full font-mono-label text-mono-label uppercase">IT Services</span></div><h3 class="font-title-sm text-title-sm text-on-surface mb-xs group-hover:text-primary transition-colors">TCS</h3><div class="flex items-center gap-sm mb-md"><span class="font-body-sm text-on-surface-variant">500K+ employees</span><span class="w-1 h-1 bg-outline-variant rounded-full"></span><div class="flex items-center text-amber-500 font-bold text-body-sm">4.0 <span class="material-symbols-outlined text-[16px] ml-1">star</span></div></div><p class="font-body-sm text-on-surface-variant line-clamp-2 mb-lg">Global leader in IT services, digital and business solutions with a massive workforce across 46 countries.</p><div class="mt-auto flex items-center gap-md"><span class="flex-1 bg-primary-container/10 text-primary-fixed-dim bg-primary-fixed text-on-primary-fixed-variant px-sm py-2 rounded-lg font-bold text-body-sm text-center">2,840 open roles</span><button class="flex-1 border border-primary text-primary px-lg py-2 rounded-lg font-bold text-body-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Jobs</button></div></article>
+<!-- Meesho -->
+<article class="company-card bg-surface-container-lowest p-lg border border-outline-variant rounded-xl soft-sharp-shadow transition-all group flex flex-col hover:shadow-lg hover:border-primary/50"><div class="flex justify-between items-start mb-md"><img class="w-14 h-14 rounded-lg object-contain bg-surface-container-low p-2" data-alt="Company Logo" src="{{DATA:IMAGE:ID}}"><span class="bg-tertiary-container text-on-tertiary px-sm py-1 rounded-full font-mono-label text-mono-label uppercase">IT Services</span></div><h3 class="font-title-sm text-title-sm text-on-surface mb-xs group-hover:text-primary transition-colors">TCS</h3><div class="flex items-center gap-sm mb-md"><span class="font-body-sm text-on-surface-variant">500K+ employees</span><span class="w-1 h-1 bg-outline-variant rounded-full"></span><div class="flex items-center text-amber-500 font-bold text-body-sm">4.0 <span class="material-symbols-outlined text-[16px] ml-1">star</span></div></div><p class="font-body-sm text-on-surface-variant line-clamp-2 mb-lg">Global leader in IT services, digital and business solutions with a massive workforce across 46 countries.</p><div class="mt-auto flex items-center gap-md"><span class="flex-1 bg-primary-container/10 text-primary-fixed-dim bg-primary-fixed text-on-primary-fixed-variant px-sm py-2 rounded-lg font-bold text-body-sm text-center">2,840 open roles</span><button class="flex-1 border border-primary text-primary px-lg py-2 rounded-lg font-bold text-body-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Jobs</button></div></article>
+<!-- PhonePe -->
+<article class="company-card bg-surface-container-lowest p-lg border border-outline-variant rounded-xl soft-sharp-shadow transition-all group flex flex-col hover:shadow-lg hover:border-primary/50"><div class="flex justify-between items-start mb-md"><img class="w-14 h-14 rounded-lg object-contain bg-surface-container-low p-2" data-alt="Company Logo" src="{{DATA:IMAGE:ID}}"><span class="bg-tertiary-container text-on-tertiary px-sm py-1 rounded-full font-mono-label text-mono-label uppercase">IT Services</span></div><h3 class="font-title-sm text-title-sm text-on-surface mb-xs group-hover:text-primary transition-colors">TCS</h3><div class="flex items-center gap-sm mb-md"><span class="font-body-sm text-on-surface-variant">500K+ employees</span><span class="w-1 h-1 bg-outline-variant rounded-full"></span><div class="flex items-center text-amber-500 font-bold text-body-sm">4.0 <span class="material-symbols-outlined text-[16px] ml-1">star</span></div></div><p class="font-body-sm text-on-surface-variant line-clamp-2 mb-lg">Global leader in IT services, digital and business solutions with a massive workforce across 46 countries.</p><div class="mt-auto flex items-center gap-md"><span class="flex-1 bg-primary-container/10 text-primary-fixed-dim bg-primary-fixed text-on-primary-fixed-variant px-sm py-2 rounded-lg font-bold text-body-sm text-center">2,840 open roles</span><button class="flex-1 border border-primary text-primary px-lg py-2 rounded-lg font-bold text-body-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Jobs</button></div></article>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-center mt-xxl gap-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">3</button>
+<span class="px-sm text-outline">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">12</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface text-on-primary py-xxl mt-xxl border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl px-lg w-full max-w-container-max mx-auto">
+<div>
+<span class="font-title-sm text-title-sm font-bold text-on-primary block mb-md">Martin Connect</span>
+<p class="font-body-sm text-body-sm text-outline-variant leading-relaxed">The premier industrial recruitment platform designed for high-performance HR teams and elite talent acquisition.</p>
+</div>
+<div>
+<span class="font-body-md font-bold text-on-primary block mb-md">Job Seekers</span>
+<ul class="space-y-sm">
+<li class=""><a class="text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Browse Companies</a></li>
+<li class=""><a class="text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Job Alerts</a></li>
+<li class=""><a class="text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Resume Builder</a></li>
+</ul>
+</div>
+<div>
+<span class="font-body-md font-bold text-on-primary block mb-md">Employers</span>
+<ul class="space-y-sm">
+<li class=""><a class="text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Post a Job</a></li>
+<li class=""><a class="text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Pricing Plans</a></li>
+<li class=""><a class="text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Talent Sourcing</a></li>
+</ul>
+</div>
+<div>
+<span class="font-body-md font-bold text-on-primary block mb-md">Legal</span>
+<ul class="space-y-sm">
+<li class=""><a class="text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Terms of Service</a></li>
+<li class=""><a class="text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Privacy Policy</a></li>
+<li class=""><a class="text-body-sm text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-xxl pt-lg border-t border-outline-variant/30 text-center px-lg">
+<p class="font-body-sm text-body-sm text-outline-variant">© 2024 Martin Connect. Precise. Decisive. Industrial.</p>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for filters
+        const filterButtons = document.querySelectorAll('button.rounded-full');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active-filter', 'bg-primary', 'text-white'));
+                filterButtons.forEach(b => b.classList.add('bg-surface-container', 'text-on-surface-variant'));
+                btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+                btn.classList.add('active-filter');
+            });
+        });
+    </script>
+
+
+</body></html>

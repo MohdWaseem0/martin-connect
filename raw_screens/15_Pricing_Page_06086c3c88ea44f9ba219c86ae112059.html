@@ -1,0 +1,462 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Pricing | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#dbe1ff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#121b30",
+                    "tertiary-container": "#0073b5",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#faf8ff",
+                    "surface-container-low": "#f2f3ff",
+                    "secondary": "#2950ce",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#98cbff",
+                    "surface-bright": "#faf8ff",
+                    "primary": "#004bc9",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#eaedff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "tertiary": "#005a8f",
+                    "secondary-fixed": "#dde1ff",
+                    "on-secondary-fixed": "#001452",
+                    "surface-dim": "#d1d9f6",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-secondary-container": "#fffbff",
+                    "on-primary-container": "#f1f1ff",
+                    "inverse-surface": "#273046",
+                    "on-secondary-fixed-variant": "#0038b7",
+                    "on-tertiary-fixed-variant": "#004a77",
+                    "surface-container-highest": "#dae2ff",
+                    "primary-container": "#1e63f3",
+                    "on-tertiary-container": "#ebf3ff",
+                    "on-background": "#121b30",
+                    "outline-variant": "#c3c6d8",
+                    "inverse-primary": "#b4c5ff",
+                    "secondary-fixed-dim": "#b7c4ff",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#eef0ff",
+                    "background": "#faf8ff",
+                    "tertiary-fixed": "#cfe5ff",
+                    "on-tertiary-fixed": "#001d33",
+                    "surface-tint": "#0053db",
+                    "outline": "#737687",
+                    "on-surface-variant": "#424655",
+                    "on-primary-fixed": "#00174b",
+                    "surface-variant": "#dae2ff",
+                    "secondary-container": "#476ae9",
+                    "surface-container-high": "#e2e7ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "xs": "4px",
+                    "xxl": "48px",
+                    "sidebar-width": "260px",
+                    "container-max": "1440px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["DM Sans"],
+                    "headline-md": ["DM Sans"],
+                    "display-lg": ["DM Sans"],
+                    "display-md": ["DM Sans"],
+                    "title-md": ["DM Sans"],
+                    "title-lg": ["DM Sans"],
+                    "mono-label": ["IBM Plex Mono"],
+                    "body-md": ["DM Sans"],
+                    "title-sm": ["DM Sans"],
+                    "headline-lg": ["DM Sans"],
+                    "body-lg": ["DM Sans"],
+                    "body-sm": ["DM Sans"]
+            },
+            "fontSize": {
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-md": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "title-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "mono-label": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "title-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["12px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-sharp-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        .active-pill-border {
+            border-left: 3px solid #1E63F3;
+        }
+        .glass-header {
+            backdrop-filter: blur(8px);
+            background: rgba(39, 48, 70, 0.95);
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c3c6d8; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background custom-scrollbar">
+<!-- Top Navigation Bar -->
+<header class="bg-inverse-surface dark:bg-inverse-surface text-on-primary font-title-md text-title-md docked full-width top-0 border-b border-outline-variant shadow-sm flex justify-between items-center w-full px-lg py-md h-[72px] sticky z-50">
+<div class="flex items-center gap-md">
+<span class="font-headline-sm text-headline-sm font-bold text-on-primary">Martin Connect</span>
+</div>
+<nav class="hidden md:flex items-center gap-xl">
+<a class="text-outline-variant hover:text-on-primary hover:bg-on-surface-variant/10 transition-colors" href="#">Jobs</a>
+<a class="text-outline-variant hover:text-on-primary hover:bg-on-surface-variant/10 transition-colors" href="#">Candidates</a>
+<a class="text-outline-variant hover:text-on-primary hover:bg-on-surface-variant/10 transition-colors" href="#">Analytics</a>
+</nav>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined cursor-pointer hover:bg-on-surface-variant/10 p-xs rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-on-surface-variant/10 p-xs rounded-full transition-colors">settings</span>
+<button class="bg-primary-container text-on-primary px-lg py-sm rounded-lg font-bold active:scale-95 transition-transform">Post Job</button>
+<div class="h-8 w-8 rounded-full bg-secondary-container overflow-hidden border border-outline-variant">
+<img alt="User Profile" data-alt="A professional male recruiter in a crisp navy blue suit, standing in a bright, modern glass office with a blurred cityscape background. The lighting is clean and high-key, reflecting a corporate and high-performance recruitment ecosystem. The overall mood is precise and authoritative, using a professional color palette of deep blues and bright whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkD9Z97caxOGrQwp45-dkXL1W8ZnL9t9VT46qQL_TQF2mNhmtp_ZJUV5IXmkGQeJ0T9DZjonyldGKaMGkTjsnTzsK7LIWBaoYpmZ3SbfaHERx8lWHhLn4sEMXn4IDYOHKc5Hi38MPI2YizsqPbFyntHU5mxrOGuKGGwFA1DuwE--yH3a8eH3LrGtuQ9CzBGdDVn_InyLDkmfNnQnjY4u9Hf6YXeSg-Nu7k2RyR_iItmkKWRnasXWXHRZT7PiG64LhprdZ1n6HeVyg">
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-lg py-xxl">
+<!-- Header Section -->
+<section class="text-center mb-xl">
+<h1 class="font-display-md text-display-md text-on-surface mb-md">Simple, Transparent Pricing</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Scalable solutions for independent recruiters and global enterprises. No hidden fees, just high-performance hiring.
+            </p>
+</section>
+<!-- Toggle Tabs -->
+<div class="flex justify-center mb-xl">
+<div class="bg-surface-container p-unit rounded-full flex gap-xs">
+<button class="px-xl py-sm rounded-full font-title-sm text-title-sm transition-all duration-300 bg-secondary text-on-primary" id="tab-recruiter" onclick="togglePricing('recruiter')">
+                    For Recruiters
+                </button>
+<button class="px-xl py-sm rounded-full font-title-sm text-title-sm transition-all duration-300 text-outline hover:text-on-surface" id="tab-seeker" onclick="togglePricing('seeker')">
+                    For Job Seekers
+                </button>
+</div>
+</div>
+<!-- Recruiter Plans (Default View) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xxl transition-all duration-500" id="recruiter-plans">
+<!-- Starter -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg soft-sharp-shadow hover:active-pill-border transition-all flex flex-col">
+<div class="mb-xl">
+<h3 class="font-title-lg text-title-lg mb-xs">Starter</h3>
+<div class="flex items-baseline gap-xs">
+<span class="font-headline-md text-headline-md">₹0</span>
+<span class="font-body-md text-body-md text-outline">/ month</span>
+</div>
+</div>
+<ul class="flex-grow space-y-md mb-xl">
+<li class="flex items-center gap-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> 3 active jobs
+                    </li>
+<li class="flex items-center gap-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> 50 CV views
+                    </li>
+<li class="flex items-center gap-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> Basic analytics
+                    </li>
+</ul>
+<button class="w-full py-md border border-primary text-primary font-bold hover:bg-primary-fixed transition-colors uppercase tracking-wider text-sm rounded-none">Start Free</button>
+</div>
+<!-- Growth (Featured) -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-xl relative transform scale-105 z-10 flex flex-col active-pill-border border-primary">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-surface-container-highest text-primary border border-primary px-lg py-1 rounded font-mono-label text-[11px] font-bold uppercase tracking-widest shadow-sm">Most Popular</div>
+<div class="mb-xl">
+<h3 class="font-title-lg text-title-lg mb-xs">Growth</h3>
+<div class="flex items-baseline gap-xs">
+<span class="font-headline-md text-headline-md">₹4,999</span>
+<span class="font-body-md text-body-md text-outline">/ month</span>
+</div>
+</div>
+<ul class="flex-grow space-y-md mb-xl">
+<li class="flex items-center gap-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> 25 active jobs
+                    </li>
+<li class="flex items-center gap-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> Unlimited CV views
+                    </li>
+<li class="flex items-center gap-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> 3 Featured slots
+                    </li>
+<li class="flex items-center gap-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> ATS pipeline integration
+                    </li>
+<li class="flex items-center gap-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> Priority support
+                    </li>
+</ul>
+<button class="w-full py-md bg-primary-container text-on-primary font-bold shadow-md hover:bg-primary transition-colors uppercase tracking-wider text-sm rounded-none">Start 14-day Free Trial</button>
+</div>
+<!-- Enterprise -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg soft-sharp-shadow hover:active-pill-border transition-all flex flex-col">
+<div class="mb-xl">
+<h3 class="font-title-lg text-title-lg mb-xs">Enterprise</h3>
+<div class="flex items-baseline gap-xs">
+<span class="font-headline-md text-headline-md">Custom</span>
+</div>
+</div>
+<ul class="flex-grow space-y-md mb-xl">
+<li class="flex items-center gap-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> Unlimited jobs
+                    </li>
+<li class="flex items-center gap-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> Dedicated account manager
+                    </li>
+<li class="flex items-center gap-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> AI automated screening
+                    </li>
+<li class="flex items-center gap-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> SSO &amp; Security compliance
+                    </li>
+<li class="flex items-center gap-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> 99.9% SLA support
+                    </li>
+</ul>
+<button class="w-full py-md border border-inverse-surface text-inverse-surface font-bold hover:bg-surface-container transition-colors uppercase tracking-wider text-sm rounded-none">Contact Sales</button>
+</div>
+</div>
+<!-- Job Seeker Plans (Hidden initially) -->
+<div class="hidden grid-cols-1 md:grid-cols-3 gap-lg mb-xxl transition-all duration-500" id="seeker-plans">
+<!-- Free -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg soft-sharp-shadow flex flex-col">
+<div class="mb-md">
+<h3 class="font-title-md text-title-md">FREE</h3>
+<p class="font-body-sm text-body-sm text-outline">Basic access</p>
+</div>
+<ul class="space-y-sm mb-lg">
+<li class="flex items-center gap-sm font-body-sm text-body-sm"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Profile building</li>
+<li class="flex items-center gap-sm font-body-sm text-body-sm"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Job search</li>
+<li class="flex items-center gap-sm font-body-sm text-body-sm"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Quick apply</li>
+</ul>
+<button class="mt-auto w-full py-sm border border-outline text-outline rounded font-bold">Current Plan</button>
+</div>
+<!-- Prime -->
+<div class="bg-surface-container-lowest border border-secondary rounded-xl p-lg soft-sharp-shadow flex flex-col active-pill-border">
+<div class="mb-md">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-title-md text-secondary">PRIME</h3>
+<span class="font-title-sm text-title-sm">₹499/mo</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Get noticed faster</p>
+</div>
+<ul class="space-y-sm mb-lg">
+<li class="flex items-center gap-sm font-body-sm text-body-sm"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Resume priority</li>
+<li class="flex items-center gap-sm font-body-sm text-body-sm"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Profile boost</li>
+<li class="flex items-center gap-sm font-body-sm text-body-sm"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Salary insights</li>
+</ul>
+<button class="mt-auto w-full py-sm bg-secondary text-on-primary rounded font-bold">Upgrade to Prime</button>
+</div>
+<!-- Prime+ -->
+<div class="bg-inverse-surface border border-outline-variant rounded-xl p-lg shadow-lg flex flex-col">
+<div class="mb-md">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-title-md text-on-primary">PRIME+</h3>
+<span class="font-title-sm text-title-sm text-on-primary">₹999/mo</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline-variant">Ultimate career edge</p>
+</div>
+<ul class="space-y-sm mb-lg">
+<li class="flex items-center gap-sm font-body-sm text-body-sm text-on-primary"><span class="material-symbols-outlined text-secondary-fixed-dim text-[18px]">check</span> All Prime benefits</li>
+<li class="flex items-center gap-sm font-body-sm text-body-sm text-on-primary"><span class="material-symbols-outlined text-secondary-fixed-dim text-[18px]">check</span> AI career coaching</li>
+<li class="flex items-center gap-sm font-body-sm text-body-sm text-on-primary"><span class="material-symbols-outlined text-secondary-fixed-dim text-[18px]">check</span> Recruiter visibility</li>
+</ul>
+<button class="mt-auto w-full py-sm bg-primary-container text-on-primary rounded font-bold">Go Prime+</button>
+</div>
+</div>
+<!-- Logo Strip -->
+<section class="mb-xxl overflow-hidden">
+<h4 class="text-center font-mono-label text-mono-label text-outline uppercase tracking-widest mb-lg">Trusted by Industry Leaders</h4>
+<div class="flex flex-wrap justify-center items-center gap-xl opacity-60 grayscale hover:grayscale-0 transition-all">
+<div class="h-12 w-32 flex items-center justify-center font-headline-sm text-headline-sm font-bold text-outline">GLOBAL-X</div>
+<div class="h-12 w-32 flex items-center justify-center font-headline-sm text-headline-sm font-bold text-outline">TECHNO</div>
+<div class="h-12 w-32 flex items-center justify-center font-headline-sm text-headline-sm font-bold text-outline">INNOVATE</div>
+<div class="h-12 w-32 flex items-center justify-center font-headline-sm text-headline-sm font-bold text-outline">NEXUS</div>
+<div class="h-12 w-32 flex items-center justify-center font-headline-sm text-headline-sm font-bold text-outline">CORE-IT</div>
+<div class="h-12 w-32 flex items-center justify-center font-headline-sm text-headline-sm font-bold text-outline">VANTAGE</div>
+<div class="h-12 w-32 flex items-center justify-center font-headline-sm text-headline-sm font-bold text-outline">SYNERGY</div>
+<div class="h-12 w-32 flex items-center justify-center font-headline-sm text-headline-sm font-bold text-outline">PRIME</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="max-w-3xl mx-auto mb-xxl">
+<h2 class="font-headline-md text-headline-md text-center mb-xl font-bold tracking-tight">Frequently Asked Questions</h2>
+<div class="space-y-md">
+<!-- FAQ 1 -->
+<div class="border-b border-outline-variant">
+<button class="w-full py-lg flex justify-between items-center text-left hover:text-primary transition-colors" onclick="toggleFaq(1)">
+<span class="font-title-md text-title-md font-bold text-on-surface">Can I change my plan at any time?</span>
+<span class="material-symbols-outlined transition-transform" id="faq-icon-1">expand_more</span>
+</button>
+<div class="hidden pb-lg font-body-md text-body-md text-on-surface-variant" id="faq-content-1">
+                        Yes, you can upgrade or downgrade your plan at any point. If you upgrade, the new features will be available immediately and the price will be prorated.
+                    </div>
+</div>
+<!-- FAQ 2 -->
+<div class="border-b border-outline-variant">
+<button class="w-full py-lg flex justify-between items-center text-left hover:text-primary transition-colors" onclick="toggleFaq(2)">
+<span class="font-title-md text-title-md font-bold text-on-surface">What happens after my 14-day trial?</span>
+<span class="material-symbols-outlined transition-transform" id="faq-icon-2">expand_more</span>
+</button>
+<div class="hidden pb-lg font-body-md text-body-md text-on-surface-variant" id="faq-content-2">
+                        Once your trial ends, you'll be automatically transitioned to the Growth plan. You can cancel at any time during the trial period to avoid being charged.
+                    </div>
+</div>
+<!-- FAQ 3 -->
+<div class="border-b border-outline-variant">
+<button class="w-full py-lg flex justify-between items-center text-left hover:text-primary transition-colors" onclick="toggleFaq(3)">
+<span class="font-title-md text-title-md font-bold text-on-surface">How does the "AI automated screening" work?</span>
+<span class="material-symbols-outlined transition-transform" id="faq-icon-3">expand_more</span>
+</button>
+<div class="hidden pb-lg font-body-md text-body-md text-on-surface-variant" id="faq-content-3">
+                        Our AI analyzes candidate resumes against your specific job description, scoring them on technical skills, experience, and cultural fit to prioritize the best candidates.
+                    </div>
+</div>
+<!-- FAQ 4 -->
+<div class="border-b border-outline-variant">
+<button class="w-full py-lg flex justify-between items-center text-left hover:text-primary transition-colors" onclick="toggleFaq(4)">
+<span class="font-title-md text-title-md font-bold text-on-surface">Is there a discount for annual billing?</span>
+<span class="material-symbols-outlined transition-transform" id="faq-icon-4">expand_more</span>
+</button>
+<div class="hidden pb-lg font-body-md text-body-md text-on-surface-variant" id="faq-content-4">
+                        We currently offer a 20% discount on all recruiter plans when billed annually. Contact our sales team for custom billing cycles.
+                    </div>
+</div>
+<!-- FAQ 5 -->
+<div class="border-b border-outline-variant">
+<button class="w-full py-lg flex justify-between items-center text-left hover:text-primary transition-colors" onclick="toggleFaq(5)">
+<span class="font-title-md text-title-md font-bold text-on-surface">Can I use Martin Connect for free?</span>
+<span class="material-symbols-outlined transition-transform" id="faq-icon-5">expand_more</span>
+</button>
+<div class="hidden pb-lg font-body-md text-body-md text-on-surface-variant" id="faq-content-5">
+                        Absolutely. Our Starter plan is free forever for small teams and independent recruiters who only need to manage a few active job listings.
+                    </div>
+</div>
+<!-- FAQ 6 -->
+<div class="border-b border-outline-variant">
+<button class="w-full py-lg flex justify-between items-center text-left hover:text-primary transition-colors" onclick="toggleFaq(6)">
+<span class="font-title-md text-title-md font-bold text-on-surface">Do you offer specialized support for Enterprise?</span>
+<span class="material-symbols-outlined transition-transform" id="faq-icon-6">expand_more</span>
+</button>
+<div class="hidden pb-lg font-body-md text-body-md text-on-surface-variant" id="faq-content-6">
+                        Yes, Enterprise clients get a dedicated account manager, technical onboarding assistance, and 24/7 priority support with a guaranteed response time.
+                    </div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface text-on-primary border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl px-lg py-xxl w-full max-w-container-max mx-auto">
+<div>
+<span class="font-title-sm text-title-sm font-bold text-on-primary block mb-md">Martin Connect</span>
+<p class="font-body-sm text-body-sm text-outline-variant mb-md">Building the future of industrial recruitment through precision technology and human expertise.</p>
+</div>
+<div>
+<h5 class="font-title-sm text-title-sm mb-md">Solutions</h5>
+<ul class="space-y-sm font-body-sm text-body-sm text-outline-variant">
+<li class=""><a class="hover:text-on-primary transition-colors" href="#">Job Seekers</a></li>
+<li class=""><a class="hover:text-on-primary transition-colors" href="#">Employers</a></li>
+<li class=""><a class="hover:text-on-primary transition-colors" href="#">Premium Plans</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-title-sm text-title-sm mb-md">Company</h5>
+<ul class="space-y-sm font-body-sm text-body-sm text-outline-variant">
+<li class=""><a class="hover:text-on-primary transition-colors" href="#">About Us</a></li>
+<li class=""><a class="hover:text-on-primary transition-colors" href="#">Careers</a></li>
+<li class=""><a class="hover:text-on-primary transition-colors" href="#">Terms of Service</a></li>
+<li class=""><a class="hover:text-on-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-title-sm text-title-sm mb-md">Connect</h5>
+<ul class="space-y-sm font-body-sm text-body-sm text-outline-variant">
+<li class=""><a class="hover:text-on-primary transition-colors" href="#">LinkedIn</a></li>
+<li class=""><a class="hover:text-on-primary transition-colors" href="#">Twitter</a></li>
+<li class=""><a class="hover:text-on-primary transition-colors" href="#">Contact Support</a></li>
+</ul>
+</div>
+</div>
+<div class="px-lg py-md border-t border-outline-variant/30 text-center">
+<p class="font-body-sm text-body-sm text-outline-variant">© 2024 Martin Connect. Precise. Decisive. Industrial.</p>
+</div>
+</footer>
+<script>
+        function togglePricing(view) {
+            const recruiterBtn = document.getElementById('tab-recruiter');
+            const seekerBtn = document.getElementById('tab-seeker');
+            const recruiterPlans = document.getElementById('recruiter-plans');
+            const seekerPlans = document.getElementById('seeker-plans');
+
+            if (view === 'recruiter') {
+                recruiterBtn.classList.add('bg-secondary', 'text-on-primary');
+                recruiterBtn.classList.remove('text-outline');
+                seekerBtn.classList.remove('bg-secondary', 'text-on-primary');
+                seekerBtn.classList.add('text-outline');
+                
+                recruiterPlans.classList.remove('hidden');
+                recruiterPlans.classList.add('grid');
+                seekerPlans.classList.add('hidden');
+                seekerPlans.classList.remove('grid');
+            } else {
+                seekerBtn.classList.add('bg-secondary', 'text-on-primary');
+                seekerBtn.classList.remove('text-outline');
+                recruiterBtn.classList.remove('bg-secondary', 'text-on-primary');
+                recruiterBtn.classList.add('text-outline');
+
+                seekerPlans.classList.remove('hidden');
+                seekerPlans.classList.add('grid');
+                recruiterPlans.classList.add('hidden');
+                recruiterPlans.classList.remove('grid');
+            }
+        }
+
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+
+
+</body></html>

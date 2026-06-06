@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e2e7ff",
+                    "inverse-on-surface": "#eef0ff",
+                    "secondary-fixed-dim": "#b7c4ff",
+                    "primary-fixed": "#dbe1ff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#0053db",
+                    "secondary": "#2950ce",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#004a77",
+                    "on-secondary-fixed": "#001452",
+                    "secondary-fixed": "#dde1ff",
+                    "on-background": "#121b30",
+                    "on-tertiary-container": "#ebf3ff",
+                    "inverse-surface": "#273046",
+                    "on-primary-container": "#f1f1ff",
+                    "tertiary-fixed": "#cfe5ff",
+                    "secondary-container": "#476ae9",
+                    "primary": "#004bc9",
+                    "tertiary-container": "#0073b5",
+                    "surface": "#faf8ff",
+                    "on-primary-fixed": "#00174b",
+                    "surface-variant": "#dae2ff",
+                    "surface-container-low": "#f2f3ff",
+                    "surface-bright": "#faf8ff",
+                    "on-secondary-fixed-variant": "#0038b7",
+                    "background": "#faf8ff",
+                    "on-secondary-container": "#fffbff",
+                    "outline-variant": "#c3c6d8",
+                    "outline": "#737687",
+                    "on-surface-variant": "#424655",
+                    "on-surface": "#121b30",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eaedff",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#1e63f3",
+                    "on-tertiary-fixed": "#001d33",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#d1d9f6",
+                    "tertiary": "#005a8f",
+                    "tertiary-fixed-dim": "#98cbff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "surface-container-highest": "#dae2ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "sidebar-width": "260px",
+                    "xxl": "48px",
+                    "unit": "4px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "title-sm": ["DM Sans"],
+                    "headline-md": ["DM Sans"],
+                    "headline-lg-mobile": ["DM Sans"],
+                    "body-lg": ["DM Sans"],
+                    "mono-label": ["IBM Plex Mono"],
+                    "display-lg": ["DM Sans"],
+                    "title-lg": ["DM Sans"],
+                    "body-sm": ["DM Sans"],
+                    "headline-lg": ["DM Sans"],
+                    "display-md": ["DM Sans"],
+                    "title-md": ["DM Sans"],
+                    "body-md": ["DM Sans"],
+                    "headline-sm": ["DM Sans"]
+            },
+            "fontSize": {
+                    "title-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "mono-label": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-sm": ["12px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-md": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .premium-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        .left-accent:hover {
+            border-left: 3px solid #1E63F3;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar -->
+<nav class="bg-on-background dark:bg-on-background border-b border-outline-variant docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-gutter h-16 max-w-container-max mx-auto">
+<div class="flex items-center gap-xl">
+<span class="font-headline-sm text-headline-sm font-bold text-white">Martin Connect</span>
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-title-sm text-title-sm text-surface-variant hover:text-white transition-colors" href="#">Jobs</a>
+<a class="font-title-sm text-title-sm text-surface-variant hover:text-white transition-colors" href="#">Companies</a>
+<a class="font-title-sm text-title-sm text-surface-variant hover:text-white transition-colors" href="#">Pricing</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="hidden md:block font-title-sm text-title-sm text-surface-variant hover:text-white transition-colors">Sign In</button>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-title-sm text-title-sm active:opacity-80 transition-opacity duration-150">Post a Job</button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto">
+<!-- Hero Section -->
+<section class="relative h-[600px] flex items-center px-gutter overflow-hidden bg-on-background">
+<div class="absolute inset-0 opacity-40">
+<img class="w-full h-full object-cover" data-alt="A grand, low-angle shot of a towering glass skyscraper in a metropolitan financial district. The scene is rendered in high-contrast industrial tones with deep navy blacks and bright architectural highlights. The lighting is crisp, morning sunlight reflecting off geometric glass panels, evoking a sense of corporate authority and technological precision. The overall aesthetic is professional, minimalist, and elite." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw7Qs3Kokt1wtRR364zzxSLN-zmT4eeowUGjAkyNGqz57z7kM_mxYQ9a0-A8J85pGzPy7hGNyN5P0yUTqhFvaMajuoHXS3PJ3zC2Vj41bV6nLKwmOZTU8VxfAHp73x7CGp7tombU4-EZEC08381aCC4OhhUnjy0RxftlNW2WbVcr8accILmHvj7H46NOPc0O4cBfnKOhCXbsdMjZwnhT2nDvVip2dFhX7D99aCFgVD-xyd5re1cjQWJZXFbCVMdk3xbMPmu45Qmto"/>
+</div>
+<div class="relative z-10 max-w-[800px]">
+<span class="font-mono-label text-mono-label text-primary-fixed uppercase tracking-widest mb-md block">Executive Recruitment Partners</span>
+<h1 class="font-display-lg text-display-lg text-white mb-lg">Powering the next generation of industrial leadership.</h1>
+<p class="font-title-lg text-title-lg text-surface-variant leading-relaxed">Martin Connect bridges the gap between elite talent and high-performance organizations through precise, data-driven matching.</p>
+</div>
+</section>
+<!-- Our Mission Section -->
+<section class="py-xxl px-gutter bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-xl items-center">
+<div class="md:col-span-5">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-lg">Our Mission</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-md">
+                        At Martin Connect, we believe that the right leadership is the primary driver of industrial evolution. Our mission is to accelerate elite recruitment by deploying a structural minimalist approach to talent acquisition. 
+                    </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        We strip away the noise of traditional job boards to provide a direct, high-density connection between strategic visionaries and the world's most innovative companies.
+                    </p>
+</div>
+<div class="md:col-span-6 md:col-start-8">
+<div class="p-xl border border-outline-variant rounded-xl bg-white premium-shadow">
+<div class="flex flex-col gap-lg">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="rocket_launch">rocket_launch</span>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface">Accelerated Sourcing</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Reducing time-to-hire by 45% using our proprietary matching engine.</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="target">target</span>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface">Precision Placement</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">98% retention rate for candidates placed in executive roles.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Values Grid -->
+<section class="py-xxl px-gutter bg-surface-container-low">
+<div class="mb-xxl text-center max-w-[700px] mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-md">The Values That Drive Us</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Built on a foundation of industrial efficiency and executive precision.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
+<!-- Value: Precision -->
+<div class="bg-white p-xl rounded-xl border border-outline-variant premium-shadow left-accent transition-all duration-200">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-primary" data-icon="biotech">biotech</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-background mb-sm">Precision</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Every connection is measured. We utilize rigorous data analytics to ensure cultural and technical alignment.
+                    </p>
+</div>
+<!-- Value: Integrity -->
+<div class="bg-white p-xl rounded-xl border border-outline-variant premium-shadow left-accent transition-all duration-200">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-background mb-sm">Integrity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Radical transparency in our process. We represent both candidate and company with uncompromising honesty.
+                    </p>
+</div>
+<!-- Value: Velocity -->
+<div class="bg-white p-xl rounded-xl border border-outline-variant premium-shadow left-accent transition-all duration-200">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-primary" data-icon="speed">speed</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-background mb-sm">Velocity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        In a competitive market, speed is a strategic advantage. We move with focused intent to capture opportunity.
+                    </p>
+</div>
+<!-- Value: Global -->
+<div class="bg-white p-xl rounded-xl border border-outline-variant premium-shadow left-accent transition-all duration-200">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-primary" data-icon="public">public</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-background mb-sm">Global</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Boundaries do not limit talent. Our network spans across continents to find the best-fit executives.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Leadership Team Section -->
+<section class="py-xxl px-gutter bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-xxl gap-lg">
+<div class="max-w-[600px]">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-md">The Leadership Team</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Guided by industry veterans with over 50 years of collective experience in global talent infrastructure.</p>
+</div>
+<button class="border border-primary text-primary px-lg py-sm rounded-lg font-title-sm text-title-sm hover:bg-primary-container hover:text-white transition-all">Join Our Team</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-xl">
+<!-- Member 1 -->
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden rounded-xl border border-outline-variant mb-md relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional headshot of a mature executive male with short-cropped grey hair and sharp features. He is wearing a tailored charcoal suit with a crisp white shirt, posing against a minimalist, high-contrast architectural background with cold industrial lighting. The mood is authoritative and confident, fitting a premium corporate leadership profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt21opiXcxwnvHf_mEbxU3rzCeuhoZ6T4sH66wFiMzWZtEdLdgPyTa7kppPZXVVE1CuIQ227EZa9uryDJiZisKeymZUiRJtpx0lS9WrhBsT6_8sHsGErIIA8-imWhOIlo0y4PGh4G_JmqX0K3-njLN9UbG0uIU8ItIHbDkjmPW34s-INSX60cA0_fiixgXf8CoaWud5Bjf1nZZbbSADfbF5khY1MxJFg6zO2Llkg5QXRVq-iC0MKSftSzT53sB9pa486pu_yA0d7Y"/>
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined bg-white text-on-background p-sm rounded-full" data-icon="link">link</span>
+</div>
+</div>
+<h4 class="font-title-md text-title-md text-on-background">Marcus Thorne</h4>
+<p class="font-mono-label text-mono-label text-primary uppercase">Chief Executive Officer</p>
+</div>
+<!-- Member 2 -->
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden rounded-xl border border-outline-variant mb-md relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A premium professional headshot of a poised female executive. She has a sharp, focused expression, wearing a navy blue blazer and minimalist silver jewelry. The lighting is sophisticated and directional, creating a clean light-mode aesthetic with soft shadows. The setting is a bright, modern office with glass and steel elements visible in the background blur." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA54mwdstjicnMV0XTq6uVhZH7wZn5NxrsR9T9Zo6GPCbDb7AZ8i8BHpuRFg5j4r5lVj8IvDUEehs5BVaRa2YPM6Kyyi8fVOqFMgS_6TYd7Z6Gz8UFwaLb_fGlU1Sk3iRrUlDshgq9d6qrOevG2c8U9Y-KnlCfvjM7YslMxv5TswMBG5bp8YInxeA7q-pQGvIzDg9D4w9nYr9-417Rc0GTwM3ZvsxU6nC5LIrGphGSjwYgKonQ5xzleQGqZE8ERyboIs2oBcbrzEgg"/>
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined bg-white text-on-background p-sm rounded-full" data-icon="link">link</span>
+</div>
+</div>
+<h4 class="font-title-md text-title-md text-on-background">Elena Rodriguez</h4>
+<p class="font-mono-label text-mono-label text-primary uppercase">Head of Global Operations</p>
+</div>
+<!-- Member 3 -->
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden rounded-xl border border-outline-variant mb-md relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A portrait of a male tech executive with a confident posture, wearing a dark turtleneck sweater. He is set against a clean, white-walled studio with sharp, modern shadows. The visual style is premium industrial, emphasizing clarity, intelligence, and modern corporate efficiency. The lighting is bright and professionally calibrated for high-end digital publication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa2zetGGn69Nl-BOWsUpVx2vdkRbtP3pMUPmGKqBwQf_gwi367eGXxf7uq6js-5Ie9hCZFKSw276DH9guVDzMfyCQOnopFNIGhrC3l7anuDs4ElByHvaDYq7zS8FusRBdfT6iLBWve2cODprjEQW-Jn839ioDGTu8ny6N6NWB77bmZd6MuqrOhl7arQWamxaAFLxALdCgnFOPFArwXSVetcw3IJChyHKNeMkwXUI2ZAWUIBhF-vcz0UywOeeSK8HkSBXv04aVgvLQ"/>
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined bg-white text-on-background p-sm rounded-full" data-icon="link">link</span>
+</div>
+</div>
+<h4 class="font-title-md text-title-md text-on-background">Dr. Julian Vance</h4>
+<p class="font-mono-label text-mono-label text-primary uppercase">VP of Data Intelligence</p>
+</div>
+<!-- Member 4 -->
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden rounded-xl border border-outline-variant mb-md relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional headshot of a female leader in a high-tech field, showcasing a sophisticated and precise corporate look. She is wearing a minimalist, well-structured black dress. The background features a subtle out-of-focus city skyline in cool blue tones during dusk, illuminated by office building lights. The overall mood is decisive and forward-thinking." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5UPRxOX052t8dYky2jYP7_wOix82xRKAr2NuqF22howcCxJii1ragJ3I2_6ixTZfvtNqd5WGJ1enRp_enNRJx0tQcT_RalDYpVyabsSNro0GItz8iXcZfm_fiE6Ln6Kks_paf4p9S90p5zVR55VhyNMTdVDS3Zt29pB8ne_cY5hbzhXCVj56t_UFycdGmER6ib2el0lW4lSmSUKsFHoBmSeX2miczAkBxOOLsfmzM7zzV2NcDXGe_09uNPw4cC8ltUihgCDCqGbE"/>
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined bg-white text-on-background p-sm rounded-full" data-icon="link">link</span>
+</div>
+</div>
+<h4 class="font-title-md text-title-md text-on-background">Sarah Chen</h4>
+<p class="font-mono-label text-mono-label text-primary uppercase">Managing Director, EMEA</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-xxl px-gutter bg-on-background text-white text-center">
+<h2 class="font-headline-lg text-headline-lg mb-lg">Ready to transform your workforce?</h2>
+<p class="font-body-lg text-body-lg text-surface-variant max-w-[600px] mx-auto mb-xl">Connect with an executive partner today to discuss your organization's unique requirements.</p>
+<div class="flex flex-col sm:flex-row gap-md justify-center">
+<button class="bg-primary-container text-on-primary-container px-xxl py-md rounded-lg font-title-sm text-title-sm">Request Consultation</button>
+<button class="border border-white text-white px-xxl py-md rounded-lg font-title-sm text-title-sm hover:bg-white hover:text-on-background transition-colors">View Opportunities</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-on-background border-t border-outline-variant">
+<div class="w-full py-xl px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-md">
+<div class="flex flex-col gap-sm items-center md:items-start">
+<span class="font-title-md text-title-md font-bold text-on-surface dark:text-white">Martin Connect</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant">© 2024 Martin Connect. All rights reserved.</span>
+</div>
+<div class="flex flex-wrap justify-center gap-lg">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Cookie Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Contact Us</a>
+<a class="font-body-sm text-body-sm text-primary font-bold" href="#">About</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for team cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.querySelector('.material-symbols-outlined').style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.querySelector('.material-symbols-outlined').style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

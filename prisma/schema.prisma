@@ -1,0 +1,120 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id             String            @id @default(uuid())
+  email          String            @unique
+  passwordHash   String
+  name           String
+  title          String
+  location       String
+  experience     String
+  skills         String            // Comma-separated list of skills, e.g. "React, Next.js, TypeScript"
+  role           String            // "seeker" | "recruiter" | "admin"
+  phone          String?
+  education      String?
+  resumeUploaded Boolean           @default(false)
+  resumeName     String?
+  credits        Int               @default(100)
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  sessions       Session[]
+  unlocks        CandidateUnlock[]
+  notes          CandidateNote[]
+}
+
+model Session {
+  id        String   @id
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model Job {
+  id                 String   @id
+  title              String
+  company            String
+  companyId          String
+  location           String
+  salary             String
+  skills             String   // Comma-separated list of skills
+  logo               String
+  status             String   // 'Applied' | 'Under Review' | 'Hiring' | 'Closed' | 'Interviewing' | 'Shortlisted'
+  description        String
+  requirements       String   // Semicolon-separated or JSON list of requirements
+  posted             String
+  experienceRequired String
+  type               String   // "Full-time" | "Remote" | "Contract" etc.
+  isApproved         Boolean  @default(true)
+  createdAt          DateTime @default(now())
+}
+
+model Company {
+  id          String   @id
+  name        String
+  logo        String
+  description String
+  industry    String
+  size        String
+  location    String
+  verified    Boolean  @default(false)
+  rating      Float    @default(0.0)
+  founded     String
+  website     String
+  jobsCount   Int      @default(0)
+  bannerImage String?
+  isApproved  Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model Candidate {
+  id           String            @id
+  name         String
+  title        String
+  skills       String            // Comma-separated list of skills
+  location     String
+  matchScore   Int               @default(90)
+  stage        String            // 'Applied' | 'Screening' | 'Shortlisted' | 'Interview' | 'Offer' | 'Hired'
+  avatar       String
+  timeAgo      String
+  experience   String
+  noticePeriod String
+  rating       Float             @default(4.5)
+  email        String
+  phone        String
+  education    String
+  resumeUrl    String            @default("#")
+  salary       String            @default("₹12L - 25L")
+  notes        CandidateNote[]
+  unlocks      CandidateUnlock[]
+  createdAt    DateTime          @default(now())
+}
+
+model CandidateUnlock {
+  id          String    @id @default(uuid())
+  candidateId String
+  candidate   Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+
+  @@unique([candidateId, userId])
+}
+
+model CandidateNote {
+  id          String    @id @default(uuid())
+  candidateId String
+  candidate   Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  author      String
+  authorId    String?
+  authorUser  User?     @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  content     String
+  createdAt   DateTime  @default(now())
+}

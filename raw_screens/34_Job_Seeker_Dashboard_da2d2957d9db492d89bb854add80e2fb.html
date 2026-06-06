@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Job Seeker Dashboard | Martin Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#cfe5ff",
+                    "tertiary-container": "#0073b5",
+                    "on-secondary-container": "#fffbff",
+                    "error": "#ba1a1a",
+                    "on-background": "#121b30",
+                    "background": "#faf8ff",
+                    "primary-container": "#1e63f3",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#0038b7",
+                    "tertiary-fixed-dim": "#98cbff",
+                    "tertiary": "#005a8f",
+                    "on-primary-fixed": "#00174b",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#dae2ff",
+                    "outline": "#737687",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#b7c4ff",
+                    "secondary-fixed": "#dde1ff",
+                    "on-tertiary-fixed": "#001d33",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#121b30",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-tint": "#0053db",
+                    "outline-variant": "#c3c6d8",
+                    "secondary-container": "#476ae9",
+                    "primary-fixed": "#dbe1ff",
+                    "primary": "#004bc9",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#d1d9f6",
+                    "on-tertiary-container": "#ebf3ff",
+                    "on-surface-variant": "#424655",
+                    "surface-container": "#eaedff",
+                    "inverse-surface": "#273046",
+                    "secondary": "#2950ce",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#f1f1ff",
+                    "surface-container-highest": "#dae2ff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-container-low": "#f2f3ff",
+                    "on-secondary-fixed": "#001452",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "inverse-on-surface": "#eef0ff",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#e2e7ff",
+                    "surface": "#faf8ff",
+                    "on-tertiary-fixed-variant": "#004a77",
+                    "surface-bright": "#faf8ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xxl": "48px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "unit": "4px",
+                    "sm": "8px",
+                    "sidebar-width": "260px",
+                    "xs": "4px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "mono-label": ["IBM Plex Mono"],
+                    "body-sm": ["DM Sans"],
+                    "headline-lg-mobile": ["DM Sans"],
+                    "display-lg": ["DM Sans"],
+                    "title-lg": ["DM Sans"],
+                    "display-md": ["DM Sans"],
+                    "title-sm": ["DM Sans"],
+                    "title-md": ["DM Sans"],
+                    "body-md": ["DM Sans"],
+                    "body-lg": ["DM Sans"],
+                    "headline-md": ["DM Sans"],
+                    "headline-lg": ["DM Sans"],
+                    "headline-sm": ["DM Sans"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-sharp-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        .card-accent-hover:hover {
+            border-left: 3px solid #1E63F3;
+            transition: all 0.2s ease-in-out;
+        }
+        body {
+            background-color: #faf8ff;
+            color: #121b30;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- SideNavBar (Authority: JSON & Design System) -->
+<aside class="fixed left-0 h-full w-[260px] bg-inverse-surface text-on-primary flex flex-col py-lg gap-sm z-50">
+<div class="px-md mb-xl flex items-center gap-sm">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">connecting_airports</span>
+</div>
+<div>
+<h1 class="font-title-lg text-title-lg font-bold tracking-tight">Martin Connect</h1>
+<p class="text-[10px] text-outline-variant uppercase tracking-widest">Job Seeker Portal</p>
+</div>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="flex items-center gap-md bg-secondary text-on-primary rounded-xl px-md py-sm mx-sm transition-transform active:translate-x-1" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary hover:bg-on-surface-variant/20 px-md py-sm mx-sm transition-all" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-body-md">Jobs</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary hover:bg-on-surface-variant/20 px-md py-sm mx-sm transition-all" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md">Talent Pool</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary hover:bg-on-surface-variant/20 px-md py-sm mx-sm transition-all" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<span class="font-body-md">Interviews</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary hover:bg-on-surface-variant/20 px-md py-sm mx-sm transition-all" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-body-md">Messages</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary hover:bg-on-surface-variant/20 px-md py-sm mx-sm transition-all" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-body-md">Reports</span>
+</a>
+</nav>
+<div class="px-md mt-auto pt-lg border-t border-outline-variant/20">
+<div class="bg-surface-variant/10 rounded-xl p-md mb-md">
+<p class="text-on-primary font-title-sm mb-xs">Premium Tier</p>
+<p class="text-body-sm text-outline-variant mb-sm">Access exclusive engineering roles.</p>
+<button class="w-full bg-primary-container text-on-primary py-xs rounded-xl font-bold text-body-sm hover:bg-primary transition-colors">Upgrade Plan</button>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-sm">Help Center</span>
+</a>
+<a class="flex items-center gap-md text-outline-variant hover:text-on-primary px-md py-sm" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-sm">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-[260px] min-h-screen">
+<!-- TopNavBar (Authority: JSON & Context) -->
+<header class="h-[72px] bg-surface flex justify-between items-center px-lg border-b border-outline-variant sticky top-0 z-40">
+<div class="flex items-center gap-md">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Dashboard</h2>
+<div class="hidden md:flex bg-surface-container-low px-md py-sm rounded-full border border-outline-variant/30 w-80 items-center gap-sm">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-full" placeholder="Search jobs, skills, or companies..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative">
+<button class="p-sm rounded-full hover:bg-on-surface-variant/10 transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-1 right-1 bg-error text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">7</span>
+</button>
+</div>
+<div class="flex items-center gap-md pl-md border-l border-outline-variant">
+<div class="text-right hidden sm:block">
+<p class="font-title-sm text-on-surface">Arjun Mehta</p>
+<p class="text-body-sm text-outline">Software Engineer</p>
+</div>
+<img alt="Arjun Mehta" class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A professional headshot of a South Asian man in his late 20s with a confident expression, wearing a minimalist dark grey business casual shirt. He is posed against a soft, out-of-focus modern office background with clean architectural lines and natural window lighting. The overall aesthetic is professional, sharp, and high-quality, fitting a premium executive recruitment platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsj3zAEPKV-Aa5A0trjc2ibgo6lfUpIUNysPnjmrcKWYZ3rdDyyHd941XF3pJonbCWCjx7D2584-5PhC49Agl6cDsfPug-wCivZMe2QIPAZZUA2CaQZKxt_hXuoy8P_7v7geyNuh413mKdMWlLEeEXeS4qJ9QyfZVzL4UXe5vc3NYM56IY9NZDZZKPU__yJ9Mu0yTd9sXpyJJNAPclf5E25T4N8ejPuEgFHhU2n7oMmWq_5h1VsoIO7OfCfAW69RgCUhHIPUA_jSY"/>
+</div>
+</div>
+</header>
+<div class="p-lg max-w-container-max mx-auto space-y-lg">
+<!-- Row 1: Greeting & Stats -->
+<section class="space-y-md">
+<div class="flex items-end justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md">Good morning, Arjun 👋</h3>
+<p class="text-body-lg text-outline">You have <span class="text-primary font-bold">2 new interview invitations</span> from top tech firms.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-sm bg-white border border-outline-variant text-primary rounded-lg font-bold text-body-sm flex items-center gap-xs hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                            View Schedule
+                        </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Stat Card 1 -->
+<div class="bg-white p-md rounded-xl border border-outline-variant soft-sharp-shadow card-accent-hover relative overflow-hidden">
+<div class="flex justify-between items-start mb-sm">
+<div class="p-sm bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">description</span>
+</div>
+</div>
+<p class="font-display-md text-display-md leading-none">12</p>
+<p class="text-body-sm text-outline font-medium">Applications <span class="text-primary-fixed-dim text-[10px] ml-1">THIS MONTH</span></p>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-white p-md rounded-xl border border-outline-variant soft-sharp-shadow card-accent-hover">
+<div class="flex justify-between items-start mb-sm">
+<div class="p-sm bg-tertiary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">groups</span>
+</div>
+</div>
+<p class="font-display-md text-display-md leading-none">3</p>
+<p class="text-body-sm text-outline font-medium">Interviews <span class="text-tertiary text-[10px] ml-1">SCHEDULED</span></p>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-white p-md rounded-xl border border-outline-variant soft-sharp-shadow card-accent-hover">
+<div class="flex justify-between items-start mb-sm">
+<div class="p-sm bg-secondary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary">bookmark</span>
+</div>
+</div>
+<p class="font-display-md text-display-md leading-none">8</p>
+<p class="text-body-sm text-outline font-medium">Saved Jobs <span class="text-secondary text-[10px] ml-1">ACTIVE</span></p>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-white p-md rounded-xl border border-outline-variant soft-sharp-shadow card-accent-hover">
+<div class="flex justify-between items-start mb-sm">
+<div class="p-sm bg-surface-container-highest rounded-lg">
+<span class="material-symbols-outlined text-on-surface">visibility</span>
+</div>
+<span class="text-on-secondary-fixed-variant text-body-sm font-bold flex items-center">
+<span class="material-symbols-outlined text-[16px]">trending_up</span> 23%
+                            </span>
+</div>
+<p class="font-display-md text-display-md leading-none">1,248</p>
+<p class="text-body-sm text-outline font-medium">Profile Views <span class="text-outline text-[10px] ml-1">THIS WEEK</span></p>
+</div>
+</div>
+</section>
+<!-- Row 2: Profile Completion & Job Alerts -->
+<section class="grid grid-cols-1 lg:grid-cols-5 gap-lg">
+<!-- Profile Completion (60% equivalent) -->
+<div class="lg:col-span-3 bg-white p-lg rounded-xl border border-outline-variant soft-sharp-shadow">
+<div class="flex justify-between items-center mb-lg">
+<div>
+<h4 class="font-title-md text-title-md">Profile Completion</h4>
+<p class="text-body-sm text-outline">Complete your profile to increase visibility by 4x.</p>
+</div>
+<div class="text-right">
+<span class="font-display-md text-primary leading-none">72%</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full mb-xl overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 72%"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-sm font-medium">Personal Info</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-sm font-medium">Experience</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-sm font-medium">Education</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-sm font-medium">Resume</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant flex items-center justify-center">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+</div>
+<span class="text-body-sm font-medium">Skills (85%)</span>
+</div>
+<div class="flex items-center justify-between col-span-2 md:col-span-1 bg-surface-container-low px-sm py-1 rounded border border-dashed border-primary">
+<span class="text-body-sm font-bold text-primary">Certifications</span>
+<button class="text-[10px] font-bold uppercase text-primary hover:underline">Add Now</button>
+</div>
+</div>
+</div>
+<!-- Job Alerts (40% equivalent) -->
+<div class="lg:col-span-2 bg-inverse-surface p-lg rounded-xl soft-sharp-shadow text-on-primary">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h4 class="font-title-md">Active Job Alerts</h4>
+<p class="text-body-sm text-outline-variant">Real-time matching for your criteria</p>
+</div>
+<span class="material-symbols-outlined text-secondary">notifications_active</span>
+</div>
+<div class="space-y-md">
+<div class="p-md bg-white/5 border border-white/10 rounded-lg flex items-center justify-between">
+<div>
+<p class="font-title-sm">Software Engineer</p>
+<p class="text-body-sm text-outline-variant">Bengaluru, KA • Remote Friendly</p>
+</div>
+<div class="flex gap-sm">
+<button class="p-xs hover:text-primary-container"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-xs hover:text-error"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</div>
+<button class="w-full py-md border border-dashed border-outline-variant rounded-lg text-body-sm font-bold flex items-center justify-center gap-sm hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">add</span>
+                            Create New Alert
+                        </button>
+</div>
+</div>
+</section>
+<!-- Row 3: Recommended Jobs -->
+<section class="space-y-md">
+<div class="flex justify-between items-center">
+<h4 class="font-title-lg text-title-lg">Recommended for You</h4>
+<a class="text-primary font-bold text-body-sm flex items-center gap-xs hover:underline" href="#">
+                        Explore all matches <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Job Card 1 -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant soft-sharp-shadow card-accent-hover group">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center border border-outline-variant">
+<img alt="Razorpay" class="w-8 h-8 object-contain" data-alt="A clean, minimalist logo of Razorpay, featuring its characteristic blue corporate identity, rendered as a sharp vector-style graphic on a neutral background. The logo conveys fintech innovation and modern professional services in a high-tech Indian corporate context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrk0CDbA-HrUA6xoRJAYRB1oxLInQCoFtrYldOkgwauU09nN93pMM2TCVxvOHMXa6fOpHFZ3ajuiWa3-ZCc-yJ4_oT-jaR0YVWtG3YqkLWdJil73LmykUkWzPfHwElRt_kbRRFFVrkqTbqAT8hRUYcEnTZVIJ6lKzRsuTb6dXjjyq8HiNsPRAsEYJCRLWse2eNsuW7CBYj-Q3oVIqeMTIkQzs8TqaYGOv0TWges0XZufOCKsxBVLa8KX5smp9BTgOkM5GJ2FT3b7w"/>
+</div>
+<span class="px-sm py-1 bg-primary/10 text-primary rounded-full text-[12px] font-bold">94% Match</span>
+</div>
+<h5 class="font-title-sm group-hover:text-primary transition-colors">Senior SDE</h5>
+<p class="text-body-sm text-outline font-medium mb-md">Razorpay • Bengaluru</p>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant/30">
+<span class="font-mono-label text-mono-label text-on-surface">₹20-32 LPA</span>
+<button class="bg-primary text-on-primary px-md py-1 rounded font-bold text-body-sm">Apply</button>
+</div>
+</div>
+<!-- Job Card 2 -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant soft-sharp-shadow card-accent-hover group">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center border border-outline-variant">
+<img alt="Swiggy" class="w-8 h-8 object-contain" data-alt="The bright orange logo of Swiggy, a leading Indian food delivery tech company, presented as a high-resolution professional graphic. The aesthetic is energetic and tech-forward, highlighting Swiggy's established presence in the logistics and technology sector in Bengaluru." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDCFDt9Q4brXh68LW_JA4Ciz_omeY_py1NFGnwyOGWnRgItARmEhKjMdN38y57XYLj9QwzqgEffyv8GL6A7yrsRw6ZN2IngxfGVb63iT7p7VID4LvOG08V5E4ANfynngYwyzBPk4zn2d1MMU13t87--FkE7EWTsaUl5VcG5McI33P69RKL-XIjzY2qAlavO_ZIVQRGJ8wpRghrdF-tAgbwdqDLQvm0-BlWoh7QRocJ2cDlq16UWqe1znhufRENlm7KuPS4yN_zPhM"/>
+</div>
+<span class="px-sm py-1 bg-primary/10 text-primary rounded-full text-[12px] font-bold">87% Match</span>
+</div>
+<h5 class="font-title-sm group-hover:text-primary transition-colors">Engineering Lead</h5>
+<p class="text-body-sm text-outline font-medium mb-md">Swiggy • Bengaluru</p>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant/30">
+<span class="font-mono-label text-mono-label text-on-surface">₹28-42 LPA</span>
+<button class="bg-primary text-on-primary px-md py-1 rounded font-bold text-body-sm">Apply</button>
+</div>
+</div>
+<!-- Job Card 3 -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant soft-sharp-shadow card-accent-hover group">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center border border-outline-variant">
+<img alt="Microsoft" class="w-8 h-8 object-contain" data-alt="The iconic four-color square logo of Microsoft, rendered in crisp high-resolution against a white background. The visual represents global tech leadership, corporate stability, and enterprise-level engineering excellence, perfectly suited for a high-tier job seeker dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFrjHfwX9Dcd56Ss54NuxwDa-JS3wnRMXczOTISg53RuNxj4CQwzy3pDzI3oMxIda987lSK3StS27MocnDxSu4iWNDf3oU7ESL_7d7piQr_wBcM8LxSOqGq0FTYw-vwPwgb3t6aXGP5J6KB1ejgtLZHIplRYe11LHIToj08Wftj6VKOq6TiZj9FOOAEeyiCJKkREb0o_kxxW-IrEQkFgzdAUwuIyH_IqHk2IA7nbHSw4KBgSVhjS-wcxL5TL4wErP51dpuA5oO8hU"/>
+</div>
+<span class="px-sm py-1 bg-primary/10 text-primary rounded-full text-[12px] font-bold">82% Match</span>
+</div>
+<h5 class="font-title-sm group-hover:text-primary transition-colors">SDE III</h5>
+<p class="text-body-sm text-outline font-medium mb-md">Microsoft • Hyderabad</p>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant/30">
+<span class="font-mono-label text-mono-label text-on-surface">₹35-55 LPA</span>
+<button class="bg-primary text-on-primary px-md py-1 rounded font-bold text-body-sm">Apply</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Row 4: Recent Apps & Upcoming Interviews -->
+<section class="grid grid-cols-1 xl:grid-cols-3 gap-lg">
+<!-- Recent Applications Table (Left 2/3) -->
+<div class="xl:col-span-2 bg-white rounded-xl border border-outline-variant soft-sharp-shadow overflow-hidden">
+<div class="p-lg border-b border-outline-variant">
+<h4 class="font-title-md">Recent Applications</h4>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-lg py-md font-mono-label text-mono-label uppercase text-outline">Company</th>
+<th class="px-lg py-md font-mono-label text-mono-label uppercase text-outline">Role</th>
+<th class="px-lg py-md font-mono-label text-mono-label uppercase text-outline">Date</th>
+<th class="px-lg py-md font-mono-label text-mono-label uppercase text-outline">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-title-sm">Infosys</td>
+<td class="px-lg py-md text-body-sm">Senior Developer</td>
+<td class="px-lg py-md font-mono-label text-body-sm">Oct 24, 2024</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-[#FEF9EC] text-[#D97706] rounded text-[11px] font-bold uppercase tracking-wider">Under Review</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-title-sm">Flipkart</td>
+<td class="px-lg py-md text-body-sm">SDE 2</td>
+<td class="px-lg py-md font-mono-label text-body-sm">Oct 22, 2024</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-[#DCFCE7] text-[#16A34A] rounded text-[11px] font-bold uppercase tracking-wider">Shortlisted</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-title-sm">HDFC Bank</td>
+<td class="px-lg py-md text-body-sm">Fullstack Engineer</td>
+<td class="px-lg py-md font-mono-label text-body-sm">Oct 18, 2024</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-[#EBF4FF] text-[#1E63F3] rounded text-[11px] font-bold uppercase tracking-wider">Applied</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-title-sm">Wipro</td>
+<td class="px-lg py-md text-body-sm">Software Specialist</td>
+<td class="px-lg py-md font-mono-label text-body-sm">Oct 15, 2024</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-[#FEE2E2] text-[#DC2626] rounded text-[11px] font-bold uppercase tracking-wider">Rejected</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-title-sm">Amazon</td>
+<td class="px-lg py-md text-body-sm">SDE II - AWS</td>
+<td class="px-lg py-md font-mono-label text-body-sm">Oct 10, 2024</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-[#DCFCE7] text-[#16A34A] rounded text-[11px] font-bold uppercase tracking-wider">Shortlisted</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Upcoming Interviews (Right 1/3) -->
+<div class="bg-white rounded-xl border border-outline-variant soft-sharp-shadow p-lg space-y-md">
+<h4 class="font-title-md">Upcoming Interviews</h4>
+<div class="space-y-sm">
+<!-- Interview 1 -->
+<div class="p-md bg-surface-container-low rounded-lg border-l-4 border-secondary">
+<div class="flex justify-between items-start mb-xs">
+<p class="font-title-sm">Flipkart</p>
+<span class="font-mono-label text-[11px] text-secondary bg-white px-2 rounded">TOMORROW</span>
+</div>
+<p class="text-body-sm text-on-surface">Technical Round 1</p>
+<p class="text-[11px] text-outline mt-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 10:30 AM - 11:30 AM
+                            </p>
+</div>
+<!-- Interview 2 -->
+<div class="p-md bg-surface-container-low rounded-lg border-l-4 border-primary">
+<div class="flex justify-between items-start mb-xs">
+<p class="font-title-sm">Amazon</p>
+<span class="font-mono-label text-[11px] text-outline">OCT 29</span>
+</div>
+<p class="text-body-sm text-on-surface">HR Cultural Round</p>
+<p class="text-[11px] text-outline mt-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 02:00 PM - 03:00 PM
+                            </p>
+</div>
+<!-- Interview 3 -->
+<div class="p-md bg-surface-container-low rounded-lg border-l-4 border-tertiary">
+<div class="flex justify-between items-start mb-xs">
+<p class="font-title-sm">TCS</p>
+<span class="font-mono-label text-[11px] text-outline">OCT 31</span>
+</div>
+<p class="text-body-sm text-on-surface">Final Leadership Round</p>
+<p class="text-[11px] text-outline mt-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 11:00 AM - 12:00 PM
+                            </p>
+</div>
+</div>
+<button class="w-full text-center text-body-sm font-bold text-primary hover:underline pt-md">View All Appointments</button>
+</div>
+</section>
+<!-- Row 5: Profile Views Chart -->
+<section class="bg-white p-lg rounded-xl border border-outline-variant soft-sharp-shadow">
+<div class="flex justify-between items-center mb-xl">
+<div>
+<h4 class="font-title-md">Profile Insights</h4>
+<p class="text-body-sm text-outline">Traffic and engagement from recruiters over the last 30 days.</p>
+</div>
+<div class="flex gap-md">
+<div class="flex items-center gap-sm">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-body-sm font-medium">Views</span>
+</div>
+</div>
+</div>
+<!-- Custom SVG Chart -->
+<div class="w-full h-64 relative bg-surface-container-low/30 rounded-lg p-md">
+<!-- Peak Annotation -->
+<div class="absolute left-[70%] top-[15%] flex flex-col items-center">
+<div class="bg-inverse-surface text-on-primary text-[10px] px-2 py-1 rounded-full font-bold">Resume Updated</div>
+<div class="w-[1px] h-10 bg-inverse-surface border-dashed border"></div>
+</div>
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 200">
+<!-- Grid Lines -->
+<line stroke="#e2e7ff" stroke-width="1" x1="0" x2="1000" y1="50" y2="50"></line>
+<line stroke="#e2e7ff" stroke-width="1" x1="0" x2="1000" y1="100" y2="100"></line>
+<line stroke="#e2e7ff" stroke-width="1" x1="0" x2="1000" y1="150" y2="150"></line>
+<!-- Area Fill -->
+<path d="M0,180 L50,175 L100,160 L150,170 L200,165 L250,140 L300,155 L350,160 L400,145 L450,130 L500,140 L550,120 L600,135 L650,110 L700,30 L750,80 L800,75 L850,90 L900,100 L950,95 L1000,105 L1000,200 L0,200 Z" fill="url(#chartGradient)" opacity="0.2"></path>
+<!-- Line -->
+<path d="M0,180 L50,175 L100,160 L150,170 L200,165 L250,140 L300,155 L350,160 L400,145 L450,130 L500,140 L550,120 L600,135 L650,110 L700,30 L750,80 L800,75 L850,90 L900,100 L950,95 L1000,105" fill="none" stroke="#1e63f3" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<!-- Gradient Definition -->
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#1e63f3"></stop>
+<stop offset="100%" stop-color="transparent"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- X-Axis Labels -->
+<div class="flex justify-between mt-sm text-outline font-mono-label text-[10px] uppercase">
+<span>30 Days Ago</span>
+<span>20 Days Ago</span>
+<span>10 Days Ago</span>
+<span>Today</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer (Authority: JSON) -->
+<footer class="mt-xxl bg-inverse-surface text-on-primary">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl px-lg py-xxl w-full max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<h3 class="font-title-sm text-title-sm font-bold text-on-primary mb-md">Martin Connect</h3>
+<p class="text-body-sm text-outline-variant">The definitive ecosystem for elite engineering talent and top-tier industrial employers.</p>
+</div>
+<div>
+<h4 class="font-mono-label text-[12px] uppercase text-outline-variant mb-md tracking-widest">Platform</h4>
+<ul class="space-y-sm text-body-sm">
+<li><a class="text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Job Seekers</a></li>
+<li><a class="text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Employers</a></li>
+<li><a class="text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Success Stories</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-mono-label text-[12px] uppercase text-outline-variant mb-md tracking-widest">Company</h4>
+<ul class="space-y-sm text-body-sm">
+<li><a class="text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">About Us</a></li>
+<li><a class="text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Careers</a></li>
+<li><a class="text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-mono-label text-[12px] uppercase text-outline-variant mb-md tracking-widest">Legal</h4>
+<ul class="space-y-sm text-body-sm">
+<li><a class="text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Terms of Service</a></li>
+<li><a class="text-outline-variant hover:text-on-primary hover:underline transition-all" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="px-lg py-md border-t border-outline-variant/10 text-center text-[11px] text-outline-variant font-mono-label">
+                © 2024 Martin Connect. Precise. Decisive. Industrial.
+            </div>
+</footer>
+</main>
+<script>
+        // Micro-interactions and chart data animations could be added here
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Dashboard Initialized for Arjun Mehta');
+        });
+    </script>
+</body></html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Martin Connect | Skill Assessment Environment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #424655;
+            border-radius: 10px;
+        }
+        .editor-bg {
+            background-color: #0d1117;
+        }
+        .line-numbers {
+            color: #484f58;
+            text-align: right;
+            padding-right: 12px;
+            user-select: none;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "inverse-on-surface": "#eef0ff",
+                "on-background": "#121b30",
+                "tertiary-fixed-dim": "#98cbff",
+                "on-primary": "#ffffff",
+                "error-container": "#ffdad6",
+                "primary-fixed": "#dbe1ff",
+                "surface-container-high": "#e2e7ff",
+                "error": "#ba1a1a",
+                "surface-bright": "#faf8ff",
+                "secondary-container": "#476ae9",
+                "tertiary-container": "#0073b5",
+                "secondary-fixed-dim": "#b7c4ff",
+                "on-primary-fixed": "#00174b",
+                "on-surface-variant": "#424655",
+                "inverse-surface": "#273046",
+                "on-error": "#ffffff",
+                "surface-container-low": "#f2f3ff",
+                "primary": "#004bc9",
+                "on-primary-container": "#f1f1ff",
+                "secondary-fixed": "#dde1ff",
+                "on-primary-fixed-variant": "#003ea8",
+                "on-secondary-fixed": "#001452",
+                "on-surface": "#121b30",
+                "surface-dim": "#d1d9f6",
+                "surface-container-highest": "#dae2ff",
+                "surface-tint": "#0053db",
+                "secondary": "#2950ce",
+                "surface-variant": "#dae2ff",
+                "surface": "#faf8ff",
+                "on-tertiary-fixed-variant": "#004a77",
+                "on-tertiary-fixed": "#001d33",
+                "on-secondary-fixed-variant": "#0038b7",
+                "primary-container": "#1e63f3",
+                "on-secondary": "#ffffff",
+                "inverse-primary": "#b4c5ff",
+                "on-tertiary": "#ffffff",
+                "outline-variant": "#c3c6d8",
+                "primary-fixed-dim": "#b4c5ff",
+                "on-tertiary-container": "#ebf3ff",
+                "surface-container-lowest": "#ffffff",
+                "tertiary": "#005a8f",
+                "on-secondary-container": "#fffbff",
+                "tertiary-fixed": "#cfe5ff",
+                "surface-container": "#eaedff",
+                "outline": "#737687",
+                "on-error-container": "#93000a",
+                "background": "#faf8ff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "unit": "4px",
+                "sidebar-width": "260px",
+                "gutter": "24px",
+                "sm": "8px",
+                "md": "16px",
+                "xs": "4px",
+                "xl": "32px",
+                "xxl": "48px",
+                "lg": "24px",
+                "container-max": "1440px"
+            },
+            "fontFamily": {
+                "mono-label": ["IBM Plex Mono"],
+                "title-md": ["DM Sans"],
+                "body-sm": ["DM Sans"],
+                "headline-md": ["DM Sans"],
+                "display-md": ["DM Sans"],
+                "body-lg": ["DM Sans"],
+                "title-sm": ["DM Sans"],
+                "title-lg": ["DM Sans"],
+                "body-md": ["DM Sans"],
+                "headline-lg": ["DM Sans"],
+                "display-lg": ["DM Sans"],
+                "headline-lg-mobile": ["DM Sans"],
+                "headline-sm": ["DM Sans"]
+            },
+            "fontSize": {
+                "mono-label": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                "body-sm": ["12px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "display-md": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "title-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                "title-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed-dim/30">
+<!-- Top Bar Navigation Shell -->
+<header class="bg-surface-container-lowest flex justify-between items-center h-16 px-lg sticky top-0 z-40 border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<span class="font-headline-sm text-[24px] font-bold text-primary tracking-tight">Martin Connect</span>
+<div class="h-6 w-px bg-outline-variant mx-sm"></div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
+<span class="font-title-sm text-title-sm">Senior Backend Assessment</span>
+</div>
+</div>
+<div class="flex items-center gap-xl">
+<!-- Timer Display -->
+<div class="flex items-center gap-sm bg-surface-container-high px-md py-xs rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="schedule" data-weight="fill" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<span class="font-mono-label text-mono-label text-primary" id="countdown">44:59</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-sm cursor-pointer hover:opacity-80 transition-opacity" onclick="toggleRecruiterView()">
+<span class="font-body-sm font-bold uppercase tracking-wider text-on-surface-variant">Recruiter View</span>
+<div class="w-10 h-5 bg-outline-variant rounded-full relative transition-colors duration-300 h-5 w-10" id="toggle-switch"><div class="absolute left-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow-sm transition-transform duration-300" id="toggle-knob"></div></div>
+</div>
+<button class="bg-primary text-white font-title-sm px-lg py-sm rounded-lg hover:shadow-md active:scale-95 transition-all shadow-sm">
+                    Submit Code
+                </button>
+</div>
+</div>
+</header>
+<main class="flex h-[calc(100vh-64px)] overflow-hidden">
+<!-- Sidebar Navigation (Hidden in mobile/Linear but kept for desktop Shell structure) -->
+<aside class="hidden md:flex flex-col h-full w-[64px] bg-[#081126] py-lg items-center border-r border-outline-variant gap-lg">
+<span class="material-symbols-outlined text-white/40 cursor-pointer hover:text-white transition-colors" data-icon="description">description</span>
+<span class="material-symbols-outlined text-white border-l-4 border-primary pl-1 transition-all" data-icon="code">code</span>
+<span class="material-symbols-outlined text-white/40 cursor-pointer hover:text-white transition-colors" data-icon="terminal">terminal</span>
+<div class="mt-auto">
+<span class="material-symbols-outlined text-white/40 cursor-pointer hover:text-white transition-colors" data-icon="help_outline">help_outline</span>
+</div>
+</aside>
+<!-- Main Workspace Canvas -->
+<div class="flex-1 flex flex-col min-w-0 bg-surface-container-low">
+<!-- Recruiter Insights Bar (Hidden by default) -->
+<div class="hidden animate-in slide-in-from-top duration-300 border-b border-[#E8EEF7] bg-surface-bright p-md" id="recruiter-bar">
+<div class="flex items-center justify-between max-w-container-max mx-auto gap-lg">
+<div class="flex items-center gap-xl">
+<div class="flex flex-col">
+<span class="font-mono-label text-body-sm text-on-surface-variant uppercase">Candidate Speed</span>
+<div class="flex items-center gap-sm">
+<span class="font-title-lg text-title-lg">74 <span class="text-body-sm font-normal">WPM</span></span>
+<span class="material-symbols-outlined text-[#16A34A] text-sm" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-mono-label text-body-sm text-on-surface-variant uppercase">Heart Rate</span>
+<div class="flex items-center gap-sm">
+<span class="font-title-lg text-title-lg text-error">88 <span class="text-body-sm font-normal text-on-surface">BPM</span></span>
+<span class="material-symbols-outlined text-error animate-pulse" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+</div>
+<!-- Playback Controls -->
+<div class="flex items-center gap-md bg-[#081126] rounded-full px-lg py-sm">
+<span class="text-white font-mono-label text-[11px] uppercase mr-md">Live Playback</span>
+<span class="material-symbols-outlined text-white cursor-pointer" data-icon="skip_previous">skip_previous</span>
+<span class="material-symbols-outlined text-white cursor-pointer scale-125" data-icon="pause_circle">pause_circle</span>
+<span class="material-symbols-outlined text-white cursor-pointer" data-icon="skip_next">skip_next</span>
+<div class="w-48 h-1 bg-white/20 rounded-full relative mx-md">
+<div class="absolute left-0 top-0 h-full w-4/5 bg-primary rounded-full"></div>
+<div class="absolute left-[80%] -top-1 w-3 h-3 bg-white rounded-full shadow-md"></div>
+</div>
+<span class="text-white font-mono-label text-[11px]">12:44 / 15:00</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+<img alt="Candidate Avatar" class="w-full h-full object-cover" data-alt="A professional studio headshot of a focused male candidate with a clean-shaven face and modern haircut. He is wearing a crisp white shirt against a neutral, high-key studio background. The lighting is soft and professional, emphasizing a modern corporate and high-end recruitment aesthetic. The overall mood is intelligent, capable, and ready for a technical interview environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG4iDjCa9aqCNklpRyIzjblBOFp6Rz4wsiHOTTtH5iPhBKnxw8jZrC3stgMRSMQ0dN6KdPDhL8TvhVpIxxJj1k6HnLPi_CH3vOmidVag4HLQ43Guj0XSaFJ7mfIFPJRmRXivTqkuNXtY-qKfD0YJf7Mq_W0MPHmaQnt9oqqd0MRAiclRxRDKjw85zvDoKawppKwb1BOyh4MfGZ3UBOK916rXtFWqeJ85G_303Ra-gHHcc5ZAcmPxBtgbyFjDWsD8zst488YesCVKc"/>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-body-md">Alex Rivera</span>
+<span class="font-body-sm text-on-surface-variant">Live Session</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Editor & Problem Pane Split -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Left: Integrated IDE -->
+<div class="flex-1 flex flex-col border-r border-outline-variant editor-bg" style="background-color: #0b0e14;">
+<div class="h-10 border-b border-white/5 flex items-center px-md justify-between bg-[#161b22]">
+<div class="flex items-center gap-md h-full">
+<div class="flex items-center gap-xs text-white/80 border-b-2 border-primary h-full px-sm bg-white/5">
+<span class="material-symbols-outlined text-sm text-[#e34c26]" data-icon="javascript">javascript</span>
+<span class="font-mono-label text-xs">solution.js</span>
+</div>
+<div class="flex items-center gap-xs text-white/40 h-full px-sm hover:text-white/60 cursor-pointer transition-colors">
+<span class="font-mono-label text-xs">utils.js</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-white/40 text-sm cursor-pointer hover:text-white" data-icon="settings">settings</span>
+<span class="material-symbols-outlined text-white/40 text-sm cursor-pointer hover:text-white" data-icon="fullscreen">fullscreen</span>
+</div>
+</div>
+<div class="flex-1 overflow-auto custom-scrollbar flex font-mono-label text-[14px]">
+<div class="line-numbers py-md bg-[#0d1117] min-w-[48px]">
+                            1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16
+                        </div>
+<div class="py-md px-sm text-[#c9d1d9] leading-relaxed w-full"><span class="text-[#ff7b72]">function</span> <span class="text-[#d2a8ff]">optimizeResourceAllocation</span>(<span class="text-[#ffa657]">tasks</span>, <span class="text-[#ffa657]">workers</span>) {<br/>  <span class="text-[#8b949e] italic">/**</span><br/>  <span class="text-[#8b949e] italic"> * Implementation for the technical challenge</span><br/>  <span class="text-[#8b949e] italic"> */</span><br/>  <span class="text-[#ff7b72]">const</span> <span class="text-[#79c0ff]">result</span> = [];<br/>  <span class="text-[#ff7b72]">const</span> <span class="text-[#79c0ff]">sortedTasks</span> = tasks.<span class="text-[#d2a8ff]">sort</span>((<span class="text-[#ffa657]">a</span>, <span class="text-[#ffa657]">b</span>) =&gt; b.<span class="text-[#79c0ff]">priority</span> - a.<span class="text-[#79c0ff]">priority</span>);<br/><br/>  sortedTasks.<span class="text-[#d2a8ff]">forEach</span>(<span class="text-[#ffa657]">task</span> =&gt; {<br/>    <span class="text-[#ff7b72]">const</span> <span class="text-[#79c0ff]">availableWorker</span> = workers.<span class="text-[#d2a8ff]">find</span>(<span class="text-[#ffa657]">w</span> =&gt; w.<span class="text-[#79c0ff]">capacity</span> &gt;= task.<span class="text-[#79c0ff]">load</span>);<br/>    <span class="text-[#ff7b72]">if</span> (availableWorker) {<br/>      result.<span class="text-[#d2a8ff]">push</span>({ taskId: task.<span class="text-[#79c0ff]">id</span>, workerId: availableWorker.<span class="text-[#79c0ff]">id</span> });<br/>      availableWorker.<span class="text-[#79c0ff]">capacity</span> -= task.<span class="text-[#79c0ff]">load</span>;<br/>    }<br/>  });<br/><br/>  <span class="text-[#ff7b72]">return</span> result;<br/>}</div>
+</div>
+<!-- Bottom Runner Area -->
+<div class="h-56 border-t border-white/5 bg-[#0d1117] flex flex-col">
+<div class="flex items-center justify-between px-md py-sm border-b border-white/5">
+<div class="flex gap-md">
+<button class="text-white/60 font-mono-label text-xs border-b-2 border-primary px-sm pb-1">Console</button>
+<button class="text-white/40 font-mono-label text-xs hover:text-white/60 px-sm pb-1">Output</button>
+</div>
+<button class="bg-[#238636] hover:bg-[#2ea043] text-white font-mono-label text-xs px-md py-1 rounded transition-colors flex items-center gap-sm">
+<span class="material-symbols-outlined text-sm" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                Run Tests
+                            </button>
+</div>
+<div class="flex-1 p-md overflow-auto custom-scrollbar font-mono-label">
+<div class="flex flex-col gap-sm"><div class="flex items-center justify-between bg-white/5 hover:bg-white/10 p-sm px-md rounded border border-white/5 transition-colors">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-[#16A34A] text-[20px]" data-icon="check_circle">check_circle</span>
+<span class="text-white/90 text-sm">Test Case 1: Base Allocation</span>
+</div>
+<div class="flex items-center gap-md">
+<span class="text-[#16A34A] text-[11px] font-mono">12ms</span>
+<span class="text-[#16A34A] text-[10px] uppercase font-bold tracking-widest border border-[#16A34A]/30 px-2 rounded-full">Passed</span>
+</div>
+</div>
+<div class="flex items-center justify-between bg-white/5 hover:bg-white/10 p-sm px-md rounded border border-white/5 transition-colors">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-[#16A34A] text-[20px]" data-icon="check_circle">check_circle</span>
+<span class="text-white/90 text-sm">Test Case 2: Maximum Load Handling</span>
+</div>
+<div class="flex items-center gap-md">
+<span class="text-[#16A34A] text-[11px] font-mono">45ms</span>
+<span class="text-[#16A34A] text-[10px] uppercase font-bold tracking-widest border border-[#16A34A]/30 px-2 rounded-full">Passed</span>
+</div>
+</div>
+<div class="flex items-center justify-between bg-error/10 hover:bg-error/20 p-sm px-md rounded border border-error/20 transition-colors">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-error text-[20px]" data-icon="error">error</span>
+<span class="text-white/90 text-sm">Test Case 3: Empty Edge Case</span>
+</div>
+<span class="text-error text-[10px] uppercase font-bold tracking-widest border border-error/30 px-2 rounded-full">Failed</span>
+</div></div>
+</div>
+</div>
+</div>
+<!-- Right: Problem Statement Pane -->
+<div class="w-[420px] flex flex-col bg-surface-container-lowest overflow-hidden border-l border-outline-variant">
+<div class="p-lg overflow-y-auto custom-scrollbar flex-1">
+<div class="flex items-center gap-sm mb-md">
+<span class="bg-primary-container/10 text-primary px-sm py-1 rounded text-[11px] font-bold uppercase tracking-widest border border-primary/20">Hard</span>
+<span class="font-mono-label text-body-sm text-on-surface-variant">Time Limit: 2.0s</span>
+</div>
+<h2 class="font-headline-sm text-title-lg mb-md">Resource Allocation Optimization</h2>
+<div class="prose prose-sm text-on-surface-variant leading-relaxed">
+<p class="mb-lg">
+                                You are tasked with developing a system that assigns a set of incoming tasks to a pool of available workers based on their current capacity and the priority of the tasks.
+                            </p>
+<h3 class="font-title-sm text-on-surface mb-sm">Requirements</h3>
+<ul class="list-disc pl-md flex flex-col gap-xs mb-lg">
+<li>Highest priority tasks must be allocated first.</li>
+<li>A worker can only accept a task if their <code class="bg-surface-variant px-1 rounded text-primary">capacity &gt;= task.load</code>.</li>
+<li>If multiple workers can handle a task, assign it to the one with the highest current capacity to maintain load balancing.</li>
+<li>The function must return an array of mappings <code class="bg-surface-variant px-1 rounded text-primary">{ taskId, workerId }</code>.</li>
+</ul>
+<h3 class="font-title-sm text-on-surface mb-sm">Constraints</h3>
+<div class="bg-surface-container-low p-md rounded-lg border border-outline-variant mb-lg font-mono-label text-[12px]">
+<ul class="flex flex-col gap-xs">
+<li>- tasks: 1 ≤ n ≤ 10,000</li>
+<li>- workers: 1 ≤ m ≤ 5,000</li>
+<li>- load/capacity: 1 ≤ x ≤ 100</li>
+</ul>
+</div>
+<h3 class="font-title-sm text-on-surface mb-sm">Example</h3>
+<div class="bg-[#081126] text-white p-md rounded-lg border border-outline-variant font-mono-label text-[12px] overflow-x-auto">
+<pre>Input: 
+tasks = [{id: 1, load: 20, priority: 5}]
+workers = [{id: 'A', capacity: 50}]
+
+Output: 
+[{taskId: 1, workerId: 'A'}]</pre>
+</div>
+</div>
+</div>
+<div class="p-lg bg-surface-container-lowest border-t border-outline-variant shadow-[0_-4px_20px_rgba(0,0,0,0.03)]">
+<div class="flex items-center justify-between mb-sm">
+<span class="font-title-sm text-body-md">Candidate Confidence Score</span>
+<span class="font-title-sm text-primary">92%</span>
+</div>
+<div class="w-full h-2 bg-outline-variant rounded-full overflow-hidden"><div class="h-full bg-primary rounded-full relative" style="width: 92%">
+<div class="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-white/20 to-transparent"></div>
+</div></div>
+<p class="mt-md text-[11px] text-on-surface-variant/70 italic">
+                            AI insight: The candidate is showing high stability in typing rhythms and logical flow.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Micro-interactions Script -->
+<script>
+        let recruiterViewActive = false;
+
+        function toggleRecruiterView() {
+            const bar = document.getElementById('recruiter-bar');
+            const toggle = document.getElementById('toggle-switch');
+            const knob = document.getElementById('toggle-knob');
+            
+            recruiterViewActive = !recruiterViewActive;
+            
+            if (recruiterViewActive) {
+                bar.classList.remove('hidden');
+                toggle.classList.remove('bg-outline-variant');
+                toggle.classList.add('bg-primary');
+                knob.classList.add('translate-x-5');
+            } else {
+                bar.classList.add('hidden');
+                toggle.classList.add('bg-outline-variant');
+                toggle.classList.remove('bg-primary');
+                knob.classList.remove('translate-x-5');
+            }
+        }
+
+        // Mock Countdown Timer
+        let time = 45 * 60;
+        const countdownEl = document.getElementById('countdown');
+        
+        setInterval(() => {
+            const minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            countdownEl.innerHTML = `${minutes}:${seconds}`;
+            if (time > 0) time--;
+        }, 1000);
+
+        // Simple Typing Effect for IDE feel on load
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Martin Connect IDE Environment Initialized");
+        });
+    </script>
+</body></html>

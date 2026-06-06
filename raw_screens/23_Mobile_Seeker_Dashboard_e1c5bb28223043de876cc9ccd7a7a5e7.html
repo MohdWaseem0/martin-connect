@@ -1,0 +1,362 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Martin Connect | Seeker Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#eef0ff",
+                    "on-background": "#121b30",
+                    "tertiary-fixed-dim": "#98cbff",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-high": "#e2e7ff",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#faf8ff",
+                    "secondary-container": "#476ae9",
+                    "tertiary-container": "#0073b5",
+                    "secondary-fixed-dim": "#b7c4ff",
+                    "on-primary-fixed": "#00174b",
+                    "on-surface-variant": "#424655",
+                    "inverse-surface": "#273046",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f2f3ff",
+                    "primary": "#004bc9",
+                    "on-primary-container": "#f1f1ff",
+                    "secondary-fixed": "#dde1ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-secondary-fixed": "#001452",
+                    "on-surface": "#121b30",
+                    "surface-dim": "#d1d9f6",
+                    "surface-container-highest": "#dae2ff",
+                    "surface-tint": "#0053db",
+                    "secondary": "#2950ce",
+                    "surface-variant": "#dae2ff",
+                    "surface": "#faf8ff",
+                    "on-tertiary-fixed-variant": "#004a77",
+                    "on-tertiary-fixed": "#001d33",
+                    "on-secondary-fixed-variant": "#0038b7",
+                    "primary-container": "#1e63f3",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c3c6d8",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-tertiary-container": "#ebf3ff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#005a8f",
+                    "on-secondary-container": "#fffbff",
+                    "tertiary-fixed": "#cfe5ff",
+                    "surface-container": "#eaedff",
+                    "outline": "#737687",
+                    "on-error-container": "#93000a",
+                    "background": "#faf8ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "sidebar-width": "260px",
+                    "gutter": "24px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "xxl": "48px",
+                    "lg": "24px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "mono-label": ["IBM Plex Mono"],
+                    "title-md": ["DM Sans"],
+                    "body-sm": ["DM Sans"],
+                    "headline-md": ["DM Sans"],
+                    "display-md": ["DM Sans"],
+                    "body-lg": ["DM Sans"],
+                    "title-sm": ["DM Sans"],
+                    "title-lg": ["DM Sans"],
+                    "body-md": ["DM Sans"],
+                    "headline-lg": ["DM Sans"],
+                    "display-lg": ["DM Sans"],
+                    "headline-lg-mobile": ["DM Sans"],
+                    "headline-sm": ["DM Sans"]
+            },
+            "fontSize": {
+                    "mono-label": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-sm": ["12px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-md": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "title-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "title-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #faf8ff; -webkit-tap-highlight-color: transparent; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .active-pill { border-left: 3px solid #1E63F3; }
+        .shadow-soft { box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1); }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Top Status Bar Simulation -->
+<div class="fixed top-0 w-full h-8 bg-surface-container-lowest z-50 flex justify-between items-center px-md text-on-surface-variant">
+<span class="font-mono-label text-xs">9:41</span>
+<div class="flex gap-xs">
+<span class="material-symbols-outlined text-[14px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[14px]">wifi</span>
+<span class="material-symbols-outlined text-[14px]">battery_full</span>
+</div>
+</div>
+<!-- Header / Top Bar -->
+<header class="sticky top-8 bg-surface-container-lowest z-40 px-md py-sm border-b border-[#E8EEF7] flex justify-between items-center h-14">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Profile" data-alt="A professional headshot of a young male professional with a friendly expression. He is wearing a minimalist navy blue blazer over a crisp white shirt. The background is a soft, out-of-focus modern office setting with natural light, maintaining a clean and executive high-end corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIo7PIYo3KR2UYs66Zya4KII7Lm7QTWM7dveBSGF5R3NwCpYZ-hxfZNFTVNNvRgSqoJCup3YdDKmHMwXCum8XZf4Nn-gr0cyvclOnVcN_PIPL7HnwTYgNcOWk_OLGA3EUiug9q0QHAd81FM0XxCmusDuURsCK7_OrwwOG_7S8G1_KB2D883K-bbvKnwnP4VcQPqSH6UUWDWlxsFeJ_7CQdllVSMbRuWd7sVHTCcIld16TM-H5JCC2b7sralGNUGnbmJ5nfhxFMGKA">
+</div>
+<h1 class="font-title-sm text-title-sm text-primary">Martin Connect</h1>
+</div>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+<div class="relative">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<div class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></div>
+</div>
+</div>
+</header>
+<main class="mt-8 mb-24 px-md space-y-lg">
+<!-- Personalized Greeting -->
+<section class="pt-md">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-body-sm text-on-surface-variant">Good morning, Alex</p>
+<h2 class="font-headline-sm text-headline-sm leading-tight">Your Career <br>Snapshot</h2>
+</div>
+<div class="bg-primary-container/10 px-sm py-xs rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="font-mono-label text-primary text-[12px]">PRO</span>
+</div>
+</div>
+</section>
+<!-- Application Status Cards -->
+<section class="grid grid-cols-2 gap-sm">
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-soft border border-[#E8EEF7] active-pill">
+<span class="material-symbols-outlined text-primary mb-sm">send</span>
+<p class="font-mono-label text-on-surface-variant uppercase text-[10px]">Applied</p>
+<p class="font-headline-sm text-headline-sm text-primary">12</p>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-soft border border-[#E8EEF7]">
+<span class="material-symbols-outlined text-tertiary mb-sm">visibility</span>
+<p class="font-mono-label text-on-surface-variant uppercase text-[10px]">Interviews</p>
+<p class="font-headline-sm text-headline-sm text-tertiary">3</p>
+</div>
+</section>
+<!-- Upcoming Interviews (Notification Style) -->
+<section class="bg-primary text-white p-md rounded-xl shadow-soft relative overflow-hidden">
+<!-- Decorative circle -->
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full"></div>
+<div class="flex items-start gap-md">
+<div class="bg-white/20 p-sm rounded-lg">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title-sm text-title-sm mb-xs">Technical Interview</h3>
+<p class="font-body-sm text-white/80">Google Cloud Platform • 2:30 PM Today</p>
+<button class="mt-md w-full bg-white text-primary font-bold py-sm rounded-lg flex justify-center items-center gap-sm transition-transform active:scale-95 hover:bg-primary-fixed"><span class="material-symbols-outlined text-[20px]">play_arrow</span>Join Meeting</button>
+</div>
+</div>
+</section>
+<!-- Recommended Jobs (Horizontal Swipe) -->
+<section>
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-title-md text-title-md">Recommended Jobs</h3>
+<button class="text-primary font-body-sm font-bold">See All</button>
+</div>
+<div class="flex overflow-x-auto gap-md no-scrollbar pb-md snap-x snap-mandatory px-0">
+<!-- Job Card 1 -->
+<div class="min-w-[280px] snap-center bg-surface-container-lowest p-md rounded-xl shadow-soft border border-[#E8EEF7] relative">
+<div class="absolute top-md right-md bg-[#DCFCE7] text-[#16A34A] font-mono-label text-[10px] px-sm py-1 rounded-full">
+                        98% MATCH
+                    </div>
+<div class="flex items-center gap-sm mb-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center border border-outline-variant">
+<img alt="Stripe" class="w-6 h-6 object-contain" data-alt="A clean, minimalist logo of a modern tech company on a plain white background. The visual style is crisp and corporate, utilizing professional color schemes suitable for a high-performance recruitment dashboard environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmgBWHIG5sd_UzaFz-KiPsupgk3WGnQbbSyDZVO1v0lc_FgLd-o9tbTI_N5L_AvKwYC-nuYx_6g9vKq5dK2C87kfAGSWT2v9fLvVbS6gR4H-9ZsXxQ5n4vWGwCC3fcDsNei4fYBuAO1ryfEX17daYfDZDAfLg61logc03RKip8tHXgXFpXxyGNDzbBhkKh0HK6h5Hfp53Zen3LPeYEPJFE8FFFuxvLIgboSjF2YUakyJKHhzsqmVfmx0AWZQ2yKFIOLtmLjngMClg">
+</div>
+<div>
+<p class="font-title-sm text-title-sm leading-tight">Product Designer</p>
+<p class="font-body-sm text-on-surface-variant">Stripe • Remote</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-xs mb-lg">
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-1 rounded font-body-sm text-[11px]">Figma</span>
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-1 rounded font-body-sm text-[11px]">Design Systems</span>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 bg-primary text-white py-sm rounded-lg font-bold font-body-md shadow-sm active:bg-secondary">Quick Apply</button>
+<button class="w-12 border border-[#E8EEF7] rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">bookmark_border</span>
+</button>
+</div>
+</div>
+<!-- Job Card 2 -->
+<div class="min-w-[280px] snap-center bg-surface-container-lowest p-md rounded-xl shadow-soft border border-[#E8EEF7] relative">
+<div class="absolute top-md right-md bg-[#DCFCE7] text-[#16A34A] font-mono-label text-[10px] px-sm py-1 rounded-full">
+                        92% MATCH
+                    </div>
+<div class="flex items-center gap-sm mb-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center border border-outline-variant">
+<img alt="Vercel" class="w-6 h-6 object-contain" data-alt="A professional and sleek tech company logo depicted on a solid white surface. The aesthetic is modern and structural, reflecting a minimalist and industrial design language appropriate for a high-end corporate job platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-nM0RDCR3US6qqERs30q7_Qy25WCzfc18z-zww0yFQ1h9yU2Msgqt1CvwEiBE8hO-5Rwn8_jcKIp0hkubc77yE49Dh8qW-Ax9Q8tmLCugo6SLGoDz_eqpos9j5cq2fTJVbBqJCaLwiyH4Xh14sY_vqFXR2i4nvEibiGBN0jLTLjFQa-p-f-oQv0ribaMLVpX0rj7EyT2hdS-ioiCbhqLUio_hmYHnvdf7y3wdCDvKOoJoY7RdW6dQJWbrKSwmTzAwCrVH6EvbiAc">
+</div>
+<div>
+<p class="font-title-sm text-title-sm leading-tight">UX Engineer</p>
+<p class="font-body-sm text-on-surface-variant">Vercel • Hybrid</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-xs mb-lg">
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-1 rounded font-body-sm text-[11px]">React</span>
+<span class="bg-surface-container-low text-on-surface-variant px-sm py-1 rounded font-body-sm text-[11px]">Tailwind</span>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 bg-primary text-white py-sm rounded-lg font-bold font-body-md shadow-sm active:bg-secondary">Quick Apply</button>
+<button class="w-12 border border-[#E8EEF7] rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">bookmark_border</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Activity Table-style List -->
+<section>
+<h3 class="font-title-md text-title-md mb-md">Recent Activity</h3>
+<div class="bg-surface-container-lowest rounded-xl shadow-soft border border-[#E8EEF7] divide-y divide-[#E8EEF7]">
+<div class="p-md flex items-center gap-md">
+<div class="w-10 h-10 bg-[#EBF4FF] rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md font-bold">Resume Viewed</p>
+<p class="font-body-sm text-on-surface-variant">Global Logistics Inc.</p>
+</div>
+<p class="font-mono-label text-[11px] text-on-surface-variant">2h ago</p>
+</div>
+<div class="p-md flex items-center gap-md">
+<div class="w-10 h-10 bg-[#FEF9EC] rounded-full flex items-center justify-center text-[#D97706]">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md font-bold">New Message</p>
+<p class="font-body-sm text-on-surface-variant">HR Coordinator at Shopify</p>
+</div>
+<p class="font-mono-label text-[11px] text-on-surface-variant">5h ago</p>
+</div>
+<div class="p-md flex items-center gap-md">
+<div class="w-10 h-10 bg-[#FEE2E2] rounded-full flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="cancel">cancel</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md font-bold">Position Closed</p>
+<p class="font-body-sm text-on-surface-variant">Senior Lead Designer</p>
+</div>
+<p class="font-mono-label text-[11px] text-on-surface-variant">1d ago</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Fixed) -->
+<nav class="fixed bottom-0 w-full bg-surface-container-lowest border-t-0 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] h-20 px-lg flex items-center justify-between z-50">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center gap-xs text-primary" href="#">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: &quot;FILL&quot; 1;">home</span>
+<span class="font-body-sm text-[10px] font-bold">Home</span>
+</a>
+<!-- Search -->
+<a class="flex flex-col items-center gap-xs text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[24px]">search</span>
+<span class="font-body-sm text-[10px]">Search</span>
+</a>
+<!-- Apps -->
+<a class="flex flex-col items-center gap-xs text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[24px]">layers</span>
+<span class="font-body-sm text-[10px]">Apps</span>
+</a>
+<!-- Messages -->
+<a class="flex flex-col items-center gap-xs text-on-surface-variant relative" href="#">
+<span class="material-symbols-outlined text-[24px]">chat_bubble</span>
+<span class="font-body-sm text-[10px]">Messages</span>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-error text-white text-[9px] rounded-full flex items-center justify-center font-bold">2</div>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center gap-xs text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[24px]">account_circle</span>
+<span class="font-body-sm text-[10px]">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for horizontal swipe
+        const scroller = document.querySelector('.no-scrollbar');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        scroller.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - scroller.offsetLeft;
+            scrollLeft = scroller.scrollLeft;
+        });
+        scroller.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        scroller.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        scroller.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scroller.offsetLeft;
+            const walk = (x - startX) * 2;
+            scroller.scrollLeft = scrollLeft - walk;
+        });
+
+        // Toggle nav active state
+        const navItems = document.querySelectorAll('nav a');
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                navItems.forEach(nav => {
+                    nav.classList.remove('text-primary');
+                    nav.classList.add('text-on-surface-variant');
+                    nav.querySelector('span:first-child').style.fontVariationSettings = "'FILL' 0";
+                    nav.querySelector('span:last-child').classList.remove('font-bold');
+                });
+                item.classList.add('text-primary');
+                item.classList.remove('text-on-surface-variant');
+                item.querySelector('span:first-child').style.fontVariationSettings = "'FILL' 1";
+                item.querySelector('span:last-child').classList.add('font-bold');
+            });
+        });
+    </script>
+
+
+</body></html>

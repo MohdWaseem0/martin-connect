@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Martin Connect | Recruiter Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c3c6d8",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#dae2ff",
+                    "error": "#ba1a1a",
+                    "surface": "#faf8ff",
+                    "on-primary-container": "#f1f1ff",
+                    "surface-tint": "#0053db",
+                    "on-secondary-fixed-variant": "#0038b7",
+                    "on-tertiary-fixed-variant": "#004a77",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-low": "#f2f3ff",
+                    "on-background": "#121b30",
+                    "surface-container-high": "#e2e7ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#001d33",
+                    "inverse-on-surface": "#eef0ff",
+                    "on-surface": "#121b30",
+                    "tertiary": "#005a8f",
+                    "background": "#faf8ff",
+                    "on-tertiary-container": "#ebf3ff",
+                    "on-primary-fixed": "#00174b",
+                    "primary": "#004bc9",
+                    "primary-fixed": "#dbe1ff",
+                    "primary-container": "#1e63f3",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#424655",
+                    "tertiary-fixed": "#cfe5ff",
+                    "secondary-container": "#476ae9",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#faf8ff",
+                    "secondary": "#2950ce",
+                    "surface-variant": "#dae2ff",
+                    "tertiary-fixed-dim": "#98cbff",
+                    "secondary-fixed-dim": "#b7c4ff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "inverse-surface": "#273046",
+                    "on-secondary-container": "#fffbff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xxl": "48px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "container-max": "1440px",
+                    "gutter": "24px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "sidebar-width": "260px",
+                    "unit": "4px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "display-md": ["DM Sans"],
+                    "display-lg": ["DM Sans"],
+                    "title-sm": ["DM Sans"],
+                    "headline-sm": ["DM Sans"],
+                    "mono-label": ["IBM Plex Mono"],
+                    "headline-md": ["DM Sans"],
+                    "body-sm": ["DM Sans"],
+                    "body-md": ["DM Sans"],
+                    "headline-lg": ["DM Sans"],
+                    "body-lg": ["DM Sans"],
+                    "headline-lg-mobile": ["DM Sans"],
+                    "title-md": ["DM Sans"],
+                    "title-lg": ["DM Sans"]
+            },
+            "fontSize": {
+                    "display-md": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "mono-label": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-sm": ["12px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "title-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'DM Sans', sans-serif; }
+        .soft-sharp-shadow {
+            box-shadow: 0px 2px 4px rgba(8, 17, 38, 0.05), 0px 1px 2px rgba(8, 17, 38, 0.1);
+        }
+        .sidebar-active {
+            border-left: 4px solid #1E63F3;
+            background: rgba(30, 99, 243, 0.1);
+            color: #ffffff;
+        }
+        .card-hover-accent:hover {
+            border-left: 3px solid #1E63F3;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E8EEF7;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-[#081126] flex flex-col py-lg border-r border-outline-variant z-50">
+<div class="px-lg mb-xl">
+<h1 class="font-headline-sm text-headline-sm font-bold text-white tracking-tight">Martin Connect</h1>
+<p class="font-body-sm text-body-sm text-outline-variant mt-xs">Premium Recruitment</p>
+</div>
+<nav class="flex-grow">
+<ul class="space-y-xs">
+<li class="sidebar-active group px-lg py-sm flex items-center gap-md cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-title-sm text-title-sm">Dashboard</span>
+</li>
+<li class="text-on-surface-variant hover:text-white hover:bg-white/5 group px-lg py-sm flex items-center gap-md cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined text-[20px]">work</span>
+<span class="font-title-sm text-title-sm">Jobs</span>
+</li>
+<li class="text-on-surface-variant hover:text-white hover:bg-white/5 group px-lg py-sm flex items-center gap-md cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="font-title-sm text-title-sm">Candidates</span>
+</li>
+<li class="text-on-surface-variant hover:text-white hover:bg-white/5 group px-lg py-sm flex items-center gap-md cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span class="font-title-sm text-title-sm">Analytics</span>
+</li>
+<li class="text-on-surface-variant hover:text-white hover:bg-white/5 group px-lg py-sm flex items-center gap-md cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-title-sm text-title-sm">Settings</span>
+</li>
+</ul>
+</nav>
+<div class="mt-auto px-lg space-y-md">
+<button class="w-full bg-primary-container text-white py-md px-lg rounded-lg font-bold font-display-md flex items-center justify-center gap-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+                Post New Job
+            </button>
+<div class="pt-xl border-t border-white/10">
+<ul class="space-y-xs">
+<li class="text-on-surface-variant hover:text-white hover:bg-white/5 group px-0 py-sm flex items-center gap-md cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+<span class="font-title-sm text-title-sm">Support</span>
+</li>
+<li class="text-on-surface-variant hover:text-white hover:bg-white/5 group px-0 py-sm flex items-center gap-md cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="font-title-sm text-title-sm">Logout</span>
+</li>
+</ul>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] h-screen overflow-y-auto custom-scrollbar bg-surface">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest flex justify-between items-center h-16 px-lg border-b border-[#E8EEF7]">
+<div class="flex items-center gap-md">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full pl-xl pr-md py-sm bg-surface-container-low border border-outline-variant rounded-full text-body-sm focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Search candidates, jobs, or recruiters..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-sm">
+<button class="relative p-xs text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="flex items-center gap-md pl-lg border-l border-[#E8EEF7]">
+<div class="text-right">
+<p class="font-title-sm text-body-md text-on-surface">Neha Gupta</p>
+<p class="font-body-sm text-xs text-on-surface-variant">Senior HR Manager</p>
+</div>
+<img alt="Neha Gupta" class="w-10 h-10 rounded-full border-2 border-primary" data-alt="A professional and polished close-up portrait of a female executive in her mid-30s with South Asian heritage. She has a warm yet authoritative expression, wearing a tailored navy blazer and minimalist gold jewelry. The background is a soft-focus modern corporate office with warm lighting and subtle glass partitions, creating an atmosphere of high-level leadership and accessibility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj3kVXXJCQ30qb4jdfMd2XpBBn4EGM6lcIsRFDKDs2-hcbCO2boeQOBL7wXT6sOrvJ6TbL6Bh0cI4Z-jY0aCuz9J0tG5R8S-7ic7XPlNSLqEixO-9nw3txOVZC2HqWlNAGlbBqWukaEcWwV1Sk4yMTg3bf4P1WcKxlanE4ljR-NsOGIbQD3HqWQ2-pkkomTfBTT3B6o2Zf_jJ5Evgg8sJLovc6swZf4IyrG21AYlMv8eGNouTlQnyKHZbnja_cnlIQ9VK9WYJtzU0"/>
+</div>
+</div>
+</header>
+<div class="p-lg max-w-[1440px] mx-auto space-y-xl">
+<!-- Hero Header -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Good morning, Neha 👋</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-xs">Here's what's happening with your hiring pipeline today.</p>
+</div>
+<div class="flex gap-md">
+<button class="px-lg py-sm border border-primary text-primary font-bold rounded-lg hover:bg-primary/5 transition-colors">Generate Report</button>
+<button class="px-lg py-sm bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-opacity">Post New Job</button>
+</div>
+</div>
+<!-- KPI Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-surface-container-lowest p-lg rounded-xl soft-sharp-shadow border border-[#E8EEF7] border-l-4 border-l-primary">
+<p class="font-mono-label text-on-surface-variant uppercase tracking-wider text-[11px]">Active Jobs</p>
+<div class="mt-sm flex items-end justify-between">
+<h3 class="font-display-md text-headline-lg">14</h3>
+<span class="text-secondary font-bold text-body-sm flex items-center">+2 this week</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl soft-sharp-shadow border border-[#E8EEF7] border-l-4 border-l-secondary">
+<p class="font-mono-label text-on-surface-variant uppercase tracking-wider text-[11px]">Total Applicants</p>
+<div class="mt-sm flex items-end justify-between">
+<h3 class="font-display-md text-headline-lg">2,847</h3>
+<span class="text-secondary font-bold text-body-sm flex items-center">+12% vs last month</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl soft-sharp-shadow border border-[#E8EEF7] border-l-4 border-l-tertiary">
+<p class="font-mono-label text-on-surface-variant uppercase tracking-wider text-[11px]">Interviews</p>
+<div class="mt-sm flex items-end justify-between">
+<h3 class="font-display-md text-headline-lg">12</h3>
+<span class="text-on-surface-variant font-medium text-body-sm">Today's schedule</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl soft-sharp-shadow border border-[#E8EEF7] border-l-4 border-l-on-secondary-fixed-variant">
+<p class="font-mono-label text-on-surface-variant uppercase tracking-wider text-[11px]">Positions Hired</p>
+<div class="mt-sm flex items-end justify-between">
+<h3 class="font-display-md text-headline-lg">3</h3>
+<span class="text-on-surface-variant font-medium text-body-sm">In Q3 (Goal: 10)</span>
+</div>
+</div>
+</div>
+<!-- Hiring Funnel Widget -->
+<section class="bg-surface-container-lowest p-xl rounded-xl soft-sharp-shadow border border-[#E8EEF7]">
+<h4 class="font-title-lg text-title-lg mb-lg">Hiring Funnel Performance</h4>
+<div class="flex items-center w-full h-12 rounded-full overflow-hidden">
+<div class="h-full bg-primary flex items-center justify-center text-white text-[11px] font-bold" style="width: 45%;">APPLIED (2,847)</div>
+<div class="h-full bg-primary/80 flex items-center justify-center text-white text-[11px] font-bold" style="width: 25%;">SCREENED (712)</div>
+<div class="h-full bg-primary/60 flex items-center justify-center text-white text-[11px] font-bold" style="width: 15%;">INTERVIEW (84)</div>
+<div class="h-full bg-primary/40 flex items-center justify-center text-on-primary-container text-[11px] font-bold" style="width: 10%;">OFFER (12)</div>
+<div class="h-full bg-secondary-container flex items-center justify-center text-white text-[11px] font-bold" style="width: 5%;">HIRED (6)</div>
+</div>
+<div class="grid grid-cols-5 mt-md text-center">
+<span class="text-body-sm font-bold text-primary">45%</span>
+<span class="text-body-sm font-bold text-primary/80">25%</span>
+<span class="text-body-sm font-bold text-primary/60">12%</span>
+<span class="text-body-sm font-bold text-primary/40">14%</span>
+<span class="text-body-sm font-bold text-secondary">50% CV%</span>
+</div>
+</section>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left Column: Active Jobs & Applicants -->
+<div class="col-span-12 lg:col-span-8 space-y-xl">
+<!-- Recent Applicants -->
+<section>
+<div class="flex justify-between items-center mb-md">
+<h4 class="font-title-lg text-title-lg">Recent Applicants</h4>
+<button class="text-primary font-bold text-body-sm hover:underline">View All</button>
+</div>
+<div class="flex gap-md overflow-x-auto pb-sm custom-scrollbar">
+<!-- Candidate Card 1 -->
+<div class="min-w-[240px] bg-surface-container-lowest p-md rounded-xl soft-sharp-shadow border border-[#E8EEF7] card-hover-accent transition-all">
+<div class="flex items-start justify-between mb-md">
+<img alt="Arjun Mehta" class="w-12 h-12 rounded-full object-cover" data-alt="A professional headshot of a software engineer in his late 20s, featuring a friendly and confident demeanor. He is wearing a simple grey crew-neck sweater against a clean, blurred office background with industrial lighting. The overall style is modern corporate, emphasizing technical competence and a collaborative spirit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5YjVGl1-NRyw_CBEBIQE8XXgGq1Ez-vNDu4xUxaiERv4ovH6yJ_A7dI-PNp-Nivkapm37U4-ifaWH-sv--GchUicq5kIwpozr5vmcti-2xIM280CnnbM3sWjQ8LLGsZbCCGKVAWDOskY5x3RZbxLkSGcpDOSKbCjDjV9WjJqbdzqrr50ehEj46MakCctFndRF3M_ugm1xGAfPrBRWURKEpENWZ6Tk6NB5swhig4fVuY5AFuOMVgBBNT-C3AM6eLVXmmjhboIcpak"/>
+<span class="bg-[#EBF4FF] text-[#1E63F3] text-[10px] font-bold px-sm py-[2px] rounded-full">APPLIED</span>
+</div>
+<h5 class="font-title-sm text-on-surface">Arjun Mehta</h5>
+<p class="font-body-sm text-on-surface-variant">Senior Backend Developer</p>
+<div class="mt-md pt-md border-t border-[#E8EEF7] flex justify-between items-center">
+<span class="font-mono-label text-[11px] text-on-surface-variant">2h ago</span>
+<button class="material-symbols-outlined text-primary text-[20px]">chevron_right</button>
+</div>
+</div>
+<!-- Candidate Card 2 -->
+<div class="min-w-[240px] bg-surface-container-lowest p-md rounded-xl soft-sharp-shadow border border-[#E8EEF7] card-hover-accent transition-all">
+<div class="flex items-start justify-between mb-md">
+<img alt="Priya Sharma" class="w-12 h-12 rounded-full object-cover" data-alt="A polished headshot of a female product designer in her early 30s. She is smiling professionally, wearing a black blazer and glasses. The lighting is soft and natural, suggesting a high-end creative workspace in the background. The aesthetic is clean, professional, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV7soTz5VWUz6qX0rgx43kTewWpx56eaEEDpu2Ye21jt6LziIsIEs89e5FhFdCjJiAAiNWhpd9yG7yCbZz-OKVCM5y_oHWe_lMLrkZeMjm9abfuYoxyClIE0NBLid1FLjAWCabkMZBZHStNbjLZ55Ez-BRZ6msfz-k4FkfQE0SPc4U3JeirD-vtjWBrGejwCNkaA54D48PLclB4CRGZ3evBsMIEGQNTcXHvGQAG-leKId5aFkc_rmt8jN_47ZpSAdm91WUiUnXHGo"/>
+<span class="bg-[#DCFCE7] text-[#16A34A] text-[10px] font-bold px-sm py-[2px] rounded-full">SHORTLISTED</span>
+</div>
+<h5 class="font-title-sm text-on-surface">Priya Sharma</h5>
+<p class="font-body-sm text-on-surface-variant">Lead Product Designer</p>
+<div class="mt-md pt-md border-t border-[#E8EEF7] flex justify-between items-center">
+<span class="font-mono-label text-[11px] text-on-surface-variant">5h ago</span>
+<button class="material-symbols-outlined text-primary text-[20px]">chevron_right</button>
+</div>
+</div>
+<!-- Candidate Card 3 -->
+<div class="min-w-[240px] bg-surface-container-lowest p-md rounded-xl soft-sharp-shadow border border-[#E8EEF7] card-hover-accent transition-all">
+<div class="flex items-start justify-between mb-md">
+<img alt="Rahul Varma" class="w-12 h-12 rounded-full object-cover" data-alt="A sharp, professional portrait of a man in his late 30s, looking serious and capable. He wears a white shirt with an open collar. The background is a crisp white-wall office environment with professional studio lighting that highlights his features clearly. The style is executive and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM0I1CiAkLesbWvHkeeA6bS2J5eCAodduxh2QjqJhv57sohT2_mDHrrWsVshdleIKbZbUojwEvub-P2VTPbBFmKj6YeGXLYHKBAKByMn3rdo-XHz675itPxecTaLDSbRvGXkkgULaWhWKSaXwpS0VApEEyDy9sp-Z7Y4gpXJjtM7fbo92_T8or_SgVtvG9VfLuJdEzgUXulsluvroaKut-37-6eEcj-BQFan-CECMwwHdMEGrljQl09nSaowKzhUKAbGdMLSAxgSI"/>
+<span class="bg-[#FEF9EC] text-[#D97706] text-[10px] font-bold px-sm py-[2px] rounded-full">REVIEW</span>
+</div>
+<h5 class="font-title-sm text-on-surface">Rahul Varma</h5>
+<p class="font-body-sm text-on-surface-variant">DevOps Engineer</p>
+<div class="mt-md pt-md border-t border-[#E8EEF7] flex justify-between items-center">
+<span class="font-mono-label text-[11px] text-on-surface-variant">1d ago</span>
+<button class="material-symbols-outlined text-primary text-[20px]">chevron_right</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Active Jobs Table -->
+<section class="bg-surface-container-lowest rounded-xl soft-sharp-shadow border border-[#E8EEF7] overflow-hidden">
+<div class="px-lg py-md border-b border-[#E8EEF7] flex justify-between items-center">
+<h4 class="font-title-lg text-title-lg">Active Jobs</h4>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">filter_list</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">download</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-[#F7F9FC] border-b border-[#E8EEF7]">
+<tr>
+<th class="px-lg py-md font-mono-label text-[11px] text-on-surface-variant uppercase tracking-widest">Job Title</th>
+<th class="px-lg py-md font-mono-label text-[11px] text-on-surface-variant uppercase tracking-widest">Location</th>
+<th class="px-lg py-md font-mono-label text-[11px] text-on-surface-variant uppercase tracking-widest">Applicants</th>
+<th class="px-lg py-md font-mono-label text-[11px] text-on-surface-variant uppercase tracking-widest">Status</th>
+<th class="px-lg py-md font-mono-label text-[11px] text-on-surface-variant uppercase tracking-widest">Days Posted</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#E8EEF7]">
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="px-lg py-md font-title-sm text-primary">Senior Frontend Engineer</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant">Bangalore (Remote)</td>
+<td class="px-lg py-md font-body-md">
+<div class="flex items-center gap-xs">
+<span class="font-bold">428</span>
+<span class="text-secondary text-[11px] font-bold">+12 today</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="bg-[#DCFCE7] text-[#16A34A] text-[10px] font-bold px-sm py-[2px] rounded-full">ACTIVE</span>
+</td>
+<td class="px-lg py-md font-mono-label text-body-sm">12d</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="px-lg py-md font-title-sm text-primary">Product Marketing Lead</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant">Mumbai</td>
+<td class="px-lg py-md font-body-md">
+<div class="flex items-center gap-xs">
+<span class="font-bold">186</span>
+<span class="text-secondary text-[11px] font-bold">+5 today</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="bg-[#DCFCE7] text-[#16A34A] text-[10px] font-bold px-sm py-[2px] rounded-full">ACTIVE</span>
+</td>
+<td class="px-lg py-md font-mono-label text-body-sm">4d</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="px-lg py-md font-title-sm text-primary">Head of Design</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant">Gurugram</td>
+<td class="px-lg py-md font-body-md">
+<div class="flex items-center gap-xs">
+<span class="font-bold">92</span>
+<span class="text-on-surface-variant text-[11px]">No new</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="bg-[#FEF9EC] text-[#D97706] text-[10px] font-bold px-sm py-[2px] rounded-full">INTERVIEWING</span>
+</td>
+<td class="px-lg py-md font-mono-label text-body-sm">28d</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Right Column: Activity Feed & Analytics -->
+<div class="col-span-12 lg:col-span-4 space-y-xl">
+<!-- Team Activity Feed -->
+<section class="bg-surface-container-lowest p-lg rounded-xl soft-sharp-shadow border border-[#E8EEF7]">
+<h4 class="font-title-lg text-title-lg mb-lg">Team Activity</h4>
+<div class="space-y-lg">
+<div class="flex gap-md">
+<div class="relative">
+<img alt="Kavya S." class="w-8 h-8 rounded-full" data-alt="A portrait of a professional Indian woman recruiter in her late 20s, with a warm and engaged expression. She is in a collaborative shared office space with soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB51J9vFiSCPH68ojmpRStTdMbpDaJVLPqi0n7AnWtkJGCu16KjQ2w1RBwd0zaymWBjQLMYaVLE0qAvNDwjq9JFaYG6iMUmwtSwXyGHdO1Vuchw-0v5Jam5BjRTeox9KorZ4WXOGmsuD_E9hOKUeM9nSkfnagltQThOpV4mrbt03QCECjBg6CBrXvJN4iwfBs7EVW3NTS_O0s8uq7GvpLItIpfvrRzlrktWL8GCCHiIe9kczVP6bGJgQx2X_csKMsnzc9Ve2vKoJJM"/>
+<span class="absolute -bottom-1 -right-1 material-symbols-outlined text-[14px] bg-[#16A34A] text-white rounded-full p-[2px]">check_circle</span>
+</div>
+<div>
+<p class="font-body-md"><span class="font-bold text-on-surface">Kavya S.</span> shortlisted <span class="font-bold text-primary">Arjun Mehta</span></p>
+<p class="font-body-sm text-on-surface-variant text-[11px]">15 minutes ago</p>
+</div>
+</div>
+<div class="flex gap-md">
+<div class="relative">
+<img alt="Vikram R." class="w-8 h-8 rounded-full" data-alt="A headshot of a friendly-looking man in a light blue shirt. He looks approachable and modern, suitable for a professional corporate role." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf4f6fE2CXcF7GKywsR1ZNfRUnNrV9uFJVR0FnqQ6Q4eToUEinDRRfXyG4yXNmwsCs6sTWdaoTAPfeY6--fPlOjPrl6YKfuketcyDnDRQ1Wz6yqipYsUCXzh0IvePTVCaGdg0n7Ao__cy0P-tf6U7Vj9b5RI8gdG4WfT_ilYn650Cxdd5ibVAgAiiXtsc4diDZcVRd4YbQZYzm_tDFrHaeW0VsTZvAdKF04bY3bfPyWNwILLKf3yMOeP6UUTUZi8eOofuXRZYabuI"/>
+<span class="absolute -bottom-1 -right-1 material-symbols-outlined text-[14px] bg-primary text-white rounded-full p-[2px]">mail</span>
+</div>
+<div>
+<p class="font-body-md"><span class="font-bold text-on-surface">Vikram R.</span> sent interview invite to <span class="font-bold text-primary">Priya Sharma</span></p>
+<p class="font-body-sm text-on-surface-variant text-[11px]">1 hour ago</p>
+</div>
+</div>
+<div class="flex gap-md">
+<div class="relative">
+<img alt="Ananya K." class="w-8 h-8 rounded-full" data-alt="A professional close-up of a young woman with a focused expression, wearing a neutral-toned business casual outfit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUUEkvoq79wx0wdqMXVgz2i6ua_qZp7YNcMGRMWWsfyGsTAZ7WDdng7bpRqw195dqZog7DxaIBEd5d0XFQ8sFiO81JE-z2Oh18NlqZQd0-M3CezCp7pEIcZ2QgdqEyF1HnQoLqtFDwSYni12S7ezFjv1q_NqOlduZqUuu-RYZZLAdORNRDqaIBtyee52b1rXdBbqTDD14KHheU0u13sPGNetukQ4UsVMT7Fxyd9JUsfii3mQ4gWARfmb4eXMUDEhdyalFmvDEsbh8"/>
+<span class="absolute -bottom-1 -right-1 material-symbols-outlined text-[14px] bg-error text-white rounded-full p-[2px]">close</span>
+</div>
+<div>
+<p class="font-body-md"><span class="font-bold text-on-surface">Ananya K.</span> rejected <span class="font-bold text-primary">Siddharth T.</span></p>
+<p class="font-body-sm text-on-surface-variant text-[11px]">3 hours ago</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Candidate Sources (Donut Simulation) -->
+<section class="bg-surface-container-lowest p-lg rounded-xl soft-sharp-shadow border border-[#E8EEF7]">
+<h4 class="font-title-lg text-title-lg mb-lg">Candidate Sources</h4>
+<div class="flex justify-center mb-lg">
+<!-- SVG Donut Chart -->
+<svg class="w-40 h-40" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#E8EEF7" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#004bc9" stroke-dasharray="48 100" stroke-dashoffset="25" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#2950ce" stroke-dasharray="24 100" stroke-dashoffset="-23" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#476ae9" stroke-dasharray="28 100" stroke-dashoffset="-47" stroke-width="4"></circle>
+<text class="font-bold text-[6px]" fill="#121b30" text-anchor="middle" x="18" y="20">TOTAL</text>
+<text class="font-bold text-[4px]" fill="#424655" text-anchor="middle" x="18" y="24">2,847</text>
+</svg>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-body-md text-on-surface-variant">Martin Connect</span>
+</div>
+<span class="font-bold">48%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-body-md text-on-surface-variant">LinkedIn</span>
+</div>
+<span class="font-bold">24%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="font-body-md text-on-surface-variant">Direct Referrals</span>
+</div>
+<span class="font-bold">28%</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Bottom Chart Section (Asymmetric) -->
+<section class="bg-surface-container-lowest p-xl rounded-xl soft-sharp-shadow border border-[#E8EEF7]">
+<div class="flex justify-between items-center mb-xl">
+<h4 class="font-title-lg text-title-lg">Applications per Job Category</h4>
+<select class="bg-surface border border-outline-variant rounded-lg text-body-sm px-md py-sm">
+<option>Last 30 Days</option>
+<option>Last 90 Days</option>
+</select>
+</div>
+<div class="grid grid-cols-12 items-end gap-md h-64">
+<!-- Simple Bar Chart Visualization -->
+<div class="col-span-1 flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-container/20 rounded-t-lg relative" style="height: 60%;">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all duration-500 hover:opacity-80" style="height: 100%;"></div>
+</div>
+<span class="font-mono-label text-[10px] rotate-45 mt-sm">Eng</span>
+</div>
+<div class="col-span-1 flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-container/20 rounded-t-lg relative" style="height: 45%;">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all duration-500 hover:opacity-80" style="height: 100%;"></div>
+</div>
+<span class="font-mono-label text-[10px] rotate-45 mt-sm">Design</span>
+</div>
+<div class="col-span-1 flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-container/20 rounded-t-lg relative" style="height: 80%;">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all duration-500 hover:opacity-80" style="height: 100%;"></div>
+</div>
+<span class="font-mono-label text-[10px] rotate-45 mt-sm">Product</span>
+</div>
+<div class="col-span-1 flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-container/20 rounded-t-lg relative" style="height: 30%;">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all duration-500 hover:opacity-80" style="height: 100%;"></div>
+</div>
+<span class="font-mono-label text-[10px] rotate-45 mt-sm">Sales</span>
+</div>
+<div class="col-span-1 flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-container/20 rounded-t-lg relative" style="height: 20%;">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all duration-500 hover:opacity-80" style="height: 100%;"></div>
+</div>
+<span class="font-mono-label text-[10px] rotate-45 mt-sm">Legal</span>
+</div>
+<div class="col-span-1 flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-container/20 rounded-t-lg relative" style="height: 95%;">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all duration-500 hover:opacity-80" style="height: 100%;"></div>
+</div>
+<span class="font-mono-label text-[10px] rotate-45 mt-sm">Ops</span>
+</div>
+<!-- Empty spacers for visual layout -->
+<div class="col-span-6 flex flex-col justify-center pl-xxl">
+<div class="p-lg bg-surface border border-dashed border-outline-variant rounded-xl">
+<h5 class="font-title-sm text-primary mb-sm">Insights from Ops</h5>
+<p class="font-body-md text-on-surface-variant">Operations roles are seeing a 140% surge in applicants compared to last month. Consider adding a preliminary screening round to manage volume.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Spacer for Bottom -->
+<div class="h-xl"></div>
+</main>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.card-hover-accent').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('shadow-lg');
+                card.style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('shadow-lg');
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+    </script>
+</body></html>
