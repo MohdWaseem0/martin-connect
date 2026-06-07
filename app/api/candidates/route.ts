@@ -39,11 +39,11 @@ export async function GET(request: NextRequest) {
     // Format fields like skills into arrays for frontend compatibility
     const formattedCandidates = candidates.map((c) => ({
       ...c,
-      skills: c.skills ? c.skills.split(',') : [],
+      skills: c.skills ? c.skills.split(',').map((s: string) => s.trim()).filter(Boolean) : [],
       notes: c.notes.map((n) => ({
         author: n.author,
         content: n.content,
-        date: n.createdAt.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }),
+        date: new Date(n.createdAt).toISOString().split('T')[0],
       })),
     }));
 

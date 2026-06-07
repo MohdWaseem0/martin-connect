@@ -2,7 +2,6 @@
 
 import React from 'react';
 import RecruiterSidebar from '@/components/RecruiterSidebar';
-import RoleSwitcher from '@/components/RoleSwitcher';
 
 export default function RecruiterDashboardLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -16,9 +15,6 @@ export default function RecruiterDashboardLayout({ children }: { children: React
           {children}
         </div>
       </div>
-
-      {/* Floating role perspective switcher */}
-      <RoleSwitcher />
     </div>
   );
 }

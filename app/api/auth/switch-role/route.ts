@@ -25,32 +25,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid role' }, { status: 400 });
     }
 
-    // Assign templates to maintain dashboard fidelity
-    let name = '';
-    let title = '';
-    let email = '';
-
-    if (role === 'recruiter') {
-      name = 'Martin Luther';
-      title = 'Head Recruiter';
-      email = 'recruiter@martinconnect.com';
-    } else if (role === 'admin') {
-      name = 'Admin Platform Overseer';
-      title = 'Super Administrator';
-      email = 'admin@martinconnect.com';
-    } else {
-      name = 'Aarav Sharma';
-      title = 'Frontend Engineer';
-      email = 'seeker@example.com';
-    }
-
+    // Only update the role — preserve the user's actual name, email, and profile data
     const updatedUser = await prisma.user.update({
       where: { id: session.userId },
       data: {
         role,
-        name,
-        title,
-        email,
       },
     });
 

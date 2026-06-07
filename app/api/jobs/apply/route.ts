@@ -36,12 +36,10 @@ export async function POST(request: NextRequest) {
 
     const user = session.user;
 
-    // Check if user has already applied (i.e. is there a candidate with this email and name under 'Applied' or related notes?)
-    // In our system, the candidate is a separate table. We can check if a candidate with this user's email exists.
+    // Check if user has already applied (check if a candidate with this user's email exists)
     const existingCandidate = await prisma.candidate.findFirst({
       where: {
         email: user.email,
-        name: user.name,
       },
     });
 
@@ -90,12 +88,12 @@ export async function POST(request: NextRequest) {
       success: true,
       candidate: {
         ...newCandidate,
-        skills: newCandidate.skills ? newCandidate.skills.split(',') : [],
+        skills: newCandidate.skills ? newCandidate.skills.split(',').map((s: string) => s.trim()).filter(Boolean) : [],
         notes: [
           {
             author: 'System Auto Match',
             content: `Applied for ${job.title} at ${job.company}. Match score calculated based on skills and experience.`,
-            date: new Date().toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }),
+            date: new Date().toISOString().split('T')[0],
           },
         ],
       },

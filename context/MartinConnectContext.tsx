@@ -76,6 +76,8 @@ export interface UserProfile {
   resumeUploaded?: boolean;
   resumeName?: string;
   credits?: number;
+  companyName?: string;
+  companyId?: string;
 }
 
 interface MartinConnectContextProps {

@@ -179,19 +179,8 @@ export default function Login() {
                 <span>Google</span>
               </button>
               <button
-                onClick={async () => {
-                  if (process.env.NODE_ENV === 'production') {
-                    alert('LinkedIn Sign-In is coming soon to production!');
-                    return;
-                  }
-                  setLoading(true);
-                  const res = await login('recruiter@martinconnect.com', 'password123');
-                  setLoading(false);
-                  if (res.success) {
-                    router.push('/dashboard/recruiter');
-                  } else {
-                    alert(res.error || 'Login failed');
-                  }
+                onClick={() => {
+                  alert('LinkedIn Sign-In is coming soon!');
                 }}
                 className="flex items-center justify-center space-x-sm py-sm border border-outline-variant rounded-xl font-body-md text-on-surface hover:bg-surface-container-low transition-all active:scale-[0.98] cursor-pointer text-[13px]"
               >

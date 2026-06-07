@@ -4,7 +4,6 @@ import React, { use, useState, useEffect } from 'react';
 import { useMartinConnect } from '@/context/MartinConnectContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import RoleSwitcher from '@/components/RoleSwitcher';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -73,7 +72,6 @@ export default function JobDetailPage(props: PageProps) {
           </button>
         </main>
         <Footer />
-        <RoleSwitcher />
       </div>
     );
   }
@@ -425,7 +423,6 @@ export default function JobDetailPage(props: PageProps) {
       </main>
 
       <Footer />
-      <RoleSwitcher />
     </div>
   );
 }

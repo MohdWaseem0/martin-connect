@@ -1,5 +1,4 @@
 import SeekerSidebar from '@/components/SeekerSidebar';
-import RoleSwitcher from '@/components/RoleSwitcher';
 
 export default function SeekerLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,9 +12,6 @@ export default function SeekerLayout({ children }: { children: React.ReactNode }
           {children}
         </div>
       </div>
-
-      {/* Floating role switcher */}
-      <RoleSwitcher />
     </div>
   );
 }

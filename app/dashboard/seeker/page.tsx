@@ -56,11 +56,9 @@ export default function SeekerDashboard() {
               <p className="font-title-sm text-on-surface">{currentUser?.name}</p>
               <p className="text-body-sm text-outline font-medium">{currentUser?.title}</p>
             </div>
-            <img
-              alt={currentUser?.name || 'User'}
-              className="w-10 h-10 rounded-full object-cover border-2 border-primary-container"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6NpkFX25Lfry_WJ06MQ05_x2b0szFAsMRd9EJy7IIF8Ds5fSyOETsQabNmL2DKtu1UZj_kEFwY6vHBFu3isgYzcHRyFW4GX5cS6UB11dn3nYkOH8CBMI30IpL-JryJJC5Ifbv0fZz716502PP8xd9klb7CQ9Muqmsr1SqfHazqmX1s6nMaHkc4UcrBWAS8acgHMuM0uh4H9VdbPex78RCyquoUS9_7kWWYgCxAjQhHgz_J2hpKnJPfbKPovAEFiHARVrY3ztYLwk"
-            />
+            <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-[13px] border-2 border-primary-container shrink-0 select-none">
+              {currentUser?.name ? currentUser.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) : 'U'}
+            </div>
           </div>
         </div>
       </header>

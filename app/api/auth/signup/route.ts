@@ -81,6 +81,8 @@ export async function POST(request: NextRequest) {
         credits,
         location: 'India',
         experience: '2 Years',
+        companyId: targetCompanyId || null,
+        companyName: companyName || null,
       },
     });
 

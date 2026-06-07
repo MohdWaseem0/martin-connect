@@ -1,11 +1,28 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import { useMartinConnect, Candidate } from '@/context/MartinConnectContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useSearchParams } from 'next/navigation';
 
 export default function ATSPipelinePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-[#F7F9FC]">
+        <div className="flex flex-col items-center gap-sm">
+          <span className="material-symbols-outlined animate-spin text-[36px] text-primary">progress_activity</span>
+          <p className="font-title-sm text-outline font-bold mt-2">Loading Pipeline...</p>
+        </div>
+      </div>
+    }>
+      <ATSPipelineContent />
+    </Suspense>
+  );
+}
+
+function ATSPipelineContent() {
   const { candidates, moveCandidate, addCandidateNote } = useMartinConnect();
+  const searchParams = useSearchParams();
 
   // Kanban Columns
   const columns: Candidate['stage'][] = ['Applied', 'Screening', 'Shortlisted', 'Interview', 'Offer', 'Hired'];
@@ -20,7 +37,11 @@ export default function ATSPipelinePage() {
   }, [candidates, selectedCandidateId]);
 
   // Filters/Searches
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
+
+  useEffect(() => {
+    setSearchQuery(searchParams.get('search') || '');
+  }, [searchParams]);
 
   // Filtered candidates
   const filteredCandidates = useMemo(() => {

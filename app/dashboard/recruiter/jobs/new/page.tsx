@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 export default function CreateJobPage() {
   const router = useRouter();
-  const { addJob } = useMartinConnect();
+  const { addJob, currentUser } = useMartinConnect();
 
   // Step state
   const [step, setStep] = useState(1);
@@ -65,11 +65,11 @@ export default function CreateJobPage() {
     // Call context to add the new job
     addJob({
       title,
-      company: 'Martin Connect Premium', // default company representation for recruiter
+      company: currentUser?.companyName || 'Martin Connect Premium', // dynamic company representation
       location,
       salary: `₹${salaryMin} - ${salaryMax} LPA`,
       skills,
-      logo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAPiXbXtpmidJSSPLov8QcWSLSy8MOCb1PWvBAmiwS4IBmd4UT_Khq-C_CHaJXESI_mxsMQRqO8hb6JI-MHYcWywjvXMx7AyeDQV6pLuVSSyRc4FSozY2eWku19EDw0j3SZNitqFuuMkrOPEUl7PFebdPN4oorYdIB3BoeuzehuUrIpy-uQQbe7KkM_woiOdGM7JnMu7uphX5kG_nXaILb-knV_4pQr4N9jCgA7G-1vP_7ybawWxml1koIro90pE7HgffE60P3wRWQ', // brand logo
+      logo: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=150&auto=format&fit=crop', // default logo placeholder
       description,
       requirements,
       experienceRequired,
@@ -462,7 +462,7 @@ export default function CreateJobPage() {
               <div>
                 <h3 className="font-title-lg text-[16px] font-bold text-[#121b30]">{title || 'Job Title'}</h3>
                 <p className="text-[#424655] text-xs mt-0.5">
-                  <span className="font-bold text-secondary">Martin Connect Premium</span> • {location || 'Bengaluru'}
+                  <span className="font-bold text-secondary">{currentUser?.companyName || 'Martin Connect Premium'}</span> • {location || 'Bengaluru'}
                 </p>
               </div>
 

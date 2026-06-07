@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useMartinConnect } from '@/context/MartinConnectContext';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
@@ -9,6 +9,7 @@ import Link from 'next/link';
 export default function RecruiterDashboardPage() {
   const router = useRouter();
   const { candidates, jobs, currentUser } = useMartinConnect();
+  const [searchVal, setSearchVal] = useState('');
 
   // Funnel calculations
   const funnel = useMemo(() => {
@@ -44,16 +45,26 @@ export default function RecruiterDashboardPage() {
     <div className="flex-1 flex flex-col min-h-screen">
       {/* Top Header Section */}
       <header className="bg-white border-b border-[#E8EEF7] h-16 flex items-center justify-between px-lg sticky top-0 z-30 shadow-xs">
-        <div className="relative w-80 sm:w-96 hidden md:block">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (searchVal.trim()) {
+              router.push(`/dashboard/recruiter/pipeline?search=${encodeURIComponent(searchVal.trim())}`);
+            }
+          }}
+          className="relative w-80 sm:w-96 hidden md:block"
+        >
           <span className="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline-variant text-[20px]">
             search
           </span>
           <input
             type="text"
+            value={searchVal}
+            onChange={(e) => setSearchVal(e.target.value)}
             placeholder="Search candidates, jobs..."
             className="w-full pl-xl pr-md py-sm bg-[#f2f3ff] border border-[#c3c6d8]/55 rounded-full text-xs focus:outline-none focus:ring-1 focus:ring-primary"
           />
-        </div>
+        </form>
 
         <div className="flex items-center gap-md ml-auto">
           <div className="flex items-center gap-sm">
@@ -70,12 +81,8 @@ export default function RecruiterDashboardPage() {
               <p className="font-title-sm text-xs font-bold text-[#121b30]">{currentUser?.name}</p>
               <p className="font-body-sm text-[10px] text-[#737687]">{currentUser?.title}</p>
             </div>
-            <div className="w-10 h-10 rounded-full border-2 border-primary-container overflow-hidden bg-slate-200">
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuyQz2zGLKJU3x0_EHo_RWszzoMVp6HlE7h1KsHC_BRss8Mfq0-5_fYb9DCZM7eMdlZXTXjIH-5OU5ckbveYQ1xRunl04qUwHs1yLH8KWxKapAKvEGbtSakues7U3vhU2J0rciGfrXlKQRxaIhh2suqmrnCiYGdB6L8fv8GSY3AzjzXngZrT7ORACQ4V4VDu4cgqYho3Daoc_qa4f0cc0pRp8oNcT1_9f7TimBWb3ZxlfTsemRYpmZLANGVt95DNXWhm31rMVOOX4"
-                alt="Recruiter Avatar"
-                className="w-full h-full object-cover"
-              />
+            <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-[13px] border-2 border-primary-container shrink-0 select-none">
+              {currentUser?.name ? currentUser.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) : 'R'}
             </div>
           </div>
         </div>

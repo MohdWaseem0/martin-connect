@@ -4,7 +4,6 @@ import React, { useState, useMemo } from 'react';
 import { useMartinConnect } from '@/context/MartinConnectContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import RoleSwitcher from '@/components/RoleSwitcher';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
@@ -271,7 +270,6 @@ export default function CompaniesPage() {
       </main>
 
       <Footer />
-      <RoleSwitcher />
     </div>
   );
 }

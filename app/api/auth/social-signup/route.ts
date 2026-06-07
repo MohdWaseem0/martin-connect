@@ -48,13 +48,14 @@ export async function POST(request: NextRequest) {
     }
 
     // Setup company if recruiter
+    let targetCompanyId = '';
     if (role === 'recruiter' && companyName) {
-      const formattedCompanyId = 'company-' + companyName.toLowerCase().replace(/[^a-z0-9]/g, '-');
+      targetCompanyId = 'company-' + companyName.toLowerCase().replace(/[^a-z0-9]/g, '-');
       await prisma.company.upsert({
-        where: { id: formattedCompanyId },
+        where: { id: targetCompanyId },
         update: {},
         create: {
-          id: formattedCompanyId,
+          id: targetCompanyId,
           name: companyName,
           logo: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=150&auto=format&fit=crop',
           description: `${companyName} is a growing enterprise.`,
@@ -64,7 +65,7 @@ export async function POST(request: NextRequest) {
           verified: false,
           rating: 0.0,
           founded: new Date().getFullYear().toString(),
-          website: `www.${formattedCompanyId}.com`,
+          website: `www.${targetCompanyId}.com`,
           jobsCount: 0,
         },
       });
@@ -84,6 +85,8 @@ export async function POST(request: NextRequest) {
         credits,
         location: 'India',
         experience: '2 Years',
+        companyId: targetCompanyId || null,
+        companyName: companyName || null,
       },
     });
 

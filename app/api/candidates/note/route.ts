@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
       note: {
         author: newNote.author,
         content: newNote.content,
-        date: newNote.createdAt.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }),
+        date: new Date(newNote.createdAt).toISOString().split('T')[0],
       },
     });
   } catch (error: any) {

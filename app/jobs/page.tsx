@@ -1,24 +1,49 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import { useMartinConnect } from '@/context/MartinConnectContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import RoleSwitcher from '@/components/RoleSwitcher';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 export default function JobsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-[#faf8ff]">
+        <div className="flex flex-col items-center gap-sm">
+          <span className="material-symbols-outlined animate-spin text-[36px] text-primary">progress_activity</span>
+          <p className="font-title-sm text-outline font-bold mt-2">Loading Jobs...</p>
+        </div>
+      </div>
+    }>
+      <JobsPageContent />
+    </Suspense>
+  );
+}
+
+function JobsPageContent() {
   const { jobs, applyJob, currentUser } = useMartinConnect();
+  const searchParams = useSearchParams();
 
   // Search & Filter state
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || searchParams.get('category') || '');
   const [selectedExperience, setSelectedExperience] = useState<string[]>([]);
   const [maxSalary, setMaxSalary] = useState<number>(65); // LPA
-  const [locationQuery, setLocationQuery] = useState('');
+  const [locationQuery, setLocationQuery] = useState(searchParams.get('location') || '');
   const [workModes, setWorkModes] = useState<string[]>([]);
   const [selectedCompanySize, setSelectedCompanySize] = useState('Any Size');
   const [sortBy, setSortBy] = useState('Relevance');
+
+  useEffect(() => {
+    const searchVal = searchParams.get('search') || '';
+    const categoryVal = searchParams.get('category') || '';
+    const locationVal = searchParams.get('location') || '';
+
+    setSearchQuery(searchVal || categoryVal || '');
+    setLocationQuery(locationVal || '');
+  }, [searchParams]);
 
   // Bookmarked Jobs state (local storage backed)
   const [savedJobs, setSavedJobs] = useState<string[]>(() => {
@@ -555,7 +580,6 @@ export default function JobsPage() {
       </main>
 
       <Footer />
-      <RoleSwitcher />
     </div>
   );
 }

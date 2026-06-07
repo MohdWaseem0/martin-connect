@@ -17,8 +17,8 @@ export async function GET(request: NextRequest) {
     // Format skills and requirements back into arrays for frontend compatibility
     const formatJob = (j: any) => ({
       ...j,
-      skills: j.skills ? j.skills.split(',') : [],
-      requirements: j.requirements ? j.requirements.split(';') : [],
+      skills: j.skills ? j.skills.split(',').map((s: string) => s.trim()).filter(Boolean) : [],
+      requirements: j.requirements ? j.requirements.split(';').map((s: string) => s.trim()).filter(Boolean) : [],
     });
 
     return NextResponse.json({
@@ -81,16 +81,29 @@ export async function POST(request: NextRequest) {
     const isApproved = session.user.role === 'admin';
     const jobId = `job-${Date.now()}`;
 
+    const userCompany = session.user.companyName || company || 'Martin Connect Premium';
+    const userCompanyId = session.user.companyId || 'company-employer-brand';
+
+    let targetLogo = logo || 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=150&auto=format&fit=crop';
+    if (userCompanyId) {
+      const companyRecord = await prisma.company.findUnique({
+        where: { id: userCompanyId },
+      });
+      if (companyRecord && companyRecord.logo) {
+        targetLogo = companyRecord.logo;
+      }
+    }
+
     const newJob = await prisma.job.create({
       data: {
         id: jobId,
         title,
-        company,
-        companyId: 'company-employer-brand',
+        company: userCompany,
+        companyId: userCompanyId,
         location,
         salary,
         skills: formattedSkills,
-        logo: logo || 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=150&auto=format&fit=crop',
+        logo: targetLogo,
         status: 'Hiring',
         description: description || '',
         requirements: formattedRequirements,
@@ -105,8 +118,8 @@ export async function POST(request: NextRequest) {
       success: true,
       job: {
         ...newJob,
-        skills: newJob.skills ? newJob.skills.split(',') : [],
-        requirements: newJob.requirements ? newJob.requirements.split(';') : [],
+        skills: newJob.skills ? newJob.skills.split(',').map((s: string) => s.trim()).filter(Boolean) : [],
+        requirements: newJob.requirements ? newJob.requirements.split(';').map((s: string) => s.trim()).filter(Boolean) : [],
       },
     });
   } catch (error: any) {

@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import bcrypt from 'bcryptjs';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -128,9 +129,7 @@ async function main() {
   await prisma.user.deleteMany();
 
   // 2. Create Default Users (for each role)
-  // Passwords will be plain text hashed, for test simple: we can hash it using bcryptjs or just store hashed.
-  // We'll use bcryptjs here.
-  const bcrypt = require('bcryptjs');
+  // Passwords hashed with bcryptjs
   const passwordHash = await bcrypt.hash('password123', 10);
 
   const admin = await prisma.user.create({
