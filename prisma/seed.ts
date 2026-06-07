@@ -306,9 +306,9 @@ async function main() {
   console.log('Created default jobs.');
 
   // 5. Parse and Seed Candidates from CSVs
-  const csvDir = path.resolve(__dirname, '../../../');
-  const tcsCsvPath = path.join(csvDir, 'Tata Consultancy Services - SignalHire_exports (2).csv');
-  const techMahindraCsvPath = path.join(csvDir, 'Tech Mahindra - SignalHire_exports (3).csv');
+  const projectRootDir = path.resolve(__dirname, '..');
+  const tcsCsvPath = path.join(projectRootDir, 'Tata Consultancy Services.csv');
+  const techMahindraCsvPath = path.join(projectRootDir, 'Tech Mahindra.csv');
 
   let candIdCounter = 1;
 
