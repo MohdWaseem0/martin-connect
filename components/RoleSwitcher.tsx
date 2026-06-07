@@ -8,6 +8,9 @@ export default function RoleSwitcher() {
   const { currentUser, switchRole } = useMartinConnect();
   const [isOpen, setIsOpen] = useState(false);
 
+  // Disable RoleSwitcher in production environment
+  if (process.env.NODE_ENV === 'production') return null;
+
   if (!currentUser) return null;
 
   const roles: { id: 'seeker' | 'recruiter' | 'admin'; label: string; icon: string; color: string }[] = [
